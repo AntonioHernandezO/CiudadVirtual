@@ -1,0 +1,41 @@
+*{
+	margin:0px;
+	padding:0px;
+	font-family: helvetica Neue;
+	font-weight: lighter;
+}
+aside{
+	padding-left: 10%;
+	width: 10px;
+	height: 98%;
+	position: fixed;
+	background-color: brown;
+	display: block;
+	float: left;
+	left: 89%;
+	top: 5px;
+}
+#container{
+	width: 680px;
+    height: 420px;
+    border: 1px solid black;
+	text-align: center;
+	background-color:grey;
+	left: 25%;
+	top: 3%;
+}
+nav{
+	position: fixed;
+	width: 189px;
+	height: 80%;
+	background-color: #e6d15d;
+}
+div.caja{
+    margin-top: 20px;
+    margin-left: 15%;
+}
+.pokemon{
+	margin: 10px;
+     height: 80px;
+     width: 80px;
+}
