@@ -39,3 +39,15 @@ div.caja{
      height: 80px;
      width: 80px;
 }
+#ullogin{
+	width:100%;
+	background:yellow;
+	height:20px;
+	text-align:center;
+}
+#liloggin{
+	display:inline-table;
+	background:gray;
+	color:white;
+	margin-right:20%;
+}
