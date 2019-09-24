@@ -13,17 +13,17 @@ function allowDrop(ev) {
     testing();
   }
   
-  function testing(){
-    var correcto = 1;
-    var pokes = document.getElementsByClassName("pokemon");
-    for(var i=0;i<pokes.length;i++){
-       if(pokes[i].getAttribute("name") != pokes[i].parentNode.getAttribute("id")){
-         correcto = correcto*0;
-         break;
-       }
-    }
+  // function testing(){
+  //   var correcto = 1;
+  //   var pokes = document.getElementsByClassName("pokemon");
+  //   for(var i=0;i<pokes.length;i++){
+  //      if(pokes[i].getAttribute("name") != pokes[i].parentNode.getAttribute("id")){
+  //        correcto = correcto*0;
+  //        break;
+  //      }
+  //   }
    
     
-  }
+  // }
   
   

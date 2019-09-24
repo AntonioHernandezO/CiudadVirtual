@@ -40,7 +40,13 @@ div.caja{
 .pokemon{
 	margin: 10px;
      height: 80px;
-     width: 80px;
+	 width: 80px;
+	max-width: 100%;
+}
+.backgroundimg{
+	height: 100%;
+	width: 100%;
+
 }
 #ullogin{
 	width:100%;

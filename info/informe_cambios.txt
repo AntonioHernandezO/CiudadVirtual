@@ -1,0 +1,9 @@
+*Se agregaron div de las demas secciones
+*Se soluciono el error del contenedor al arrojar una imagen
+*Se redimensiono el contenedor nav y aside
+
+--Se necesitan fijar las imagenes como fondos, es decir que tomen la propiedad de background
+--Se necesita agregar el texto para que se arrastre como las imagenes
+--Se necesita la propiedad de redimesionar en las imagenes, probablemente sea conveniente rotar, etc
+--Se necesita exportar el proyecto en un formato multimedia
+
