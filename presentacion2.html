@@ -9,6 +9,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="Presentacion2.js"></script>
     <title>Presentación 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script> //funcion para editar texto
+        $(function(){
+ $('#idTexto').on('click', function(){
+   var esEditable = $('#idTexto').attr('contenteditable');
+   if(esEditable){
+     $('#idTexto').attr('contenteditable', true);
+     $('#btnEditable').html('Hacerlo Editable');
+   }else{
+     $('#idTexto').attr('contenteditable', true);
+     $('#btnEditable').html('dejar der editar');
+   }
+ });
+})
+    </script>
   </head>
   <body>
     <nav id="container" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -99,6 +114,23 @@
                 </div>
               </div>
             </div>
+                      <!-- L---------------------------------------------------------------------L -->
+                      <br><br>
+                      <div class="container-fluid">
+                        <div class="btn-group dropright">
+                          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <img  src="img/sys/sonido.png"    width="30" height="30" >
+                            Texto
+                          </button>
+                          <div class="dropdown-menu">
+                           <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><div id="idTexto" draggable="true" ondragstart="drag(event)" id="drag6">Este contenido se volverá editable</div>
+                            <div id="btnEditable"></div></a>
+                           <!-- <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/pinecest.gif" draggable="true" ondragstart="drag(event)" id="drag2"/></a> -->
+                           <!-- <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/arcoiris.gif" draggable="true" ondragstart="drag(event)" id="drag3"/></a> --> -->
+                          </div>
+                        </div>
+                      </div>
+          
 
     </nav>
     <!-- Optional JavaScript -->
