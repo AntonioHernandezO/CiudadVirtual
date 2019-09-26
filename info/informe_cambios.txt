@@ -7,5 +7,5 @@
 --Se necesita agregar el texto para que se arrastre como las imagenes
 --Se necesita la propiedad de redimesionar en las imagenes, probablemente sea conveniente rotar, etc
 --Se necesita exportar el proyecto en un formato multimedia
---Se agrego un texto editable , necesita la propiedad de redimensionar
+--Se agrego un texto editable , necesita la propiedad de redimensionar,rotar etc
 
