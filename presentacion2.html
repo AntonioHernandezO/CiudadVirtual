@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="estilos2.css">
+    <link rel="stylesheet" href="fuentes.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="Presentacion2.js"></script>
@@ -77,7 +78,7 @@
              Imagenes
            </button>
            <div class="dropdown-menu">
-            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/bro.gif" draggable="true" ondragstart="drag(event)" id="drag6"/></a>
+            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="scream" class="pokemon" src="img/bro.gif" draggable="true" ondragstart="drag(event)" id="drag6"/></a>
             <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/pinecest.gif" draggable="true" ondragstart="drag(event)" id="dra7"/></a>
             <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/arcoiris.gif" draggable="true" ondragstart="drag(event)" id="drag8"/></a>
            </div>
@@ -123,9 +124,9 @@
                             Texto
                           </button>
                           <div class="dropdown-menu">
-                           <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><div id="idTexto" draggable="true" ondragstart="drag(event)" id="drag6">Este contenido se volverá editable</div>
-                            <div id="btnEditable"></div></a>
-                           <!-- <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/pinecest.gif" draggable="true" ondragstart="drag(event)" id="drag2"/></a> -->
+                           <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><div class="fuente" id="idTexto" draggable="true" ondragstart="drag(event)" id="drag6">Este contenido se volverá editable</div>
+                            <div id="btnEditable"></div>
+                           <!-- <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"></a> -->
                            <!-- <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/arcoiris.gif" draggable="true" ondragstart="drag(event)" id="drag3"/></a> --> -->
                           </div>
                         </div>
@@ -133,6 +134,100 @@
           
 
     </nav>
+    <!-- codigo para redimensionar las imagenes en canvas -->
+    <canvas id="lienzo" width="900" height="700"></canvas> 
+
+    <script>
+        var cv = document.getElementById('lienzo');
+        var ctx = cv.getContext('2d');
+        var image = document.getElementById("scream");
+        var foto = {x: 50, y: 50, w: 100, h: 100};
+        var isUp = null;
+        image.onload = function() {
+        drawImage(image, foto.w, foto.h);
+        }
+        function drawImage(image, w, h) {
+            ctx.drawImage(image, foto.x, foto.y, w, h);
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.arc(foto.x, foto.y, 5, 0, Math.PI * 2, 1);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(w + foto.x, h / 2 + foto.y, 5, 0, Math.PI * 2, 1);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(w / 2 + foto.x, h + foto.y, 5, 0, Math.PI * 2, 1);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(w + foto.x, h + foto.y, 5, 0, Math.PI * 2, 1);
+            ctx.fill();
+        }
+        window.onmousedown = function(evt) {
+            var ax = evt.clientX - cv.offsetLeft;
+            var ay = evt.clientY - cv.offsetTop;
+            console.log(ax, ay);
+            if (ax >= foto.w - 5 + foto.x
+                && ax <= foto.w + foto.x + 5
+                && ay >= foto.h / 2 + foto.y - 5
+                && ay <= foto.h / 2 + foto.y + 5
+            ) {
+                isUp = 'right';
+            }
+            else if (ax >= foto.w / 2 + foto.x - 5
+                && ax <= foto.w / 2 + foto.x + 5
+                && ay >= foto.h + foto.y - 5
+                && ay <= foto.h + foto.y + 5
+            ) {
+                isUp = 'bottom';
+            }
+            else if (ax >= foto.w + foto.x - 5
+                && ax <= foto.w + foto.x + 5
+                && ay >= foto.h + foto.y - 5
+                && ay <= foto.h + foto.y + 5
+            ) {
+                isUp = 'bottom-right';
+            }
+            else if (ax >= foto.x - 5 && ax <= foto.x + 5
+                && ay >= foto.y - 5 && ay <= foto.y + 5
+            ) {
+                isUp = 'top-left';
+            }
+        }
+        window.onmousemove = function(evt) {
+            var ax = evt.clientX - cv.offsetLeft;
+            var ay = evt.clientY - cv.offsetTop;
+            if (isUp === 'right') {
+                foto.w = ax - foto.x;
+                ctx.clearRect(0, 0, 900, 600);
+                drawImage(image, foto.w, foto.h);
+            }
+            else if (isUp === 'bottom') {
+                foto.h = ay - foto.y;
+                ctx.clearRect(0, 0, 900, 600);
+                drawImage(image, foto.w, foto.h);
+            }
+            else if (isUp === 'bottom-right') {
+                foto.w = ax - foto.x;
+                foto.h = ay - foto.y;
+                ctx.clearRect(0, 0, 900, 600);
+                drawImage(image, foto.w, foto.h);
+            }
+            else if (isUp === 'top-left') {
+                var dx = foto.x - ax;
+                var dy = foto.y - ay;
+                foto.x = ax;
+                foto.y = ay;
+                foto.w += dx;
+                foto.h += dy;
+                ctx.clearRect(0, 0, 900, 600);
+                drawImage(image, foto.w, foto.h);
+            }
+        }
+        window.onmouseup = function(evt) {
+            isUp = null;
+        }
+    </script>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
