@@ -10,3 +10,5 @@
 --Se necesita exportar el proyecto en un formato multimedia
 --Se agrego un texto editable , necesita la propiedad de redimensionar,rotar etc
 --Se necesita que la imagen redimensionable este adentro del nav container
+
+---------------
