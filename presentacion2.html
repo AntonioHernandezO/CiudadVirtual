@@ -6,39 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="estilos2.css">
     <link rel="stylesheet" href="fuentes.css">
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="Presentacion2.js"></script>
     <title>Presentación 2</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <!-- Also include jQueryUI -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script> //funcion para editar texto
         $(function(){
- $('#idTexto').on('click', function(){
-   var esEditable = $('#idTexto').attr('contenteditable');
-   if(esEditable){
-     $('#idTexto').attr('contenteditable', true);
-     $('#btnEditable').html('Hacerlo Editable');
-   }else{
-     $('#idTexto').attr('contenteditable', true);
-     $('#btnEditable').html('dejar der editar');
+        $('#idTexto').on('click', function(){
+        var esEditable = $('#idTexto').attr('contenteditable');
+        if(esEditable){
+        $('#idTexto').attr('contenteditable', true);
+        $('#btnEditable').html('Hacerlo Editable');
+        }else{
+        $('#idTexto').attr('contenteditable', true);
+        $('#btnEditable').html('dejar der editar');
    }
  });
 })
     </script>
   </head>
-  <body>
-    <nav id="container" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <br>
-    <!-- <a href=crearPdf.php class="btn btn-success">Descargar en pdf</a> -->
-    
-    </nav>  
-
-
-
-    <aside>
-    
-    </aside>
-      <!-- L---------------------------------------------------------------------L -->
+  <body onload="init();">
+   <!-- L---------------------------------------------------------------------L -->
     <nav>
      <br><br>
      <div class="container-fluid">
@@ -116,7 +110,7 @@
               </div>
             </div>
                       <!-- L---------------------------------------------------------------------L -->
-                      <br><br>
+                     <br><br>
                       <div class="container-fluid">
                         <div class="btn-group dropright">
                           <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -134,8 +128,24 @@
           
 
     </nav>
+    <aside>
+        <!-- Aqui va el contenido del contenedor guinda -->
+    </aside>
+
+    <div id="container" ondrop="drop(event)" ondragover="allowDrop(event)" >
+      <!-- <canvas id="demoCanvas" width="500" height="300"></canvas> -->
+ 
+
+    
+
+
+
+
+      
+    </div>
+  
     <!-- codigo para redimensionar las imagenes en canvas -->
-    <canvas id="lienzo" width="900" height="700"></canvas> 
+    <!-- <canvas id="lienzo" width="900" height="700"></canvas> 
 
     <script>
         var cv = document.getElementById('lienzo');
@@ -226,12 +236,42 @@
         window.onmouseup = function(evt) {
             isUp = null;
         }
-    </script>
+    </script> -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+  
+  
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <canvas id="demoCanvas" width="500" height="300"></canvas>
+  
   </body>
 </html>
