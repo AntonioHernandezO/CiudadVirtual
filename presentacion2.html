@@ -42,8 +42,8 @@
             Temas..
           </button>
           <div class="dropdown-menu">
-           <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/fondo_estrellas.png" draggable="true" ondragstart="drag(event)" id="drag1"/></a>
-           <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/fondo2.jpg" draggable="true" ondragstart="drag(event)" id="drag2"/></a>
+           <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="fondo" src="img/fondos/astronomy.jpg" width="80" draggable="true" ondragstart="drag(event)" id="drag1"/></a>
+           <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="fondo" onclick="javascript:this.width=804;this.height=484" ondblclick="javascript:this.width=80;this.height=80" src="img/fondos/fondo2.jpg" width="80" draggable="true" ondragstart="drag(event)" id="drag2"/></a>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@
             Avatars
           </button>
           <div class="dropdown-menu">
-           <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/imgmonitos/Character_12.png"draggable="true" ondragstart="drag(event)" id="drag3"/></a>
+           <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="winston" class="pokemon" src="img/imgmonitos/Character_12.png"draggable="true" ondragstart="drag(event)" id="drag3"/></a>
            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/imgmonitos/Character_5.png" draggable="true" ondragstart="drag(event)" id="drag4"/></a>
            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/imgmonitos/Character_3.png" draggable="true" ondragstart="drag(event)" id="drag5"/></a>
           </div>
@@ -72,7 +72,7 @@
              Imagenes
            </button>
            <div class="dropdown-menu">
-            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="scream" class="pokemon" src="img/bro.gif" draggable="true" ondragstart="drag(event)" id="drag6"/></a>
+            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/bro.gif" draggable="true" ondragstart="drag(event)" id="drag6"/></a>
             <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/pinecest.gif" draggable="true" ondragstart="drag(event)" id="dra7"/></a>
             <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/arcoiris.gif" draggable="true" ondragstart="drag(event)" id="drag8"/></a>
            </div>
@@ -132,7 +132,7 @@
         <!-- Aqui va el contenido del contenedor guinda -->
     </aside>
 
-    <div id="container" ondrop="drop(event)" ondragover="allowDrop(event)" >
+    <div id="container" id="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" >
       <!-- <canvas id="demoCanvas" width="500" height="300"></canvas> -->
  
 
@@ -272,6 +272,6 @@
 
 
     <canvas id="demoCanvas" width="500" height="300"></canvas>
-  
+    
   </body>
 </html>

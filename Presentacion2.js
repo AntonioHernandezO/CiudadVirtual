@@ -4,13 +4,15 @@ function allowDrop(ev) {
   
   function drag(ev) {
      ev.dataTransfer.setData("text", ev.target.id);
+     resizeimg();
   }
   
   function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
-    testing();
+    // testing();
+    resizeimg();
   }
   
    function testing(){
@@ -41,5 +43,25 @@ function allowDrop(ev) {
     createjs.Ticker.setFPS(60);
     createjs.Ticker.addEventListener("tick", stage);
   }
-
+  $("#winston").draggable();
+  $("#dropzone").droppable({
+      drop: function(event, ui) {
+          $(this).css('background', 'rgb(0,200,0)');
+      },
+      over: function(event, ui) {
+          $(this).css('background', 'orange');
+      },
+      out: function(event, ui) {
+          $(this).css('background', 'cyan');
+      }
+  });
   
+
+
+
+function resizeimg(){
+  var img = document.getElementById("drag1");
+  drag1.width=804;
+  drag1.height=484;
+
+}

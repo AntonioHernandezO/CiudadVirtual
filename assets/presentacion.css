@@ -24,6 +24,12 @@ aside{
 	background-color:grey;
 	left: 31%;
 	top: 3%;
+	margin:0 auto;
+	background-size: cover;
+	background-position: 50% 50%;
+	display: flex;
+	flex-direction: column;
+	
 }
 /* estilo del menu depegable */
 nav{

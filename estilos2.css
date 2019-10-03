@@ -43,6 +43,9 @@ div.caja{
 	 width: 80px;
 	max-width: 100%;
 }
+.fondo{
+	max-width: 100%;
+}
 .backgroundimg{
 	height: 100%;
 	width: 100%;
