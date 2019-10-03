@@ -65,3 +65,4 @@ function resizeimg(){
   drag1.height=484;
 
 }
+

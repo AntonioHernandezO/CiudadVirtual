@@ -51,14 +51,25 @@
            <br><br>
       <div class="container-fluid">
         <div class="btn-group dropright">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick=imglector()>
               <img  src="img/sys/avatar.png"    width="30" height="30" >
+  
             Avatars
           </button>
           <div class="dropdown-menu">
-           <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="winston" class="pokemon" src="img/imgmonitos/Character_12.png"draggable="true" ondragstart="drag(event)" id="drag3"/></a>
+          <?php
+            $d=opendir("./img/imgmonitos");
+            while(($e=readdir($d))!=false)
+            if($e!='.'&&$e!='..')
+            {
+            $e1="./img/imgmonitos/".$e;
+            echo "<a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)'><img  class=pokemon src=$e1 draggable=true ondragstart='drag(event)' id=drag3/></a>";
+            }
+
+            ?> 
+           <!-- <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="winston" class="pokemon" src=$e1 draggable="true" ondragstart="drag(event)" id="drag3"/></a>
            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/imgmonitos/Character_5.png" draggable="true" ondragstart="drag(event)" id="drag4"/></a>
-           <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/imgmonitos/Character_3.png" draggable="true" ondragstart="drag(event)" id="drag5"/></a>
+           <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/imgmonitos/Character_3.png" draggable="true" ondragstart="drag(event)" id="drag5"/></a> -->
           </div>
         </div>
       </div>
