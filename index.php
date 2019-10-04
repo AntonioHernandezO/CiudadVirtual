@@ -13,7 +13,7 @@
     <title>Presentación 2</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+     <!-- <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script> -->
     <!-- Also include jQueryUI -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script> //funcion para editar texto
@@ -83,7 +83,7 @@
              Imagenes
            </button>
            <div class="dropdown-menu">
-            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/bro.gif" draggable="true" ondragstart="drag(event)" id="drag6"/></a>
+            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="img" class="pokemon" src="img/bro.gif" draggable="true" ondragstart="drag(event)" id="drag6"/></a>
             <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/pinecest.gif" draggable="true" ondragstart="drag(event)" id="dra7"/></a>
             <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/arcoiris.gif" draggable="true" ondragstart="drag(event)" id="drag8"/></a>
            </div>
@@ -143,7 +143,7 @@
         <!-- Aqui va el contenido del contenedor guinda -->
     </aside>
 
-    <div id="container" id="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" >
+    <!-- <div id="container" id="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" > -->
       <!-- <canvas id="demoCanvas" width="500" height="300"></canvas> -->
  
 
@@ -255,34 +255,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   
-  
-  
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-
     <canvas id="demoCanvas" width="500" height="300"></canvas>
+  
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    
     
   </body>
 </html>

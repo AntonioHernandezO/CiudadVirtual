@@ -42,6 +42,7 @@ function allowDrop(ev) {
       .to({x: 100}, 800, createjs.Ease.getPowInOut(2));
     createjs.Ticker.setFPS(60);
     createjs.Ticker.addEventListener("tick", stage);
+    
   }
   $("#winston").draggable();
   $("#dropzone").droppable({
@@ -65,4 +66,20 @@ function resizeimg(){
   drag1.height=484;
 
 }
+//funcion para fijar las imagenes en el area de trabajo canvas
+var cv, cx;
+var objetos;
+function actualizar(){
+  for(var i=0; i<objetos.length; i++){
+    cx.fillStyle=objetos[i].color;
+    cx.fillRect(objetos[i].x, objetos[i].y, objetos[i].width, objetos[i].height);
 
+  }
+}
+window.onload=function(){
+  objetos=document.getElementsByClassName("img");
+  cv=document.getElementById('demoCanvas');
+  cx=cv.getContext('2d');
+  actualizar();
+};
+  }
