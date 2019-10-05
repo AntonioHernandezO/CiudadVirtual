@@ -6,6 +6,7 @@ Desarrollo:
 Antonio Hernandez Oropeza ---> @AntonioHernandezO
 Laura Angelica Ramirez Gonzalez --->@LauraAngie
 Nadia Rivera Velazquez
+Candido Antonio Francisco
 El desarrollo inicial de este proyecto lo puedes obtener aqui: https://github.com/LauraAngie/Proyecto_servicio
 
 */
