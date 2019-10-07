@@ -18,5 +18,5 @@
 --Se necesita restablecer una propiedad del nav container para que se pueda poner un objeto por defecto como una plantilla
 -Se necesita preview de diapositivas
 -Se necesita crear nuevas diapositivas
-
+-Se necesita que al momento de mover la imagen el cursor no este tan lejos de la imagen 
 ---------------
