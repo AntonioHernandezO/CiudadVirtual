@@ -10,19 +10,19 @@ aside{
 	height: 100%;
 	position: fixed;
 	background-color: brown;
-	display: block;
-	float: left;
+	/*display: block;*/
+	/*float: left;*/
 	left: 90%;
-	/* top: 5px; */
+	top: 0px;
 }
 canvas{
+	margin-top: 4%;
 	width: 60%;
 	height: 75%;
 	position: fixed;
     display:block;
 	position: absolute;
     border: 3px solid black;
-
 	background-color:grey;
     left: 20%;
 

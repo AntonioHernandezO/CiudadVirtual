@@ -32,14 +32,13 @@
     </script>
   </head>
   <body onload="init();">
-   <!-- L---------------------------------------------------------------------L -->
+   <!-- Botón de Temas -->
     <nav>
      <br><br>
      <div class="container-fluid">
         <div class="btn-group dropright">
           <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img  src="img/sys/temas.png"    width="30" height="30" >
-            Temas..
+            <img  src="img/sys/temas.png"    width="30" height="30" >Temas
           </button>
           <div class="dropdown-menu">
            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="fondo" src="img/fondos/astronomy.jpg" width="80" draggable="true" ondragstart="drag(event)" id="drag1"/></a>
@@ -47,14 +46,12 @@
           </div>
         </div>
       </div>
-      <!-- L---------------------------------------------------------------------L -->
+      <!-- Botón de Avatares -->
            <br><br>
       <div class="container-fluid">
         <div class="btn-group dropright">
           <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick=imglector()>
-              <img  src="img/sys/avatar.png"    width="30" height="30" >
-  
-            Avatars
+              <img  src="img/sys/avatar.png"    width="30" height="30" > Avatares
           </button>
           <div class="dropdown-menu">
           <?php
@@ -74,7 +71,7 @@
         </div>
       </div>
 
-       <!-- L---------------------------------------------------------------------L -->
+       <!-- Botón de Imágenes -->
        <br><br>
        <div class="container-fluid">
          <div class="btn-group dropright">
@@ -90,7 +87,7 @@
          </div>
        </div>
        
-       <!-- L---------------------------------------------------------------------L -->
+       <!-- Botón de Vídeo -->
        <br><br>
        <div class="container-fluid">
          <div class="btn-group dropright">
@@ -105,7 +102,7 @@
            </div>
          </div>
        </div>
-            <!-- L---------------------------------------------------------------------L -->
+            <!-- Botón de Sonido -->
             <br><br>
             <div class="container-fluid">
               <div class="btn-group dropright">
@@ -120,7 +117,7 @@
                 </div>
               </div>
             </div>
-                      <!-- L---------------------------------------------------------------------L -->
+                      <!-- Botón de Texto -->
                      <br><br>
                       <div class="container-fluid">
                         <div class="btn-group dropright">
@@ -145,18 +142,10 @@
 
     <!-- <div id="container" id="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" > -->
       <!-- <canvas id="demoCanvas" width="500" height="300"></canvas> -->
- 
-
-    
-
-
-
-
-      
     </div>
   
     <!-- codigo para redimensionar las imagenes en canvas -->
-    <!-- <canvas id="lienzo" width="900" height="700"></canvas> 
+    <canvas id="lienzo" width="900" height="700"></canvas> 
 
     <script>
         var cv = document.getElementById('lienzo');
@@ -247,7 +236,7 @@
         window.onmouseup = function(evt) {
             isUp = null;
         }
-    </script> -->
+    </script> 
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
