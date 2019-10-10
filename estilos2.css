@@ -6,28 +6,31 @@
 }
 aside{
 	padding-left: 10%;
-	width: 10px;
-	height: 98%;
+	width: 15;
+	height: 100%;
 	position: fixed;
 	background-color: brown;
 	display: block;
 	float: left;
-	left: 89%;
-	top: 5px;
+	left: 90%;
+	/* top: 5px; */
 }
 #container{
-	width: 680px;
-    height: 420px;
-    border: 1px solid black;
-	text-align: center;
+	width: 60%;
+	height: 75%;
+	position: fixed;
+    display:block;
+	
+    border: 3px solid black;
+
 	background-color:grey;
-	left: 25%;
-	top: 3%;
+    left: 20%;
+
 }
 nav{
 	position: fixed;
-	width: 189px;
-	height: 80%;
+	width: 10%;
+	height: 100%;
 	background-color: #e6d15d;
 }
 div.caja{
@@ -37,5 +40,26 @@ div.caja{
 .pokemon{
 	margin: 10px;
      height: 80px;
-     width: 80px;
+	 width: 80px;
+	max-width: 100%;
+}
+.fondo{
+	max-width: 100%;
+}
+.backgroundimg{
+	height: 100%;
+	width: 100%;
+
+}
+#ullogin{
+	width:100%;
+	background:yellow;
+	height:20px;
+	text-align:center;
+}
+#liloggin{
+	display:inline-table;
+	background:gray;
+	color:white;
+	margin-right:20%;
 }
