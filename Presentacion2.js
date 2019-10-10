@@ -79,7 +79,7 @@ function init(){
   var Img = document.getElementById("drag6");
   // Img.src = 'img/imgmonitos/Character_1.png';
   Img.onload = function () { 
-  Rxt.drawImage(Img, 50, 0, 80, 80); 
+  Rxt.drawImage(Img, -100, 0, 10, 10); 
   }
  
 
@@ -108,4 +108,5 @@ function init(){
   }
   
 }
+
   

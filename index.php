@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="assets/estilos2.css">
     <link rel="stylesheet" href="assets/fuentes.css">
     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script src="https://unpkg.com/konva@4.0.13/konva.min.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="Presentacion2.js"></script>
@@ -32,13 +33,14 @@
     </script>
   </head>
   <body onload="init();">
-   <!-- Botón de Temas -->
+   <!-- L---------------------------------------------------------------------L -->
     <nav>
      <br><br>
      <div class="container-fluid">
         <div class="btn-group dropright">
           <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img  src="img/sys/temas.png"    width="30" height="30" >Temas
+            <img  src="img/sys/temas.png"    width="30" height="30" >
+            Temas..
           </button>
           <div class="dropdown-menu">
            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="fondo" src="img/fondos/astronomy.jpg" width="80" draggable="true" ondragstart="drag(event)" id="drag1"/></a>
@@ -46,32 +48,53 @@
           </div>
         </div>
       </div>
-      <!-- Botón de Avatares -->
+      <!-- L---------------------------------------------------------------------L -->
            <br><br>
       <div class="container-fluid">
         <div class="btn-group dropright">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick=imglector()>
-              <img  src="img/sys/avatar.png"    width="30" height="30" > Avatares
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+              <img  src="img/sys/avatar.png"    width="30" height="30" >
+  
+            Avatars
           </button>
           <div class="dropdown-menu">
           <?php
+          $cont=0;
+            // echo "<table id=tableimg>";
+            // echo "<tr>";
             $d=opendir("./img/imgmonitos");
             while(($e=readdir($d))!=false)
             if($e!='.'&&$e!='..')
             {
+              $cont=$cont+1;
             $e1="./img/imgmonitos/".$e;
-            echo "<a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)'><img  class=pokemon src=$e1 draggable=true ondragstart='drag(event)' id=drag3/></a>";
+            
+   
+         
+              
+     echo "
+            <a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)'>
+            <img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=drag$cont>    
+            </a>  
+             "; 
+
+
+
+          
+            
             }
+            // echo "</tr>";
+            // echo"</table>";
 
             ?> 
-           <!-- <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="winston" class="pokemon" src=$e1 draggable="true" ondragstart="drag(event)" id="drag3"/></a>
+            <!-- <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="winston" class="pokemon" src=$e1 draggable="true" ondragstart="drag(event)" id="drag3"/></a>
            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/imgmonitos/Character_5.png" draggable="true" ondragstart="drag(event)" id="drag4"/></a>
            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/imgmonitos/Character_3.png" draggable="true" ondragstart="drag(event)" id="drag5"/></a> -->
           </div>
         </div>
       </div>
 
-       <!-- Botón de Imágenes -->
+       <!-- L---------------------------------------------------------------------L -->
        <br><br>
        <div class="container-fluid">
          <div class="btn-group dropright">
@@ -87,7 +110,7 @@
          </div>
        </div>
        
-       <!-- Botón de Vídeo -->
+       <!-- L---------------------------------------------------------------------L -->
        <br><br>
        <div class="container-fluid">
          <div class="btn-group dropright">
@@ -102,7 +125,7 @@
            </div>
          </div>
        </div>
-            <!-- Botón de Sonido -->
+            <!-- L---------------------------------------------------------------------L -->
             <br><br>
             <div class="container-fluid">
               <div class="btn-group dropright">
@@ -117,7 +140,7 @@
                 </div>
               </div>
             </div>
-                      <!-- Botón de Texto -->
+                      <!-- L---------------------------------------------------------------------L -->
                      <br><br>
                       <div class="container-fluid">
                         <div class="btn-group dropright">
@@ -142,10 +165,18 @@
 
     <!-- <div id="container" id="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" > -->
       <!-- <canvas id="demoCanvas" width="500" height="300"></canvas> -->
+ 
+
+    
+
+
+
+
+      
     </div>
   
     <!-- codigo para redimensionar las imagenes en canvas -->
-    <canvas id="lienzo" width="900" height="700"></canvas> 
+    <!-- <canvas id="lienzo" width="900" height="700"></canvas> 
 
     <script>
         var cv = document.getElementById('lienzo');
@@ -236,7 +267,7 @@
         window.onmouseup = function(evt) {
             isUp = null;
         }
-    </script> 
+    </script> -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -244,7 +275,59 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   
-    <canvas id="demoCanvas" width="500" height="300"></canvas>
+
+ 
+
+        <div id="container" ></div>
+    <script>
+  var width = window.innerWidth;
+      var height = window.innerHeight;
+      function drawImage(imageObj) {
+        var stage = new Konva.Stage({
+          container: 'container',
+          width: width,
+          height: height
+          
+        });
+
+        var layer = new Konva.Layer();
+       
+        // darth vader
+        var darthVaderImg = new Konva.Image({
+          image: imageObj,
+          x: stage.width() / 2 - 100 / 2,
+          y: stage.height() / 2 - 100 / 2,
+          width: 200,
+          height: 137,
+          draggable: true
+        });
+
+        // add cursor styling
+        darthVaderImg.on('mouseover', function() {
+          document.body.style.cursor = 'pointer';
+        });
+        darthVaderImg.on('mouseout', function() {
+          document.body.style.cursor = 'default';
+        });
+
+        layer.add(darthVaderImg);
+        stage.add(layer);
+        stage.getContainer().style.border = '1px solid black';
+        stage.getContainer().style.background='blue';
+     
+      }
+      var imageObj = new Image();
+      imageObj.onload = function() {
+        drawImage(this);
+      };
+      imageObj.src = 'img/bro.gif';
+      </script>
+ 
+        <!-- Nombre de la libreria https://konvajs.org/ -->
+       
+
+
+
   
     <!-- <br>
     <br>
