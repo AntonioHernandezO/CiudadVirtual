@@ -6,7 +6,7 @@
 }
 aside{
 	padding-left: 10%;
-	width: 15;
+	width: 10%;
 	height: 100%;
 	position: fixed;
 	background-color: brown;
@@ -15,7 +15,7 @@ aside{
 	left: 90%;
 	top: 0px;
 }
-canvas{
+/* canvas{
 	margin-top: 4%;
 	width: 60%;
 	height: 75%;
@@ -26,7 +26,7 @@ canvas{
 	background-color:grey;
     left: 20%;
 
-}
+} */
 nav{
 	position: fixed;
 	width: 10%;

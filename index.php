@@ -282,10 +282,11 @@
     <script>
   var width = window.innerWidth;
       var height = window.innerHeight;
+      var widthCanvas=55;
       function drawImage(imageObj) {
         var stage = new Konva.Stage({
           container: 'container',
-          width: width,
+          width: (width/100)*widthCanvas,
           height: height
           
         });
@@ -297,8 +298,8 @@
           image: imageObj,
           x: stage.width() / 2 - 100 / 2,
           y: stage.height() / 2 - 100 / 2,
-          width: 200,
-          height: 137,
+          width: 350,
+          height: 200,
           draggable: true
         });
 
@@ -309,11 +310,20 @@
         darthVaderImg.on('mouseout', function() {
           document.body.style.cursor = 'default';
         });
-
+        
         layer.add(darthVaderImg);
         stage.add(layer);
-        stage.getContainer().style.border = '1px solid black';
-        stage.getContainer().style.background='blue';
+
+
+        stage.getContainer().style.border = '5px solid black';
+        stage.getContainer().style.background='grey';
+         stage.getContainer().style.width=widthCanvas+"%"
+         
+         
+         stage.getContainer().style.position="fixed";
+        //  stage.getContainer().style.display="block";
+        stage.getContainer().style.left="22%";
+  
      
       }
       var imageObj = new Image();
