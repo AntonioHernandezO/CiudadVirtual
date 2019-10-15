@@ -287,7 +287,7 @@
 
         <div id="container" ></div>
     <script>
-  // var width = window.innerWidth;
+  //     var width = window.innerWidth;
   //     var height = window.innerHeight;
   //     var widthCanvas=55;
   //     function drawImage(imageObj) {
@@ -340,18 +340,21 @@
   //       drawImage(this);
   //     };
   //     imageObj.src = 'img/bro.gif';
-  var width = window.innerWidth;
+      var width = window.innerWidth;
       var height = window.innerHeight;
+      var widthCanvas=55;
+      var heightCanvas=71.5;
 
       var stage = new Konva.Stage({
         container: 'container',
-        width: 795,
-        height: 470
+        width: (width/100)*widthCanvas,
+           height: (height/100)*heightCanvas
       });
       var layer = new Konva.Layer();
       stage.add(layer);
       stage.getContainer().style.border = '10px solid black';
       stage.getContainer().style.background='grey';
+      stage.getContainer().style.width=widthCanvas+"%";
       
      
 
