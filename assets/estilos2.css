@@ -15,7 +15,7 @@ aside{
 	left: 90%;
 	top: 0px;
 }
-/* canvas{
+#container{
 	margin-top: 4%;
 	width: 60%;
 	height: 75%;
@@ -26,7 +26,10 @@ aside{
 	background-color:grey;
     left: 20%;
 
-} */
+}
+#drag-items img {
+	height: 80px;
+  }
 nav{
 	position: fixed;
 	width: 10%;

@@ -106,10 +106,10 @@
            <!--<img  src="img/sys/imagenes.png"    width="30" height="30" >-->
              Imágenes
            </button>
-           <div class="dropdown-menu">
-            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="img" class="pokemon" src="img/bro.gif" draggable="true" ondragstart="drag(event)" id="drag6"/></a>
-            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/pinecest.gif" draggable="true" ondragstart="drag(event)" id="dra7"/></a>
-            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/arcoiris.gif" draggable="true" ondragstart="drag(event)" id="drag8"/></a>
+           <div class="dropdown-menu" id="drag-items">
+            <a><img src="img/bro.gif" draggable="true"/></a>
+            <a><img src="img/pinecest.gif" draggable="true" /></a>
+            <a><img src="img/arcoiris.gif" draggable="true" /></a>
            </div>
          </div>
        </div>
@@ -287,59 +287,104 @@
 
         <div id="container" ></div>
     <script>
-  var width = window.innerWidth;
-      var height = window.innerHeight;
-      var widthCanvas=55;
-      function drawImage(imageObj) {
-        var stage = new Konva.Stage({
-          container: 'container',
-          width: (width/100)*widthCanvas,
-          height: height
+  // var width = window.innerWidth;
+  //     var height = window.innerHeight;
+  //     var widthCanvas=55;
+  //     function drawImage(imageObj) {
+  //       var stage = new Konva.Stage({
+  //         container: 'container',
+  //         width: (width/100)*widthCanvas,
+  //         height: height
           
-        });
+  //       });
 
-        var layer = new Konva.Layer();
+  //       var layer = new Konva.Layer();
        
-        // darth vader
-        var darthVaderImg = new Konva.Image({
-          image: imageObj,
-          x: stage.width() / 2 - 100 / 2,
-          y: stage.height() / 2 - 100 / 2,
-          width: 350,
-          height: 200,
-          draggable: true
-        });
+  //       // darth vader
+  //       var darthVaderImg = new Konva.Image({
+  //         image: imageObj,
+  //         x: stage.width() / 2 - 100 / 2,
+  //         y: stage.height() / 2 - 100 / 2,
+  //         width: 350,
+  //         height: 200,
+  //         draggable: true
+  //       });
 
-        // add cursor styling
-        darthVaderImg.on('mouseover', function() {
-          document.body.style.cursor = 'pointer';
-        });
-        darthVaderImg.on('mouseout', function() {
-          document.body.style.cursor = 'default';
-        });
+  //       // add cursor styling
+  //       darthVaderImg.on('mouseover', function() {
+  //         document.body.style.cursor = 'pointer';
+  //       });
+  //       darthVaderImg.on('mouseout', function() {
+  //         document.body.style.cursor = 'default';
+  //       });
         
-        layer.add(darthVaderImg);
-        stage.add(layer);
+  //       layer.add(darthVaderImg);
+  //       stage.add(layer);
 
 
-        stage.getContainer().style.border = '10px solid black';
-        stage.getContainer().style.background='grey';
-         stage.getContainer().style.width=widthCanvas+"%";
-         stage.getContainer().style.height="-75%important";
+  //       stage.getContainer().style.border = '10px solid black';
+  //       stage.getContainer().style.background='grey';
+  //        stage.getContainer().style.width=widthCanvas+"%";
+  //        stage.getContainer().style.height="-75%important";
          
          
          
-         stage.getContainer().style.position="absolute";
-        //  stage.getContainer().style.display="block";
-        stage.getContainer().style.left="22%";
+  //        stage.getContainer().style.position="absolute";
+  //       //  stage.getContainer().style.display="block";
+  //       stage.getContainer().style.left="22%";
   
      
-      }
-      var imageObj = new Image();
-      imageObj.onload = function() {
-        drawImage(this);
-      };
-      imageObj.src = 'img/bro.gif';
+  //     }
+  //     var imageObj = new Image();
+  //     imageObj.onload = function() {
+  //       drawImage(this);
+  //     };
+  //     imageObj.src = 'img/bro.gif';
+  var width = window.innerWidth;
+      var height = window.innerHeight;
+
+      var stage = new Konva.Stage({
+        container: 'container',
+        width: 795,
+        height: 470
+      });
+      var layer = new Konva.Layer();
+      stage.add(layer);
+      stage.getContainer().style.border = '10px solid black';
+      stage.getContainer().style.background='grey';
+      
+     
+
+      // what is url of dragging element?
+      var itemURL = '';
+      document
+        .getElementById('drag-items')
+        .addEventListener('dragstart', function(e) {
+          itemURL = e.target.src;
+        });
+
+      var con = stage.container();
+      con.addEventListener('dragover', function(e) {
+        e.preventDefault(); // !important
+      });
+
+      con.addEventListener('drop', function(e) {
+        e.preventDefault();
+        // now we need to find pointer position
+        // we can't use stage.getPointerPosition() here, because that event
+        // is not registered by Konva.Stage
+        // we can register it manually:
+        stage.setPointersPositions(e);
+
+        Konva.Image.fromURL(itemURL, function(image) {
+          layer.add(image);
+
+          image.position(stage.getPointerPosition());
+          image.draggable(true);
+
+          layer.draw();
+        });
+      });
       </script>
  
         <!-- Nombre de la libreria https://konvajs.org/ -->
