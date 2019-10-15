@@ -14,8 +14,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="Presentacion2.js"></script>
     <script src="kactions.js"></script>
-   
-    <title>CanvaUNAM</title>
+    
+    <title > CanvaUNAM</title>
+    <link rel="icon" type="image/x-icon" href="img/sys/infoicon.ico"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- Iconos Font Awesome en los botones -->
@@ -48,9 +49,26 @@
           <!--<img  src="img/sys/temas.png"    width="30" height="30" >-->
             Temas
           </button>
-          <div class="dropdown-menu">
-           <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="fondo" src="img/fondos/astronomy.jpg" width="80" draggable="true" ondragstart="drag(event)" id="drag1"/></a>
-           <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="fondo" onclick="javascript:this.width=804;this.height=484" ondblclick="javascript:this.width=80;this.height=80" src="img/fondos/fondo2.jpg" width="80" draggable="true" ondragstart="drag(event)" id="drag2"/></a>
+          <div class="dropdown-menu" id="drag-items" >
+          <?php
+          $cont=0;
+      
+            $d=opendir("./img/fondos");
+            while(($e=readdir($d))!=false)
+            if($e!='.'&&$e!='..')
+            {
+              $cont=$cont+1;
+            $e1="./img/fondos/".$e;
+            
+   
+         echo "
+            <a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)' >
+            <img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=drag$cont>    
+            </a>  
+             "; 
+
+            }
+            ?> 
           </div>
         </div>
       </div>
@@ -60,15 +78,13 @@
         <div class="btn-group dropright">
           <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
           <i class="fas fa-user fa-2x"></i>
-          <!--<img  src="img/sys/avatar.png"    width="30" height="30" >-->
-            Avatares
+     
+       Avatares
           </button>
           <div class="dropdown-menu" id="drag-items" >
           <?php
           $cont=0;
-         
-            echo "<table id=tableimg>";
-            echo "<tr>";
+      
             $d=opendir("./img/imgmonitos");
             while(($e=readdir($d))!=false)
             if($e!='.'&&$e!='..')
@@ -77,22 +93,13 @@
             $e1="./img/imgmonitos/".$e;
             
    
-         
-              
-     echo "
+         echo "
             <a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)' >
             <img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=drag$cont>    
             </a>  
              "; 
 
-
-
-          
-            
             }
-            echo "</tr>";
-            echo"</table>";
-
             ?> 
            
           </div>
@@ -108,10 +115,26 @@
            <!--<img  src="img/sys/imagenes.png"    width="30" height="30" >-->
              Imágenes
            </button>
-           <div class="dropdown-menu" id="drag-items">
-            <a><img src="img/bro.gif" draggable="true"/></a>
-            <a><img src="img/pinecest.gif" draggable="true" /></a>
-            <a><img src="img/arcoiris.gif" draggable="true" /></a>
+           <div class="dropdown-menu" id="drag-items" >
+          <?php
+          $cont=0;
+      
+            $d=opendir("./img/img");
+            while(($e=readdir($d))!=false)
+            if($e!='.'&&$e!='..')
+            {
+              $cont=$cont+1;
+            $e1="./img/img/".$e;
+            
+   
+         echo "
+            <a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)' >
+            <img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=drag$cont>    
+            </a>  
+             "; 
+
+            }
+            ?> 
            </div>
          </div>
        </div>
@@ -125,10 +148,26 @@
            <!--<img  src="img/sys/video.png"    width="30" height="30" >--->
              Videos
            </button>
-           <div class="dropdown-menu">
-            <!-- <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/bro.gif" draggable="true" ondragstart="drag(event)" id="drag1"/></a>
-            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/pinecest.gif" draggable="true" ondragstart="drag(event)" id="drag2"/></a>
-            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/arcoiris.gif" draggable="true" ondragstart="drag(event)" id="drag3"/></a> -->
+           <div class="dropdown-menu" id="drag-items" >
+          <?php
+          $cont=0;
+      
+            $d=opendir("./img/videos");
+            while(($e=readdir($d))!=false)
+            if($e!='.'&&$e!='..')
+            {
+              $cont=$cont+1;
+            $e1="./img/videos/".$e;
+            
+   
+         echo "
+            <a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)' >
+            <img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=drag$cont>    
+            </a>  
+             "; 
+
+            }
+            ?> 
            </div>
          </div>
        </div>
@@ -141,10 +180,26 @@
                 <!--<img  src="img/sys/sonido.png"    width="30" height="30" >-->
                   Sonido
                 </button>
-                <div class="dropdown-menu">
-                 <!-- <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/bro.gif" draggable="true" ondragstart="drag(event)" id="drag1"/></a>
-                 <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/pinecest.gif" draggable="true" ondragstart="drag(event)" id="drag2"/></a>
-                 <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/arcoiris.gif" draggable="true" ondragstart="drag(event)" id="drag3"/></a> -->
+                <div class="dropdown-menu" id="drag-items" >
+          <?php
+          $cont=0;
+      
+            $d=opendir("./img/sonido");
+            while(($e=readdir($d))!=false)
+            if($e!='.'&&$e!='..')
+            {
+              $cont=$cont+1;
+            $e1="./img/sonido/".$e;
+            
+   
+         echo "
+            <a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)' >
+            <img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=drag$cont>    
+            </a>  
+             "; 
+
+            }
+            ?> 
                 </div>
               </div>
             </div>
