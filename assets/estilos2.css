@@ -63,3 +63,12 @@ div.caja{
 	color:white;
 	margin-right:20%;
 }
+
+ .dropdown-menu.show   {                                /*OJO, este apartado modifica funciones de Bootstrap. */
+	transform: translate3d(95%, 0px, 0px)!important;
+	position: absolute!important;
+	overflow:auto!important; 
+	width: 15%;
+	height: 1300%!important;
+
+}
