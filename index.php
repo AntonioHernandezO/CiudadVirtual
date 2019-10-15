@@ -13,7 +13,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="Presentacion2.js"></script>
-    <title>Presentación 2</title>
+    <script src="kactions.js"></script>
+   
+    <title>CanvaUNAM</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- Iconos Font Awesome en los botones -->
@@ -35,7 +37,7 @@
 })
     </script>
   </head>
-  <body onload="init();">
+  <body >
    <!-- L---------------------------------------------------------------------L -->
     <nav>
      <br><br>
@@ -61,7 +63,7 @@
           <!--<img  src="img/sys/avatar.png"    width="30" height="30" >-->
             Avatares
           </button>
-          <div class="dropdown-menu" id="itemx" >
+          <div class="dropdown-menu" id="drag-items" >
           <?php
           $cont=0;
          
@@ -166,26 +168,14 @@
           
 
     </nav>
-    <aside>
+             <aside>
         <!-- Aqui va el contenido del contenedor guinda -->
-    </aside>
-
-    <!-- <div id="container" id="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" > -->
-      <!-- <canvas id="demoCanvas" width="500" height="300"></canvas> -->
- 
-
-    
-
-
-
-
-      
-    </div>
+                  </aside>
+</div>
   
-    <!-- codigo para redimensionar las imagenes en canvas -->
-    <!-- <canvas id="lienzo" width="900" height="700"></canvas> 
+  
 
-    <script>
+    <!-- <script>
         var cv = document.getElementById('lienzo');
         var ctx = cv.getContext('2d');
         var image = document.getElementById("scream");
@@ -274,154 +264,12 @@
         window.onmouseup = function(evt) {
             isUp = null;
         }
-    </script> -->
+    </script>  -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  
-
- 
-
-        <div id="container" ></div>
-    <script>
-  //     var width = window.innerWidth;
-  //     var height = window.innerHeight;
-  //     var widthCanvas=55;
-  //     function drawImage(imageObj) {
-  //       var stage = new Konva.Stage({
-  //         container: 'container',
-  //         width: (width/100)*widthCanvas,
-  //         height: height
-          
-  //       });
-
-  //       var layer = new Konva.Layer();
-       
-  //       // darth vader
-  //       var darthVaderImg = new Konva.Image({
-  //         image: imageObj,
-  //         x: stage.width() / 2 - 100 / 2,
-  //         y: stage.height() / 2 - 100 / 2,
-  //         width: 350,
-  //         height: 200,
-  //         draggable: true
-  //       });
-
-  //       // add cursor styling
-  //       darthVaderImg.on('mouseover', function() {
-  //         document.body.style.cursor = 'pointer';
-  //       });
-  //       darthVaderImg.on('mouseout', function() {
-  //         document.body.style.cursor = 'default';
-  //       });
-        
-  //       layer.add(darthVaderImg);
-  //       stage.add(layer);
-
-
-  //       stage.getContainer().style.border = '10px solid black';
-  //       stage.getContainer().style.background='grey';
-  //        stage.getContainer().style.width=widthCanvas+"%";
-  //        stage.getContainer().style.height="-75%important";
-         
-         
-         
-  //        stage.getContainer().style.position="absolute";
-  //       //  stage.getContainer().style.display="block";
-  //       stage.getContainer().style.left="22%";
-  
-     
-  //     }
-  //     var imageObj = new Image();
-  //     imageObj.onload = function() {
-  //       drawImage(this);
-  //     };
-  //     imageObj.src = 'img/bro.gif';
-      var width = window.innerWidth;
-      var height = window.innerHeight;
-      var widthCanvas=55;
-      var heightCanvas=71.5;
-
-      var stage = new Konva.Stage({
-        container: 'container',
-        width: (width/100)*widthCanvas,
-           height: (height/100)*heightCanvas
-      });
-      var layer = new Konva.Layer();
-      stage.add(layer);
-      stage.getContainer().style.border = '10px solid black';
-      stage.getContainer().style.background='grey';
-      stage.getContainer().style.width=widthCanvas+"%";
-      
-     
-
-      // what is url of dragging element?
-      var itemURL = '';
-      document
-        .getElementById('drag-items')
-        .addEventListener('dragstart', function(e) {
-          itemURL = e.target.src;
-        });
-
-      var con = stage.container();
-      con.addEventListener('dragover', function(e) {
-        e.preventDefault(); // !important
-      });
-
-      con.addEventListener('drop', function(e) {
-        e.preventDefault();
-        // now we need to find pointer position
-        // we can't use stage.getPointerPosition() here, because that event
-        // is not registered by Konva.Stage
-        // we can register it manually:
-        stage.setPointersPositions(e);
-
-        Konva.Image.fromURL(itemURL, function(image) {
-          layer.add(image);
-
-          image.position(stage.getPointerPosition());
-          image.draggable(true);
-
-          layer.draw();
-        });
-      });
-      </script>
- 
-        <!-- Nombre de la libreria https://konvajs.org/ -->
-       
-
-
-
-  
-    <!-- <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br> -->
-
-
-    
-    
-  </body>
+    </body>
 </html>
