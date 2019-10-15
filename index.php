@@ -8,12 +8,15 @@
     <link rel="stylesheet" href="assets/fuentes.css">
     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
     <script src="https://unpkg.com/konva@4.0.13/konva.min.js"></script>
+    <!--Uso de Iconos en los botones con Font Awesome-->
+    <script src="https://kit.fontawesome.com/49634fa1fd.js"></script>    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="Presentacion2.js"></script>
     <title>Presentación 2</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- Iconos Font Awesome en los botones -->
      <!-- <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script> -->
     <!-- Also include jQueryUI -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
@@ -39,8 +42,9 @@
      <div class="container-fluid">
         <div class="btn-group dropright">
           <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img  src="img/sys/temas.png"    width="30" height="30" >
-            Temas..
+          <i class="fas fa-swatchbook fa-2x"></i>  
+          <!--<img  src="img/sys/temas.png"    width="30" height="30" >-->
+            Temas
           </button>
           <div class="dropdown-menu">
            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="fondo" src="img/fondos/astronomy.jpg" width="80" draggable="true" ondragstart="drag(event)" id="drag1"/></a>
@@ -53,9 +57,9 @@
       <div class="container-fluid">
         <div class="btn-group dropright">
           <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-              <img  src="img/sys/avatar.png"    width="30" height="30" >
-  
-            Avatars
+          <i class="fas fa-user fa-2x"></i>
+          <!--<img  src="img/sys/avatar.png"    width="30" height="30" >-->
+            Avatares
           </button>
           <div class="dropdown-menu" id="itemx" >
           <?php
@@ -98,8 +102,9 @@
        <div class="container-fluid">
          <div class="btn-group dropright">
            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <img  src="img/sys/imagenes.png"    width="30" height="30" >
-             Imagenes
+           <i class="fas fa-image fa-2x"></i>    
+           <!--<img  src="img/sys/imagenes.png"    width="30" height="30" >-->
+             Imágenes
            </button>
            <div class="dropdown-menu">
             <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="img" class="pokemon" src="img/bro.gif" draggable="true" ondragstart="drag(event)" id="drag6"/></a>
@@ -114,7 +119,8 @@
        <div class="container-fluid">
          <div class="btn-group dropright">
            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <img  src="img/sys/video.png"    width="30" height="30" >
+           <i class="fas fa-video fa-2x"></i>   
+           <!--<img  src="img/sys/video.png"    width="30" height="30" >--->
              Videos
            </button>
            <div class="dropdown-menu">
@@ -129,7 +135,8 @@
             <div class="container-fluid">
               <div class="btn-group dropright">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img  src="img/sys/sonido.png"    width="30" height="30" >
+                <i class="fas fa-volume-up fa-2x"></i>    
+                <!--<img  src="img/sys/sonido.png"    width="30" height="30" >-->
                   Sonido
                 </button>
                 <div class="dropdown-menu">
@@ -144,7 +151,8 @@
                       <div class="container-fluid">
                         <div class="btn-group dropright">
                           <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <img  src="img/sys/sonido.png"    width="30" height="30" >
+                          <i class="fas fa-keyboard fa-2x"></i>   
+                          <!-- <img  src="img/sys/sonido.png"    width="30" height="30" >-->
                             Texto
                           </button>
                           <div class="dropdown-menu">
