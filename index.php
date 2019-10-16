@@ -39,17 +39,16 @@
     </script>
   </head>
   <body >
-   <!-- L---------------------------------------------------------------------L -->
+   <!-- Botón de Temas -->
     <nav>
      <br><br>
      <div class="container-fluid">
         <div class="btn-group dropright">
           <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-swatchbook fa-2x"></i>  
+          <i class="fas fa-swatchbook fa-2x"></i> Temas</button>
           <!--<img  src="img/sys/temas.png"    width="30" height="30" >-->
-            Temas
-          </button>
           <div class="dropdown-menu" id="drag-items" >
+            <!-- Función para abrir el directorio de imágenes de fondo -->
           <?php
           $cont=0;
       
@@ -72,16 +71,14 @@
           </div>
         </div>
       </div>
-      <!-- L---------------------------------------------------------------------L -->
+      <!-- Botón de Avatares -->
            <br><br>
       <div class="container-fluid">
         <div class="btn-group dropright">
           <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-          <i class="fas fa-user fa-2x"></i>
-     
-       Avatares
-          </button>
+          <i class="fas fa-user fa-2x"></i> Avatares </button>
           <div class="dropdown-menu" id="drag-items" >
+            <!-- Función de abrir el directorio de imágenes para avatares -->
           <?php
           $cont=0;
       
@@ -106,15 +103,15 @@
         </div>
       </div>
 
-       <!-- L---------------------------------------------------------------------L -->
+       <!-- Botón de Imágenes -->
        <br><br>
        <div class="container-fluid">
          <div class="btn-group dropright">
            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           <i class="fas fa-image fa-2x"></i>    
+           <i class="fas fa-image fa-2x"></i> Imágenes </button>
            <!--<img  src="img/sys/imagenes.png"    width="30" height="30" >-->
-             Imágenes
-           </button>
+
+           <!-- Función abrir directorio para imágenes -->
            <div class="dropdown-menu" id="drag-items" >
           <?php
           $cont=0;
@@ -139,15 +136,14 @@
          </div>
        </div>
        
-       <!-- L---------------------------------------------------------------------L -->
+       <!-- Botón de Vídeo -->
        <br><br>
        <div class="container-fluid">
          <div class="btn-group dropright">
            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           <i class="fas fa-video fa-2x"></i>   
+           <i class="fas fa-video fa-2x"></i>Videos </button>
            <!--<img  src="img/sys/video.png"    width="30" height="30" >--->
-             Videos
-           </button>
+           <!-- Función para abrir directorio de Vídeos -->
            <div class="dropdown-menu" id="drag-items" >
           <?php
           $cont=0;
@@ -171,7 +167,7 @@
            </div>
          </div>
        </div>
-            <!-- L---------------------------------------------------------------------L -->
+            <!-- Botón de Sonido -->
             <br><br>
             <div class="container-fluid">
               <div class="btn-group dropright">
@@ -181,6 +177,8 @@
                   Sonido
                 </button>
                 <div class="dropdown-menu" id="drag-items" >
+             <!-- Función para abrir directorio de Sonido -->
+
           <?php
           $cont=0;
       
@@ -203,15 +201,13 @@
                 </div>
               </div>
             </div>
-                      <!-- L---------------------------------------------------------------------L -->
+                      <!-- Botón de Txto -->
                      <br><br>
                       <div class="container-fluid">
                         <div class="btn-group dropright">
                           <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-keyboard fa-2x"></i>   
+                          <i class="fas fa-keyboard fa-2x"></i> Texto</button>
                           <!-- <img  src="img/sys/sonido.png"    width="30" height="30" >-->
-                            Texto
-                          </button>
                           <div class="dropdown-menu">
                            <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><div class="fuente" id="idTexto" draggable="true" ondragstart="drag(event)" id="drag6">Este contenido se volverá editable</div>
                             <div id="btnEditable"></div>

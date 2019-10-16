@@ -1,0 +1,103 @@
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Skin', 'character_16\\1_piel\\1.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Skin', 'character_16\\1_piel\\2.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Skin', 'character_16\\1_piel\\3.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Skin', 'character_16\\1_piel\\4.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Skin', 'character_16\\1_piel\\5.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Skin', 'character_16\\1_piel\\6.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Skin', 'character_16\\1_piel\\7.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Skin', 'character_16\\1_piel\\8.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Skin', 'character_16\\1_piel\\9.png');
+
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Eyes', 'character_16\\2_ojos\\1.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Eyes', 'character_16\\2_ojos\\2.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Eyes', 'character_16\\2_ojos\\3.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Eyes', 'character_16\\2_ojos\\4.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Eyes', 'character_16\\2_ojos\\5.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Eyes', 'character_16\\2_ojos\\6.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Eyes', 'character_16\\2_ojos\\7.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Eyes', 'character_16\\2_ojos\\8.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Eyes', 'character_16\\2_ojos\\9.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Eyes', 'character_16\\2_ojos\\10.png');
+
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Hair', 'character_16\\3_pelo\\1.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Hair', 'character_16\\3_pelo\\2.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Hair', 'character_16\\3_pelo\\3.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Hair', 'character_16\\3_pelo\\4.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Hair', 'character_16\\3_pelo\\5.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Hair', 'character_16\\3_pelo\\6.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Hair', 'character_16\\3_pelo\\7.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Hair', 'character_16\\3_pelo\\8.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Hair', 'character_16\\3_pelo\\9.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Hair', 'character_16\\3_pelo\\10.png');
+
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Clotes', 'character_16\\4_ropa\\1.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Clotes', 'character_16\\4_ropa\\2.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Clotes', 'character_16\\4_ropa\\3.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Clotes', 'character_16\\4_ropa\\4.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Clotes', 'character_16\\4_ropa\\5.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Clotes', 'character_16\\4_ropa\\6.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Clotes', 'character_16\\4_ropa\\7.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Clotes', 'character_16\\4_ropa\\8.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Clotes', 'character_16\\4_ropa\\9.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Clotes', 'character_16\\4_ropa\\10.png');
+
+
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Shoes', 'character_16\\5_zapatos\\1.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Shoes', 'character_16\\5_zapatos\\2.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Shoes', 'character_16\\5_zapatos\\3.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Shoes', 'character_16\\5_zapatos\\4.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_16', 'Shoes', 'character_16\\5_zapatos\\5.png');
+
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_15', 'Acces', 'character_15\\6_accesorios\\1.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_15', 'Acces', 'character_15\\6_accesorios\\2.png');
+
+
+
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Skin', 'character_17\\1_piel\\1.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Skin', 'character_17\\1_piel\\2.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Skin', 'character_17\\1_piel\\3.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Skin', 'character_17\\1_piel\\4.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Skin', 'character_17\\1_piel\\5.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Skin', 'character_17\\1_piel\\6.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Skin', 'character_17\\1_piel\\7.png');
+
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\1.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\2.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\3.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\4.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\5.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\6.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\7.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\8.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\9.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\10.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\11.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\12.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\13.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\14.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\15.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\16.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\17.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\18.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\19.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\20.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\21.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\22.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\23.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\24.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\25.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\26.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\27.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'Character_17', 'Hair', 'character_17\\3_pelo\\28.png');
+
+
+
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'BackGround', 'BackGround', 'background\\4.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'BackGround', 'BackGround', 'background\\5.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'BackGround', 'BackGround', 'background\\6.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'BackGround', 'BackGround', 'background\\7.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'BackGround', 'BackGround', 'background\\8.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'BackGround', 'BackGround', 'background\\9.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'BackGround', 'BackGround', 'background\\10.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'BackGround', 'BackGround', 'background\\11.png');
+INSERT INTO `people` (`ID`, `People`, `Element`, `Rute`) VALUES (NULL, 'BackGround', 'BackGround', 'background\\12.png');
