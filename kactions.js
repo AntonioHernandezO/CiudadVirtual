@@ -144,9 +144,11 @@ document.write('<div id=container ></div>');
          width:200,
          height:137
        });
+       var aleatorio = Math.round(Math.random()*100);
        var imgGroup= new Konva.Group({
-        x:180,
-        y:50,
+         
+        x:200+aleatorio,
+        y:100+aleatorio,
         draggable:true
        });
 
@@ -164,10 +166,6 @@ document.write('<div id=container ></div>');
         layer.draw();
       };
       imageObj1.src=itemURL;
-
-
-
-
-
-      });
+      
+});
       

@@ -23,20 +23,7 @@
      <!-- <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script> -->
     <!-- Also include jQueryUI -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-    <script> //funcion para editar texto
-        $(function(){
-        $('#idTexto').on('click', function(){
-        var esEditable = $('#idTexto').attr('contenteditable');
-        if(esEditable){
-        $('#idTexto').attr('contenteditable', true);
-        $('#btnEditable').html('Hacerlo Editable');
-        }else{
-        $('#idTexto').attr('contenteditable', true);
-        $('#btnEditable').html('dejar der editar');
-   }
- });
-})
-    </script>
+    
   </head>
   <body >
    <!-- Botón de Temas -->
@@ -201,18 +188,34 @@
                 </div>
               </div>
             </div>
-                      <!-- Botón de Txto -->
+                      <!-- Botón de Texto -->
                      <br><br>
                       <div class="container-fluid">
                         <div class="btn-group dropright">
                           <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <i class="fas fa-keyboard fa-2x"></i> Texto</button>
                           <!-- <img  src="img/sys/sonido.png"    width="30" height="30" >-->
-                          <div class="dropdown-menu">
-                           <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><div class="fuente" id="idTexto" draggable="true" ondragstart="drag(event)" id="drag6">Este contenido se volverá editable</div>
+                          <div class="dropdown-menu" >
+                           <a class="dropdown-item" ><div class="fuente" id="idTexto" draggable="true" >Insertar texto</div>
                             <div id="btnEditable"></div>
-                           <!-- <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"></a> -->
-                           <!-- <a class="dropdown-item" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="pokemon" src="img/arcoiris.gif" draggable="true" ondragstart="drag(event)" id="drag3"/></a> --> -->
+    <script> //funcion para editar texto
+                            $(function(){
+                            $('#idTexto').on('click', function(){
+                            var esEditable = $('#idTexto').attr('contenteditable');
+                            if(esEditable){
+                            $('#idTexto').attr('contenteditable', true);
+                            $('#btnEditable').html('Hacerlo Editable');
+                            }else{
+                            $('#idTexto').attr('contenteditable', true);
+                            $('#btnEditable').html('dejar der editar');
+                             }
+                           });
+                          })
+    </script>
+
+
+
+                           
                           </div>
                         </div>
                       </div>
@@ -226,96 +229,7 @@
   
   
 
-    <!-- <script>
-        var cv = document.getElementById('lienzo');
-        var ctx = cv.getContext('2d');
-        var image = document.getElementById("scream");
-        var foto = {x: 50, y: 50, w: 100, h: 100};
-        var isUp = null;
-        image.onload = function() {
-        drawImage(image, foto.w, foto.h);
-        }
-        function drawImage(image, w, h) {
-            ctx.drawImage(image, foto.x, foto.y, w, h);
-            ctx.fillStyle = 'white';
-            ctx.beginPath();
-            ctx.arc(foto.x, foto.y, 5, 0, Math.PI * 2, 1);
-            ctx.fill();
-            ctx.beginPath();
-            ctx.arc(w + foto.x, h / 2 + foto.y, 5, 0, Math.PI * 2, 1);
-            ctx.fill();
-            ctx.beginPath();
-            ctx.arc(w / 2 + foto.x, h + foto.y, 5, 0, Math.PI * 2, 1);
-            ctx.fill();
-            ctx.beginPath();
-            ctx.arc(w + foto.x, h + foto.y, 5, 0, Math.PI * 2, 1);
-            ctx.fill();
-        }
-        window.onmousedown = function(evt) {
-            var ax = evt.clientX - cv.offsetLeft;
-            var ay = evt.clientY - cv.offsetTop;
-            console.log(ax, ay);
-            if (ax >= foto.w - 5 + foto.x
-                && ax <= foto.w + foto.x + 5
-                && ay >= foto.h / 2 + foto.y - 5
-                && ay <= foto.h / 2 + foto.y + 5
-            ) {
-                isUp = 'right';
-            }
-            else if (ax >= foto.w / 2 + foto.x - 5
-                && ax <= foto.w / 2 + foto.x + 5
-                && ay >= foto.h + foto.y - 5
-                && ay <= foto.h + foto.y + 5
-            ) {
-                isUp = 'bottom';
-            }
-            else if (ax >= foto.w + foto.x - 5
-                && ax <= foto.w + foto.x + 5
-                && ay >= foto.h + foto.y - 5
-                && ay <= foto.h + foto.y + 5
-            ) {
-                isUp = 'bottom-right';
-            }
-            else if (ax >= foto.x - 5 && ax <= foto.x + 5
-                && ay >= foto.y - 5 && ay <= foto.y + 5
-            ) {
-                isUp = 'top-left';
-            }
-        }
-        window.onmousemove = function(evt) {
-            var ax = evt.clientX - cv.offsetLeft;
-            var ay = evt.clientY - cv.offsetTop;
-            if (isUp === 'right') {
-                foto.w = ax - foto.x;
-                ctx.clearRect(0, 0, 900, 600);
-                drawImage(image, foto.w, foto.h);
-            }
-            else if (isUp === 'bottom') {
-                foto.h = ay - foto.y;
-                ctx.clearRect(0, 0, 900, 600);
-                drawImage(image, foto.w, foto.h);
-            }
-            else if (isUp === 'bottom-right') {
-                foto.w = ax - foto.x;
-                foto.h = ay - foto.y;
-                ctx.clearRect(0, 0, 900, 600);
-                drawImage(image, foto.w, foto.h);
-            }
-            else if (isUp === 'top-left') {
-                var dx = foto.x - ax;
-                var dy = foto.y - ay;
-                foto.x = ax;
-                foto.y = ay;
-                foto.w += dx;
-                foto.h += dy;
-                ctx.clearRect(0, 0, 900, 600);
-                drawImage(image, foto.w, foto.h);
-            }
-        }
-        window.onmouseup = function(evt) {
-            isUp = null;
-        }
-    </script>  -->
+   
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
