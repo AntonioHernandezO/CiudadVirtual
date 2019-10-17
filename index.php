@@ -322,5 +322,30 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <div style="border-style: solid; border-color: #3366FF; position: fixed; top: 0%; left: 20%; width: 58%; background-color: #C0C0C0; height: 8%;  clip: rect(auto, auto, auto, auto); padding-left: 2%; display: block; overflow: auto;" id="Panel">
+          <input id="1" type="button" value="Diapositiva 1" />
+          <input id="2" type="button" value="Diapositiva 2" />
+          <input id="3" type="button" value="Diapositiva 3" />
+          <input id="4" type="button" value="Diapositiva 4"  />
+          </div>
+      <input id="agregar" type="button" value="[+]" onclick="agregar1();" style="position: fixed; top: 19px; left: 244px;" />
+      <script>
+          var consta = 5;
+          function agregar1(){
+
+ 
+
+              var boton = document.createElement('input');
+
+
+   boton.type = 'button';
+
+   boton.id = consta;
+                  boton.value = 'Diapositiva ' + consta;
+                  document.getElementById('Panel').appendChild(boton);
+                  consta = consta + 1;
+
+}
+      </script>
     </body>
 </html>
