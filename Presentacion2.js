@@ -34,30 +34,30 @@ function resizeimg(){
 }
 
 
-  var down = false;
-  Rxt.canvas.addEventListener('mousedown', function () { 
-      down = true; 
-  }, false);
-  Rxt.canvas.addEventListener('mouseup', function () { 
-      down = false; 
-  }, false);
-  Rxt.canvas.addEventListener('mousemove', function (event) {
-      if (down){
-          //Rxt.translate(0, -50);
-          clear();
-          Rxt.drawImage(Img, event.clientX - this.offsetLeft,
-          event.clientY - this.offsetTop, 80, 80);
-          //Rxt.translate(0, 50);
-      }
-  }, false);
+  // var down = false;
+  // Rxt.canvas.addEventListener('mousedown', function () { 
+  //     down = true; 
+  // }, false);
+  // Rxt.canvas.addEventListener('mouseup', function () { 
+  //     down = false; 
+  // }, false);
+  // Rxt.canvas.addEventListener('mousemove', function (event) {
+  //     if (down){
+  //         //Rxt.translate(0, -50);
+  //         clear();
+  //         Rxt.drawImage(Img, event.clientX - this.offsetLeft,
+  //         event.clientY - this.offsetTop, 80, 80);
+  //         //Rxt.translate(0, 50);
+  //     }
+  // }, false);
   
-  // Funcion limpiar image.
-  function clear(){
-      Rxt.clearRect(0, 0, canvas.width, canvas.height);
-      // Rxt.fillStyle = 'green';            // Contexto de color verde.
-      // Rxt.fillRect(0, 0, 2000, 2000);     // Se rellena el contexto con el color verde.
-  }
+  // // Funcion limpiar image.
+  // function clear(){
+  //     Rxt.clearRect(0, 0, canvas.width, canvas.height);
+  //     // Rxt.fillStyle = 'green';            // Contexto de color verde.
+  //     // Rxt.fillRect(0, 0, 2000, 2000);     // Se rellena el contexto con el color verde.
+  // }
   
-}
+
 
   
