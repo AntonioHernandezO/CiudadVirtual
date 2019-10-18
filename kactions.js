@@ -98,7 +98,7 @@ document.write('<div id=container ></div>');
       var stage = new Konva.Stage({
         container: 'container',
         width: (width/100)*widthCanvas,
-           height: (height/100)*heightCanvas
+        height: (height/100)*heightCanvas
       });
       var layer = new Konva.Layer();
       stage.add(layer);

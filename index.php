@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="Presentacion2.js"></script>
     <script src="kactions.js"></script>
-    
-    <title > CanvaUNAM</title>
+    <script src="txtEd.js"></script>
+     <title > CanvaUNAM</title>
     <link rel="icon" type="image/x-icon" href="img/sys/infoicon.ico"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -195,9 +195,10 @@
                           <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <i class="fas fa-keyboard fa-2x"></i> Texto</button>
                           <!-- <img  src="img/sys/sonido.png"    width="30" height="30" >-->
-                          <div class="dropdown-menu" >
-                           <a class="dropdown-item" ><div class="fuente" id="idTexto" draggable="true" >Insertar texto</div>
-                            <div id="btnEditable"></div>
+                          <div class="dropdown-menu" onclick="txtedit()" >
+                           <a class="dropdown-item" ><div class="fuente" id="idTexto" draggable="false" >Insertar texto</div>
+                           
+                           <!-- <div id="btnEditable"></div>
     <script> //funcion para editar texto
                             $(function(){
                             $('#idTexto').on('click', function(){
@@ -211,7 +212,7 @@
                              }
                            });
                           })
-    </script>
+    </script> -->
 
 
 
