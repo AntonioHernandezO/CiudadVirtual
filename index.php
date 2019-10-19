@@ -25,8 +25,9 @@
     <script src="kactions.js"></script>
     <script src="txtEd.js"></script>
     <script src="assets/diapo.js"></script>
+
     <!-- Inicio de desarrollo del proyecto -->
-     <title>Mi CanvaUNAM</title>
+     <title > CanvaUNAM</title>
     <link rel="icon" type="image/x-icon" href="img/sys/infoicon.ico"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -47,7 +48,7 @@
      <div class="container-fluid">
         <div class="btn-group-vertical">
           <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-swatchbook fa-2x"></i> Temas</button>
+          <i class="fas fa-swatchbook fa-2x"></i>  Temas</button>
         <div class="dropdown-menu" id="drag-items">
 
           <!-- Función para abrir el directorio de imágenes de fondo -->
@@ -77,7 +78,7 @@
       <div class="container-fluid">
         <div class="btn-group dropright">
           <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-          <i class="fas fa-user fa-2x"></i> Avatares </button>
+          <i class="fas fa-user fa-2x"></i>  Avatares </button>
         <div class="dropdown-menu" id="drag-items">
 
           <!-- Función de abrir el directorio de imágenes para avatares -->
@@ -139,7 +140,7 @@
            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            <i class="fas fa-video fa-2x"></i>Videos </button>
           
-          Función para abrir directorio de Vídeos  
+         b Función para abrir directorio de Vídeos  
            <div class="dropdown-menu" id="drag-items" >
          
           //$cont=0;
@@ -169,7 +170,7 @@
             <div class="container-fluid">
               <div class="btn-group dropright">
                 <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-volume-up fa-2x"></i>Sonido</button>
+                <i class="fas fa-volume-up fa-2x"></i>  Sonido   </button>
                 <div class="dropdown-menu" id="drag-items">
 
              <!-- Función para abrir directorio de Sonido -->
@@ -198,37 +199,21 @@
             <br>
             <div class="container-fluid">
             <div class="btn-group dropright">
-            <button type="button" class="btn btn-primary dropleft-toggle"" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-keyboard fa-3x"></i>Texto</button>
-            <div class="dropdown-menu" onclick="txtedit()" >
+            <button type="button" class="btn btn-primary " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="txtedit()" >
+            <i class="fas fa-keyboard fa-2x"></i> Texto</button>
+            <!-- <div class="dropdown-menu" onclick="txtedit()" >
             <a class="dropdown-item" ><div class="fuente" id="idTexto" draggable="false" >Insertar texto</div>
                            
 
-            <!-- Botón considerado a borrar -->
-
-            <!-- <div id="btnEditable"></div>
-                           <script> //funcion para editar texto
-                            $(function(){
-                            $('#idTexto').on('click', function(){
-                            var esEditable = $('#idTexto').attr('contenteditable');
-                            if(esEditable){
-                            $('#idTexto').attr('contenteditable', true);
-                            $('#btnEditable').html('Hacerlo Editable');
-                            }else{
-                            $('#idTexto').attr('contenteditable', true);
-                            $('#btnEditable').html('dejar der editar');
-                             }
-                           });
-                          })
-    </script> -->
         </div>
-      </div>
+      </div> -->
     </div>
-  </nav>
+          </div>
+
+
   <aside>
     <!-- Aqui va el contenido del contenedor guinda -->
-
- <div  id="Panel">
+    <div  id="Panel">
           <input id="1" type="button" class="bot" value=" 1 " onclick="visualizar();" />
                       <br>
                       <br>
@@ -241,12 +226,16 @@
           <input id="4" type="button" class="bot" value=" 4 "  />
                       <br>
                       <br>
-
+                     
           </div>
                   <div id ="PanelO">
 
                      <input id="agregar" type="button" value="[+]" onclick="agregar1();" class="bote" />
       </div>
+                 
+  </aside>
+ 
+
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
