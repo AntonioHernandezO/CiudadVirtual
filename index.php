@@ -26,7 +26,7 @@
     <script src="txtEd.js"></script>
     <script src="assets/diapo.js"></script>
     <!-- Inicio de desarrollo del proyecto -->
-     <title > CanvaUNAM</title>
+     <title>Mi CanvaUNAM</title>
     <link rel="icon" type="image/x-icon" href="img/sys/infoicon.ico"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -73,6 +73,7 @@
     </div>
 
       <!-- Botón de Avatares -->
+      <br>
       <div class="container-fluid">
         <div class="btn-group dropright">
           <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
@@ -104,6 +105,7 @@
     </div>
 
        <!-- Botón de Imágenes -->
+       <br>
        <div class="container-fluid">
          <div class="btn-group dropright">
            <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -163,7 +165,7 @@
        </div>
           -->
             <!-- Botón de Sonido -->
-
+            <br>
             <div class="container-fluid">
               <div class="btn-group dropright">
                 <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -193,6 +195,7 @@
             </div>
 
             <!-- Botón de Texto -->
+            <br>
             <div class="container-fluid">
             <div class="btn-group dropright">
             <button type="button" class="btn btn-primary dropleft-toggle"" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -224,7 +227,8 @@
   </nav>
   <aside>
     <!-- Aqui va el contenido del contenedor guinda -->
-    <div  id="Panel">
+
+ <div  id="Panel">
           <input id="1" type="button" class="bot" value=" 1 " onclick="visualizar();" />
                       <br>
                       <br>
@@ -243,8 +247,6 @@
 
                      <input id="agregar" type="button" value="[+]" onclick="agregar1();" class="bote" />
       </div>
-
-
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
