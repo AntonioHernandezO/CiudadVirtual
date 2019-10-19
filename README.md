@@ -3,7 +3,7 @@ de la Universidad Nacional Autonoma de Mexico puedan crear contenido didactico p
 
 
 /*
-Desarrollo: 
+Desarrollo: <br>
 Antonio Hernandez Oropeza ---> @AntonioHernandezO <br>
 Laura Angelica Ramirez Gonzalez --->@LauraAngie  <br>   
 Nadia Rivera Velazquez --->@Naaidrv<br>
