@@ -151,7 +151,7 @@ con.addEventListener('drop', function (e) {
     if (opcion == true) {
       this.remove();
       layer.draw();
-      
+
     } else {
 
     }
@@ -173,12 +173,12 @@ con.addEventListener('drop', function (e) {
   imagen.on('click', function (evt) {
 
 
-});
+  });
 
-stage.on('click', function (evt) {
+  stage.on('click', function (evt) {
 
 
-});
+  });
 
 
 

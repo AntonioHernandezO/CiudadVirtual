@@ -4,8 +4,8 @@ de la Universidad Nacional Autonoma de Mexico puedan crear contenido didactico p
 
 /*
 Desarrollo: <br>
-Antonio Hernandez Oropeza ---> @AntonioHernandezO <br>
-Laura Angelica Ramirez Gonzalez --->@LauraAngie  <br>   
+Antonio Hernandez Oropeza ---> @AntonioHernandezO<br>
+Laura Angelica Ramirez Gonzalez --->@LauraAngie<br>   
 Nadia Rivera Velazquez --->@Naaidrv<br>
 Candido Antonio Francisco --->@candido4<br>
 Raul Martinez Ramirez --->@Raul2711<br>
