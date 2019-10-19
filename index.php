@@ -42,10 +42,10 @@
 
    <!-- Botón de Temas -->
     <nav>
-     <br><br>
+      <br><br>
      <div class="container-fluid">
-        <div class="btn-group dropright">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="btn-group-vertical">
+          <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-swatchbook fa-2x"></i> Temas</button>
           <div class="dropdown-menu" id="drag-items" >
 
@@ -74,10 +74,9 @@
       </div>
 
       <!-- Botón de Avatares -->
-           <br><br>
       <div class="container-fluid">
         <div class="btn-group dropright">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+          <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
           <i class="fas fa-user fa-2x"></i> Avatares </button>
           <div class="dropdown-menu" id="drag-items" >
 
@@ -108,10 +107,9 @@
       </div>
 
        <!-- Botón de Imágenes -->
-       <br><br>
        <div class="container-fluid">
          <div class="btn-group dropright">
-           <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            <i class="fas fa-image fa-2x"></i> Imágenes </button>
 
            <!-- Función abrir directorio para imágenes -->
@@ -138,30 +136,29 @@
          </div>
        </div>
        
-       <!-- Botón de Vídeo -->
-       <br><br>
+       <!-- Botón de Vídeo 
        <div class="container-fluid">
          <div class="btn-group dropright">
-           <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            <i class="fas fa-video fa-2x"></i>Videos </button>
           
-           <!-- Función para abrir directorio de Vídeos -->
+           <!-- Función para abrir directorio de Vídeos 
            <div class="dropdown-menu" id="drag-items" >
-          <?php
-          $cont=0;
+         
+          //$cont=0;
       
-            $d=opendir("./img/videos");
-            while(($e=readdir($d))!=false)
-            if($e!='.'&&$e!='..')
-            {
-              $cont=$cont+1;
-            $e1="./img/videos/".$e;
+            //$d=opendir("./img/videos");
+            //while(($e=readdir($d))!=false)
+            //if($e!='.'&&$e!='..')
+            //{
+              //$cont=$cont+1;
+            //$e1="./img/videos/".$e;
             
                    //Función Drag&Drop
-         echo "
-            <a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)' >
-            <img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=drag$cont>    
-            </a>  
+         //echo "
+            //<a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)' >
+            //<img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=drag$cont>    
+            //</a>  
              "; 
 
             }
@@ -171,13 +168,11 @@
        </div>
           
             <!-- Botón de Sonido -->
-            <br><br>
+
             <div class="container-fluid">
               <div class="btn-group dropright">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-volume-up fa-2x"></i>    
-                  Sonido
-                </button>
+                <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-volume-up fa-2x"></i>Sonido</button>
                 <div class="dropdown-menu" id="drag-items">
 
              <!-- Función para abrir directorio de Sonido -->
@@ -205,11 +200,10 @@
             </div>
 
             <!-- Botón de Texto -->
-            <br><br>
             <div class="container-fluid">
             <div class="btn-group dropright">
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-keyboard fa-2x"></i> Texto</button>
+            <button type="button" class="btn btn-primary dropleft-toggle"" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-keyboard fa-3x"></i>Texto</button>
             <div class="dropdown-menu" onclick="txtedit()" >
             <a class="dropdown-item" ><div class="fuente" id="idTexto" draggable="false" >Insertar texto</div>
                            
