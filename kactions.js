@@ -1,4 +1,7 @@
 document.write('<div id=container ></div>');
+      var x=200;
+      var y=140;
+
       var width = window.innerWidth;
       var height = window.innerHeight;
       var widthCanvas=58;
@@ -127,11 +130,6 @@ document.write('<div id=container ></div>');
         // is not registered by Konva.Stage
         // we can register it manually:
         stage.setPointersPositions(e);
-
-
-
-
-
         // Konva.Image.fromURL(itemURL, function(image) {
         // layer.add(image);
         // image.position(stage.getPointerPosition());
@@ -141,8 +139,8 @@ document.write('<div id=container ></div>');
         // });
 
        var imagen = new Konva.Image({
-         width:200,
-         height:137
+         width:x,
+         height:y
        });
        var aleatorio = Math.round(Math.random()*100);
        var imgGroup= new Konva.Group({
@@ -155,10 +153,12 @@ document.write('<div id=container ></div>');
        layer.add(imgGroup);
        imgGroup.add(imagen);
 
-       addAnchor(imgGroup,0,0,'topLeft');
-       addAnchor(imgGroup, 200, 0, 'topRight');
-       addAnchor(imgGroup, 200, 138, 'bottomRight');
-       addAnchor(imgGroup, 0, 138, 'bottomLeft');
+       
+    
+       addAnchor(imgGroup,0,0,'topLeft');                   
+       addAnchor(imgGroup, x, 0, 'topRight');            
+       addAnchor(imgGroup, x, y, 'bottomRight');      
+       addAnchor(imgGroup, 0, y, 'bottomLeft');
 
        var imageObj1 = new Image();
       imageObj1.onload = function() {
@@ -168,4 +168,29 @@ document.write('<div id=container ></div>');
       imageObj1.src=itemURL;
       
 });
-      
+
+
+layer.on('mouseover', function(evt) {
+  var shape = evt.target;
+  document.body.style.cursor = 'pointer';
+  shape.scaleX(1.01);
+  shape.scaleY(1.01);
+  layer.draw();
+});
+layer.on('mouseout', function(evt) {
+  var shape = evt.target;
+  document.body.style.cursor = 'default';
+  shape.scaleX(1);
+  shape.scaleY(1);
+  layer.draw();
+});
+
+layer.on('click', function(evt) {
+ //evento cuando el usuario de click
+
+
+});
+layer.on('dblclick', function(evt) {
+//evento cuando el usuario da doble click 
+
+});
