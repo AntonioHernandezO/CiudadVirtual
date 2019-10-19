@@ -8,6 +8,7 @@
     <!-- Hojas de estilos CSS utilizadas -->
     <link rel="stylesheet" href="assets/estilos2.css">
     <link rel="stylesheet" href="assets/fuentes.css">
+    <link rel="stylesheet" href="assets/dia.css">
 
     <!-- Scripts de "create" y uso de la librería "Konva" -->
     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
@@ -23,7 +24,7 @@
     <script src="Presentacion2.js"></script>
     <script src="kactions.js"></script>
     <script src="txtEd.js"></script>
-
+    <script src="assets/diapo.js"></script>
     <!-- Inicio de desarrollo del proyecto -->
      <title > CanvaUNAM</title>
     <link rel="icon" type="image/x-icon" href="img/sys/infoicon.ico"/>
@@ -236,15 +237,13 @@
           <input id="4" type="button" class="bot" value=" 4 "  />
                       <br>
                       <br>
-                     
+
           </div>
                   <div id ="PanelO">
 
                      <input id="agregar" type="button" value="[+]" onclick="agregar1();" class="bote" />
       </div>
-                 
-  </aside>
-  </div>
+
 
 
   <!-- Optional JavaScript -->
