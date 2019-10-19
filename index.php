@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-<<<<<<< HEAD
   <head>
     <!-- Etiquetas inicales para el desarrollo del proyecto -->
     <meta charset="utf-8">
@@ -47,57 +46,6 @@
      <div class="container-fluid">
         <div class="btn-group-vertical">
           <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-=======
-
-<head>
-  <!-- Etiquetas inicales para el desarrollo del proyecto -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Hojas de estilos CSS utilizadas -->
-  <link rel="stylesheet" href="assets/estilos2.css">
-  <link rel="stylesheet" href="assets/fuentes.css">
-  <link rel="stylesheet" href="assets/dia.css">
-  <!-- Scripts de "create" y uso de la librería "Konva" -->
-  <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
-  <script src="https://unpkg.com/konva@4.0.13/konva.min.js"></script>
-
-  <!--Uso de Iconos en los botones con Font Awesome-->
-  <script src="https://kit.fontawesome.com/49634fa1fd.js"></script>
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <!-- Integración de librerias JavaScript para funciones como texto -->
-  <script src="diapo.js"></script>
-  <script src="Presentacion2.js"></script>
-  <script src="kactions.js"></script>
-  <script src="txtEd.js"></script>
-
-  <!-- Inicio de desarrollo del proyecto -->
-  <title> CanvaUNAM</title>
-  <link rel="icon" type="image/x-icon" href="img/sys/infoicon.ico" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <!-- <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script> -->
-
-  <!-- Script de Ajax -->
-  <!-- Also include jQueryUI -->
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-
-</head>
-
-<!-- Cuerpo de del proyecto -->
-
-<body>
-
-  <!-- Botón de Temas -->
-  <nav>
-    <br><br>
-    <div class="container-fluid">
-      <div class="btn-group dropright">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
->>>>>>> 7a8be9db33b96a87dd87ba7a9bcf2031e563039d
           <i class="fas fa-swatchbook fa-2x"></i> Temas</button>
         <div class="dropdown-menu" id="drag-items">
 
@@ -123,18 +71,10 @@
       </div>
     </div>
 
-<<<<<<< HEAD
       <!-- Botón de Avatares -->
       <div class="container-fluid">
         <div class="btn-group dropright">
           <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-=======
-    <!-- Botón de Avatares -->
-    <br><br>
-    <div class="container-fluid">
-      <div class="btn-group dropright">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
->>>>>>> 7a8be9db33b96a87dd87ba7a9bcf2031e563039d
           <i class="fas fa-user fa-2x"></i> Avatares </button>
         <div class="dropdown-menu" id="drag-items">
 
@@ -162,20 +102,11 @@
       </div>
     </div>
 
-<<<<<<< HEAD
        <!-- Botón de Imágenes -->
        <div class="container-fluid">
          <div class="btn-group dropright">
            <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            <i class="fas fa-image fa-2x"></i> Imágenes </button>
-=======
-    <!-- Botón de Imágenes -->
-    <br><br>
-    <div class="container-fluid">
-      <div class="btn-group dropright">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-image fa-2x"></i> Imágenes </button>
->>>>>>> 7a8be9db33b96a87dd87ba7a9bcf2031e563039d
 
         <!-- Función abrir directorio para imágenes -->
         <div class="dropdown-menu" id="drag-items">
@@ -194,7 +125,6 @@
             </a>  
              ";
             }
-<<<<<<< HEAD
             ?> 
            </div>
          </div>
@@ -206,7 +136,7 @@
            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            <i class="fas fa-video fa-2x"></i>Videos </button>
           
-           <!-- Función para abrir directorio de Vídeos 
+          Función para abrir directorio de Vídeos  
            <div class="dropdown-menu" id="drag-items" >
          
           //$cont=0;
@@ -230,7 +160,7 @@
            </div>
          </div>
        </div>
-          
+          -->
             <!-- Botón de Sonido -->
 
             <div class="container-fluid">
@@ -240,54 +170,6 @@
                 <div class="dropdown-menu" id="drag-items">
 
              <!-- Función para abrir directorio de Sonido -->
-=======
-          ?>
-        </div>
-      </div>
-    </div>
-
-    <!-- Botón de Vídeo -->
-    <br><br>
-    <div class="container-fluid">
-      <div class="btn-group dropright">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-video fa-2x"></i>Videos </button>
-
-        <!-- Función para abrir directorio de Vídeos -->
-        <div class="dropdown-menu" id="drag-items">
-          <?php
-          $cont = 0;
-
-          $d = opendir("./img/videos");
-          while (($e = readdir($d)) != false)
-            if ($e != '.' && $e != '..') {
-              $cont = $cont + 1;
-              $e1 = "./img/videos/" . $e;
-
-              //Función Drag&Drop
-              echo "
-            <a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)' >
-            <img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=drag$cont>    
-            </a>  
-             ";
-            }
-          ?>
-        </div>
-      </div>
-    </div>
-
-    <!-- Botón de Sonido -->
-    <br><br>
-    <div class="container-fluid">
-      <div class="btn-group dropright">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-volume-up fa-2x"></i>
-          Sonido
-        </button>
-        <div class="dropdown-menu" id="drag-items">
-
-          <!-- Función para abrir directorio de Sonido -->
->>>>>>> 7a8be9db33b96a87dd87ba7a9bcf2031e563039d
           <?php
           $cont = 0;
 
@@ -304,7 +186,6 @@
             </a>  
              ";
             }
-<<<<<<< HEAD
             ?> 
                 </div>
               </div>
@@ -318,23 +199,6 @@
             <div class="dropdown-menu" onclick="txtedit()" >
             <a class="dropdown-item" ><div class="fuente" id="idTexto" draggable="false" >Insertar texto</div>
                            
-=======
-          ?>
-        </div>
-      </div>
-    </div>
-
-    <!-- Botón de Texto -->
-    <br><br>
-    <div class="container-fluid">
-      <div class="btn-group dropright">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-keyboard fa-2x"></i> Texto</button>
-        <div class="dropdown-menu" onclick="txtedit()">
-          <a class="dropdown-item">
-            <div class="fuente" id="idTexto" draggable="false">Insertar texto</div>
-
->>>>>>> 7a8be9db33b96a87dd87ba7a9bcf2031e563039d
 
             <!-- Botón considerado a borrar -->
 
