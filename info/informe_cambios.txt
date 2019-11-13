@@ -8,6 +8,7 @@
 *El proyecto fuente se abre desde index.php 
 *Se agrego la propiedad arrastre y soltar en canvas usando la libreria konva, 
 esta propiedad la tiene el boton "imagenes"
+*Se agrego PopTEXT.js el cual tiene un div con las porpiedades del texto
 
 
 --Se necesitan fijar las imagenes como fondos, es decir que tomen la propiedad de background

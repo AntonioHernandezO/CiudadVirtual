@@ -14,6 +14,10 @@
   <!-- Scripts de "create" y uso de la librería "Konva" -->
   <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
   <script src="https://unpkg.com/konva@4.0.13/konva.min.js"></script>
+  <script src="https://unpkg.com/konva@4.0.15/konva.min.js"></script>
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css"/>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
   <!--Uso de Iconos en los botones con Font Awesome-->
   <script src="https://kit.fontawesome.com/49634fa1fd.js"></script>
@@ -26,6 +30,7 @@
   <script src="kactions.js"></script>
   <script src="txtEd.js"></script>
   <script src="diapo.js"></script>
+  <script src="PropTEXT.js"></script>
 
   <!-- Inicio de desarrollo del proyecto -->
   <title> CanvaUNAM</title>
@@ -43,7 +48,6 @@
 <!-- Cuerpo de del proyecto -->
 
 <body>
-
   <!-- Botón de Temas -->
   <nav>
     <br><br>
