@@ -76,7 +76,7 @@ function txtedit() {
     textarea.style.left = areaPosition.x + 'px';
     textarea.style.width = textNode.width() - textNode.padding() * 2 + 'px';
     textarea.style.height =
-      textNode.height() - textNode.padding() * 2 + 5 + 'px';
+    textNode.height() - textNode.padding() * 2 + 5 + 'px';
     textarea.style.fontSize = textNode.fontSize() + 'px';
     textarea.style.border = 'none';
     textarea.style.padding = '0px';
