@@ -8,16 +8,15 @@
 *El proyecto fuente se abre desde index.php 
 *Se agrego la propiedad arrastre y soltar en canvas usando la libreria konva, 
 esta propiedad la tiene el boton "imagenes"
+*Se agrego PopTEXT.js el cual tiene un div con las porpiedades del texto
 
 
---Se necesitan fijar las imagenes como fondos, es decir que tomen la propiedad de background
---Se necesita agregar el texto para que se arrastre como las imagenes
---Se necesita la propiedad de redimesionar en las imagenes, probablemente sea conveniente rotar, etc
---Se necesita exportar el proyecto en un formato multimedia
---Se agrego un texto editable , necesita la propiedad de redimensionar,rotar etc
---Se necesita que la imagen redimensionable este adentro del nav container
---Se necesita restablecer una propiedad del nav container para que se pueda poner un objeto por defecto como una plantilla
+
+
+
+-Se necesita exportar el proyecto en un formato multimedia
+-Agregar toolbar para editar texto 
+
+
 -Se necesita preview de diapositivas
 -Se necesita crear nuevas diapositivas
--Se necesita que al momento de mover la imagen el cursor no este tan lejos de la imagen 
----------------

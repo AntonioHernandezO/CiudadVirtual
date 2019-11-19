@@ -1,4 +1,4 @@
-document.write('<div id=container ></div>');
+document.write('<div id=container  ></div>');
 var width = window.innerWidth;
 var height = window.innerHeight;
 var widthCanvas = 58;
@@ -38,8 +38,11 @@ con.addEventListener('drop', function (e) {
     image.position(stage.getPointerPosition());
     image.draggable(true);
     image.name('imagenx');
-    image.width(350);
-    image.height(250);
+    
+      image.width(350);
+      image.height(250);
+    
+
     layer.draw();
     image.on('dblclick', function (evt) {
       //evento cuando el usuario de click
@@ -55,6 +58,21 @@ con.addEventListener('drop', function (e) {
       }
       document.getElementById("ejemplo").innerHTML = mensaje;
 
+    });
+    image.on('contextmenu', function (evt) {
+      //evento cuando el usuario de click derecho
+      var mensaje;
+      var opcion = confirm("¿Deseas colocar esta imagen como fondo?");
+      if (opcion == true) {
+        image.position(0,0);
+        image.width((width / 100) * widthCanvas);
+        image.height((height / 100) * heightCanvas);
+
+      } else {
+
+      }
+      document.getElementById("ejemplo").innerHTML = mensaje;
+    
     });
   });
 

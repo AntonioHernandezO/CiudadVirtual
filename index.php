@@ -10,10 +10,22 @@
   <link rel="stylesheet" href="assets/estilos2.css">
   <link rel="stylesheet" href="assets/fuentes.css">
   <link rel="stylesheet" href="assets/dia.css">
+  <!-- Include Editor style. -->
+<link href='https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+
+<!-- Include JS file. -->
+<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/froala_editor.pkgd.min.js'></script>
 
   <!-- Scripts de "create" y uso de la librería "Konva" -->
   <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
   <script src="https://unpkg.com/konva@4.0.13/konva.min.js"></script>
+
+  <!--Medium editor js-->
+  <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+
+  <!--medium editor css-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+
 
   <!--Uso de Iconos en los botones con Font Awesome-->
   <script src="https://kit.fontawesome.com/49634fa1fd.js"></script>
@@ -66,7 +78,7 @@
               //Función Drag&Drop
               echo "
             <a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)' >
-            <img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=drag$cont>    
+            <img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=dragfondo >    
             </a>  
              ";
             }
