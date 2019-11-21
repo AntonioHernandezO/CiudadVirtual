@@ -232,18 +232,8 @@
     <aside>
       <!-- Aqui va el contenido del contenedor guinda -->
       <div id="Panel">
-        <input id="1" type="button" class="bot" value=" 1 " onclick="visualizar();" />
-        <br>
-        <br>
-        <input id="2" type="button" class="bot" value=" 2 " />
-        <br>
-        <br>
-        <input id="3" type="button" class="bot" value=" 3 " />
-        <br>
-        <br>
-        <input id="4" type="button" class="bot" value=" 4 " />
-        <br>
-        <br>
+        <input id="1" type="button" class="bot" value=" 1 "   style="top:0px;" />
+   
 
       </div>
       <div id="PanelO">
