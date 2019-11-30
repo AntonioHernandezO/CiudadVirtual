@@ -9,7 +9,9 @@ var stage = new Konva.Stage({
   height: (height / 100) * heightCanvas
 });
 var layer = new Konva.Layer();
+layer.id('canvas');
 stage.add(layer);
+
 stage.getContainer().style.border = '10px solid black';
 stage.getContainer().style.background = 'grey';
 stage.getContainer().style.width = widthCanvas + "%";

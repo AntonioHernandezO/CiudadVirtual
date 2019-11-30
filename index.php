@@ -2,6 +2,26 @@
 <html lang="en">
 
 <head>
+
+  <!--Record labels-->
+  <!-- recommended -->
+<script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+ 
+ <!-- use 5.5.6 or any other version on cdnjs -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.6/RecordRTC.js"></script>
+  
+ <!-- NPM i.e. "npm install recordrtc" -->
+ <script src="node_modules/recordrtc/RecordRTC.js"></script>
+  
+ <!-- bower -->
+ <script src="bower_components/recordrtc/RecordRTC.js"></script>
+ 
+
+<script src="https://www.webrtc-experiment.com/RecordRTC.js"></script>
+<script src="https://www.webrtc-experiment.com/FileSelector.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <!-- Etiquetas inicales para el desarrollo del proyecto -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -43,6 +63,7 @@
   <script src="txtEd.js"></script>
   <script src="diapo.js"></script>
   <script src="PropTEXT.js"></script>
+  <script src="rec.js"></script>
 
   <!-- Inicio de desarrollo del proyecto -->
   <title> CanvaUNAM</title>
@@ -60,6 +81,7 @@
 <!-- Cuerpo de del proyecto -->
 
 <body>
+  
   <!-- Botón de Temas -->
   <nav>
     <br><br>
@@ -232,13 +254,18 @@
     <aside>
       <!-- Aqui va el contenido del contenedor guinda -->
       <div id="Panel">
-        <input id="1" type="button" class="bot" value=" 1 "   style="top:0px;" />
+        <input id="1" type="button" class="bot" value=" 1 "   style="top:0px;" onclick="seleccionado(id)"/>
    
 
       </div>
       <div id="PanelO">
 
         <input id="agregar" type="button" value="[+]" onclick="agregar1();" class="bote" />
+
+
+        <input id="quitar" type="button" value="[-]" onclick="quitarBtn();" class="bote" />
+
+
       </div>
 
     </aside>
@@ -250,7 +277,80 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<br>
+<button type="button" class="btn btn-primary" id="btn-start-recording" onclick="activar()">Grabar</button>
+<button type="button" class="btn btn-primary" id="btn-stop-recording" disabled>DetenerGrabacion</button>
+<br>
 
+    
 </body>
+<hr>
+<div style="display: none;">
+    <video controls autoplay playsinline id="preview-video"></video>
+</div>
+
+
+<canvas id="background-canvas" style="position:absolute; top:-99999999px; left:-9999999999px;"></canvas>
+
+
+<script>
+  
+var elementToRecord = document.getElementById('container');
+var canvas2d = document.getElementById('background-canvas');
+var context = canvas2d.getContext('2d');
+canvas2d.width = elementToRecord.clientWidth;
+canvas2d.height = elementToRecord.clientHeight;
+var isRecordingStarted = false;
+var isStoppedRecording = false;
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+(function looper() {
+    if(!isRecordingStarted) {
+        return setTimeout(looper, 500);
+    }
+    html2canvas(elementToRecord).then(function(canvas) {
+        context.clearRect(0, 0, canvas2d.width, canvas2d.height);
+        context.drawImage(canvas, 0, 0, canvas2d.width, canvas2d.height);
+        if(isStoppedRecording) {
+            return;
+        }
+        requestAnimationFrame(looper);
+    });
+})();
+var recorder = new RecordRTC(canvas2d, {
+    type: 'canvas'
+});
+document.getElementById('btn-start-recording').onclick = function() {
+    this.disabled = true;
+    
+    isStoppedRecording =false;
+    isRecordingStarted = true;
+    recorder.startRecording();
+    document.getElementById('btn-stop-recording').disabled = false;
+};
+document.getElementById('btn-stop-recording').onclick = function() {
+    this.disabled = true;
+    
+    recorder.stopRecording(function() {
+        isRecordingStarted = false;
+        isStoppedRecording = true;
+        var blob = recorder.getBlob();
+        document.getElementById('preview-video').srcObject = null;
+        document.getElementById('preview-video').src = URL.createObjectURL(blob);
+        document.getElementById('preview-video').parentNode.style.display = 'block';
+        elementToRecord.style.display = 'none';
+         window.open(URL.createObjectURL(blob));
+    });
+};
+
+
+  </script>
+<script src="https://www.webrtc-experiment.com/html2canvas.min.js"></script>
 
 </html>

@@ -9,6 +9,7 @@ function agregar1() {
   boton.id = consta;
   boton.className = "bot";
   boton.value = ' ' + consta + ' ';
+
  
   if (consta>1){
 
@@ -31,6 +32,20 @@ function agregar1() {
 }
 
 
+
+function quitarBtn(){
+  boton.className = "bot";
+  alert("Hola mundo");
+
+}
+
+
+
+
+function seleccionado(x){
+  alert("El boton seleccionado es "+x);
+  
+}
 
 window.onload=function(){
   document.onkeypress=inspeccionartecla;
