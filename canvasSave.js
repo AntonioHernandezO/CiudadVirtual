@@ -1,4 +1,3 @@
-
 // var elementToRecord = document.getElementById('container');
 // var canvas2d = document.getElementById('background-canvas');
 // var context = canvas2d.getContext('2d');
@@ -30,15 +29,47 @@
 // var recorder = new RecordRTC(canvas2d, {
 //     type: 'canvas'
 // });
-// document.getElementById('btn-start-recording').onclick = function() {
+// document.getElementById('record').onclick = function() {
 //     this.disabled = true;
     
 //     isStoppedRecording =false;
 //     isRecordingStarted = true;
+
+//     navigator.mediaDevices.getUserMedia({
+// 	video: {
+// 		width: {
+// 			exact: 3840
+// 		},
+// 		heigth: {
+// 			exact: 2160
+// 		}
+// 	}
+// }).then(function(fourKCameraStream) {
+// 	let recorder = RecordRTC(fourKCameraStream, {
+// 		type: 'video'
+// 	});
+// 	recorder.startRecording();
+// });
+
+// navigator.mediaDevices.getUserMedia({
+// 	video: {
+// 		width: {
+// 			exact: 1920
+// 		},
+// 		heigth: {
+// 			exact: 1080
+// 		}
+// 	}
+// }).then(function(TenEightyCameraStream) {
+// 	let recorder = RecordRTC(TenEightyCameraStream, {
+// 		type: 'video'
+// 	});
+// 	recorder.startRecording();
+// });
 //     recorder.startRecording();
-//     document.getElementById('btn-stop-recording').disabled = false;
+//     document.getElementById('stop').disabled = false;
 // };
-// document.getElementById('btn-stop-recording').onclick = function() {
+// document.getElementById('stop').onclick = function() {
 //     this.disabled = true;
     
 //     recorder.stopRecording(function() {

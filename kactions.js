@@ -1,20 +1,23 @@
 document.write('<div id=container  ></div>');
+
 var width = window.innerWidth;
 var height = window.innerHeight;
-var widthCanvas = 58;
-var heightCanvas = 71.5;
+var widthCanvas = 57;
+var heightCanvas = 75;
 var stage = new Konva.Stage({
   container: 'container',
-  width: (width / 100) * widthCanvas,
-  height: (height / 100) * heightCanvas
+  width: (width / 102) * widthCanvas,
+  height: (height / 100) * heightCanvas-20
 });
 var layer = new Konva.Layer();
 layer.id('canvas');
 stage.add(layer);
 
+
 stage.getContainer().style.border = '10px solid black';
-stage.getContainer().style.background = 'grey';
+stage.getContainer().style.background = '#D4D4D4';
 stage.getContainer().style.width = widthCanvas + "%";
+stage.getContainer().style.height = heightCanvas + "%";
 // URL de las imagenes
 var itemURL = '';
 document.getElementById('drag-items')

@@ -1,11 +1,9 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-
+<!DOCTYPE html>
+<html lang="es">  
+  <head>    
   <!--Record labels-->
   <!-- recommended -->
-<script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+  <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
  
  <!-- use 5.5.6 or any other version on cdnjs -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.6/RecordRTC.js"></script>
@@ -15,7 +13,6 @@
   
  <!-- bower -->
  <script src="bower_components/recordrtc/RecordRTC.js"></script>
- 
 
 <script src="https://www.webrtc-experiment.com/RecordRTC.js"></script>
 <script src="https://www.webrtc-experiment.com/FileSelector.js"></script>
@@ -64,26 +61,148 @@
   <script src="diapo.js"></script>
   <script src="PropTEXT.js"></script>
   <script src="rec.js"></script>
+  <script src="canvasSave.js"></script>
 
   <!-- Inicio de desarrollo del proyecto -->
   <title> CanvaUNAM</title>
   <link rel="icon" type="image/x-icon" href="img/sys/infoicon.ico" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://www.webrtc-experiment.com/RecordRTC.js"></script>
+  <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+
   <!-- <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script> -->
 
-  <!-- Script de Ajax -->
+  <!-- Hp de Ajax -->
   <!-- Also include jQueryUI -->
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>   
+  </head>  
+  <body >    
+    <header id=header style="background-color: #C05151; left: 10%; top:0%; 	width: 80%; height: 8%; position: fixed;">
 
-</head>
+    <div style=" position: fixed;">
+        <button id="btn-record-webm">Start Recording</button>
+        <button id="btn-stop-recording">Stop</button>
+        <button id="play" disabled>Play</button>
+        <button id="download" disabled>Download</button>
+    </div>
+    
 
-<!-- Cuerpo de del proyecto -->
+    <script>
+              (function () {
+            if (!document.createElement('canvas').getContext) {
+                document.body.innerHTML = '<h1 style="height:auto;color:red;font-size:30px;">Excuse me Sir,<br /><br />You are using very old web-browser!<br /><br />Please upgrade it.</h1>';
+            }
+            var prepend = function (parent, elementToPrepend)
+            {
+                return parent.insertBefore(elementToPrepend, parent.firstChild);
+            };
 
-<body>
-  
-  <!-- Botón de Temas -->
-  <nav>
+            var div = document.createElement('div');
+
+            div.innerHTML = '<g:plusone size="tall"></g:plusone>';
+            div.className = 'gplus-button';
+            div.style.position = 'absolute';
+            div.style.top = 0;
+            div.style.padding = '3px 0';
+            div.style.right = '30px';
+
+            var body = document.body;
+
+            if(body.insertBefore) prepend(body, div);
+            else document.body.appendChild(div);
+        })();
+
+
+        (function () {
+            var lastTime = 0, vendors = ['ms', 'moz', 'webkit', 'o'];
+            for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+                window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+                window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'RequestCancelAnimationFrame'];
+            }
+            if (!window.requestAnimationFrame)
+                window.requestAnimationFrame = function (callback, element) {
+                    var currTime = new Date().getTime();
+                    var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+                    var id = window.setTimeout(function () {
+                        callback(currTime + timeToCall);
+                    }, timeToCall);
+                    lastTime = currTime + timeToCall;
+                    return id;
+                };
+            if (!window.cancelAnimationFrame)
+                window.cancelAnimationFrame = function (id) {
+                    clearTimeout(id);
+                };
+        }());
+    </script>
+
+    <!-- below section handles RecordRTC and WhammyRecorder -->
+
+    <script src="https://www.webrtc-experiment.com/RecordRTC.js"></script>
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+
+    <script>
+             document.getElementById('btn-record-webm').onclick = function() {
+            this.disabled = true;
+            //Asignacion de ID a canvas creado por KONVA
+            const konvaCanvas = document.querySelector('canvas');
+            konvaCanvas.setAttribute("id", "canvas");
+            //Termina la asignacion
+
+
+            navigator.mediaDevices.getUserMedia({audio: true}).then(function(audioStream) {
+                var canvas = document.getElementById('canvas');
+                var canvasStream = canvas.captureStream();
+
+                var finalStream = new MediaStream();
+                getTracks(audioStream, 'audio').forEach(function(track) {
+                    finalStream.addTrack(track);
+                });
+                getTracks(canvasStream, 'video').forEach(function(track) {
+                    finalStream.addTrack(track);
+                });
+
+                var recorder = RecordRTC(finalStream, {
+                    type: 'video'
+                });
+
+                recorder.startRecording();
+
+                var stop = false;
+
+                (function looper() {
+                    if(stop) {
+                        recorder.stopRecording(function() {
+                            var blob = recorder.getBlob();
+                            document.body.innerHTML = '<video controls src="' + URL.createObjectURL(blob) + '" autoplay loop></video>';
+
+                            audioStream.stop();
+                            canvasStream.stop();
+                        });
+                        return;
+                    }
+                    setTimeout(looper, 100);
+                })();
+
+                var seconds = 15;
+                var interval = setInterval(function() {
+                    seconds--;
+                    if(document.querySelector('h1')) {
+                        document.querySelector('h1').innerHTML = seconds + ' seconds remaining.';
+                    }
+                }, 1000);
+
+                setTimeout(function() {
+                    clearTimeout(interval);
+                    stop = true;
+                }, seconds * 1000);
+            });
+        };
+    </script>
+         
+    </header>    
+    <nav>
     <br><br>
     <div class="container-fluid">
       <div class="btn-group-vertical">
@@ -250,15 +369,25 @@
       </div>
     </div>
 
-
+    </nav>
+    <!-- <section>      
+      <article>
+        <h2>CONTENIDO PRINCIPAL</h2>
+        <p>Espacio emergente</p>
+        <div>
+          <p>Contenido enmaquetado</p>
+                   
+        </div>
+      </article>      
+    </section> -->
     <aside>
-      <!-- Aqui va el contenido del contenedor guinda -->
-      <div id="Panel">
+<!-- Aqui va el contenido del contenedor guinda -->
+<div id="Panel" style="background-color: #D4D4D4;">
         <input id="1" type="button" class="bot" value=" 1 "   style="top:0px;" onclick="seleccionado(id)"/>
    
 
       </div>
-      <div id="PanelO">
+      <div id="PanelO" style="background-color: #D4D4D4;">
 
         <input id="agregar" type="button" value="[+]" onclick="agregar1();" class="bote" />
 
@@ -269,88 +398,16 @@
       </div>
 
     </aside>
+    <footer style="background-color: #C05151; left: 10%; top:85%; 	width: 80%; height: 15%; position:fixed;">
+    <!-- <video id="recorded" playsinline loop style="width: 45%;  height: 45%; margin: 1em; object-fit: cover;"></video> -->
+      
+    </footer>
+  </body>  
+   <!-- Optional JavaScript -->
+   <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 
-
-
-    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<br>
-<button type="button" class="btn btn-primary" id="btn-start-recording" onclick="activar()">Grabar</button>
-<button type="button" class="btn btn-primary" id="btn-stop-recording" disabled>DetenerGrabacion</button>
-<br>
-
-    
-</body>
-<hr>
-<div style="display: none;">
-    <video controls autoplay playsinline id="preview-video"></video>
-</div>
-
-
-<canvas id="background-canvas" style="position:absolute; top:-99999999px; left:-9999999999px;"></canvas>
-
-
-<script>
-  
-var elementToRecord = document.getElementById('container');
-var canvas2d = document.getElementById('background-canvas');
-var context = canvas2d.getContext('2d');
-canvas2d.width = elementToRecord.clientWidth;
-canvas2d.height = elementToRecord.clientHeight;
-var isRecordingStarted = false;
-var isStoppedRecording = false;
-function getRandomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}
-(function looper() {
-    if(!isRecordingStarted) {
-        return setTimeout(looper, 500);
-    }
-    html2canvas(elementToRecord).then(function(canvas) {
-        context.clearRect(0, 0, canvas2d.width, canvas2d.height);
-        context.drawImage(canvas, 0, 0, canvas2d.width, canvas2d.height);
-        if(isStoppedRecording) {
-            return;
-        }
-        requestAnimationFrame(looper);
-    });
-})();
-var recorder = new RecordRTC(canvas2d, {
-    type: 'canvas'
-});
-document.getElementById('btn-start-recording').onclick = function() {
-    this.disabled = true;
-    
-    isStoppedRecording =false;
-    isRecordingStarted = true;
-    recorder.startRecording();
-    document.getElementById('btn-stop-recording').disabled = false;
-};
-document.getElementById('btn-stop-recording').onclick = function() {
-    this.disabled = true;
-    
-    recorder.stopRecording(function() {
-        isRecordingStarted = false;
-        isStoppedRecording = true;
-        var blob = recorder.getBlob();
-        document.getElementById('preview-video').srcObject = null;
-        document.getElementById('preview-video').src = URL.createObjectURL(blob);
-        document.getElementById('preview-video').parentNode.style.display = 'block';
-        elementToRecord.style.display = 'none';
-         window.open(URL.createObjectURL(blob));
-    });
-};
-
-
-  </script>
-<script src="https://www.webrtc-experiment.com/html2canvas.min.js"></script>
-
 </html>
