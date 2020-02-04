@@ -77,16 +77,16 @@
   <!-- Also include jQueryUI -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>   
   </head>  
-  <body >    
-    <header id=header style="background-color: #C05151; left: 10%; top:0%; 	width: 80%; height: 8%; position: fixed;">
+  <body>    
+    <header id=header style="background-color: rgb(85, 162, 185); left: 23.6%; top:0%; border-radius: 2px; width: 50%; height: 8%; position: fixed;">
 
-    <div style=" position: fixed;">
-        <button id="btn-record-webm">Start Recording</button>
-        <button id="btn-stop-recording">Stop</button>
-        <button id="play" disabled>Play</button>
-        <button id="download" disabled>Download</button>
+    <div style=" margin-left: 11%; top:1.6%; position: fixed;">
+        <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-video fa-1x"></i> Start Recording</button>
+        <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-stop fa-1x"></i> Stop</button>
+        <button type="button" class="btn btn-primary btn-sm" disabled><i class="fas fa-play fa-1x"></i> Play</button>
+        <button type="button" class="btn btn-primary btn-sm" disabled><i class="fas fa-download fa-1x"></i> Download</button>
     </div>
-    
+
 
     <script>
               (function () {
@@ -200,10 +200,9 @@
             });
         };
     </script>
-         
-    </header>    
+    </header>
     <nav>
-    <br><br>
+    <br>    
     <div class="container-fluid">
       <div class="btn-group-vertical">
         <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -232,8 +231,38 @@
       </div>
     </div>
 
+<!-- Botón de Imágenes -->
+<br>   
+    <div class="container-fluid">
+      <div class="btn-group dropright">
+        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-image fa-2x"></i> Imágenes </button>
+
+        <!-- Función abrir directorio para imágenes -->
+        <div class="dropdown-menu" id="drag-items">
+          <?php
+          $cont = 0;
+
+          $d = opendir("./img/img");
+          while (($e = readdir($d)) != false)
+            if ($e != '.' && $e != '..') {
+              $cont = $cont + 1;
+              $e1 = "./img/img/" . $e;
+              //Función Drag&Drop   
+              echo "
+            <a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)' >
+            <img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=drag$cont>    
+            </a>  
+             ";
+            }
+          ?>
+        </div>
+      </div>
+    </div>
+
+
     <!-- Botón de Avatares -->
-    <br>
+    <br>   
     <div class="container-fluid">
       <div class="btn-group dropright">
         <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -263,33 +292,59 @@
         </div>
       </div>
     </div>
-
-    <!-- Botón de Imágenes -->
-    <br>
+ <!-- Botón de Formas -->
+ <br>   
     <div class="container-fluid">
       <div class="btn-group dropright">
         <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-image fa-2x"></i> Imágenes </button>
-
-        <!-- Función abrir directorio para imágenes -->
+        <i class="fas fa-shapes fa-2x"></i> Formas </button>
         <div class="dropdown-menu" id="drag-items">
-          <?php
-          $cont = 0;
-
-          $d = opendir("./img/img");
-          while (($e = readdir($d)) != false)
-            if ($e != '.' && $e != '..') {
-              $cont = $cont + 1;
-              $e1 = "./img/img/" . $e;
-              //Función Drag&Drop   
-              echo "
-            <a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)' >
-            <img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=drag$cont>    
-            </a>  
-             ";
-            }
-          ?>
         </div>
+      </div>
+    </div>
+         <!-- Botón de Números -->
+         <br>   
+    <div class="container-fluid">
+      <div class="btn-group dropright">
+        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-list-ol fa-2x"></i> Números </button>
+        <div class="dropdown-menu" id="drag-items">
+        </div>
+      </div>
+    </div>
+        <!-- Botón de Letras -->
+        <br>
+    <div class="container-fluid">
+      <div class="btn-group dropright">
+        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-font fa-2x"></i> Letras </button>
+        <div class="dropdown-menu" id="drag-items">
+        </div>
+      </div>
+    </div>
+<!-- Botón de Pincel -->
+<br>
+    <div class="container-fluid">
+      <div class="btn-group dropright">
+        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-paint-brush fa-2x"></i> Pincel </button>
+        <div class="dropdown-menu" id="drag-items">
+        </div>
+      </div>
+    </div>
+ <!-- Botón de Texto -->
+ <br>
+    <div class="container-fluid">
+      <div class="btn-group dropright">
+        <button type="button" class="btn btn-primary " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="txtedit()">
+          <i class="fas fa-keyboard fa-2x"></i> Texto</button>
+        <!-- <div class="dropdown-menu" onclick="txtedit()" >
+            <a class="dropdown-item" ><div class="fuente" id="idTexto" draggable="false" >Insertar texto</div>
+                           
+
+        </div>
+      </div> -->
+      </div>
       </div>
     </div>
 
@@ -353,23 +408,18 @@
         </div>
       </div>
     </div>
-
-    <!-- Botón de Texto -->
-    <br>
+    <!-- Botón de Personaliza -->
+<br>
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="txtedit()">
-          <i class="fas fa-keyboard fa-2x"></i> Texto</button>
-        <!-- <div class="dropdown-menu" onclick="txtedit()" >
-            <a class="dropdown-item" ><div class="fuente" id="idTexto" draggable="false" >Insertar texto</div>
-                           
-
-        </div>
-      </div> -->
-      </div>
-    </div>
-
-    </nav>
+        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-palette fa-2x"></i> Personal </button>
+        <div class="dropdown-menu" id="drag-items">
+          </div>
+          </div>
+          </div>
+          </div>
+        </nav>
     <!-- <section>      
       <article>
         <h2>CONTENIDO PRINCIPAL</h2>
@@ -382,12 +432,12 @@
     </section> -->
     <aside>
 <!-- Aqui va el contenido del contenedor guinda -->
-<div id="Panel" style="background-color: #D4D4D4;">
-        <input id="1" type="button" class="bot" value=" 1 "   style="top:0px;" onclick="seleccionado(id)"/>
+<div id="Panel" style="background-color: rgb(91, 214, 188);">
+        <input id="1" type="button" class="bot" value=" 1 "  style="top:0px;" onclick="seleccionado(id)"/>
    
 
       </div>
-      <div id="PanelO" style="background-color: #D4D4D4;">
+      <div id="PanelO" style="background-color: rgb(91, 214, 188); left: 10%;">
 
         <input id="agregar" type="button" value="[+]" onclick="agregar1();" class="bote" />
 
@@ -398,7 +448,7 @@
       </div>
 
     </aside>
-    <footer style="background-color: #C05151; left: 10%; top:85%; 	width: 80%; height: 15%; position:fixed;">
+    <footer style="background-color: rgb(85, 162, 185); left: 11%; top:85%; 	width: 79%; height: 15%; position:fixed;">
     <!-- <video id="recorded" playsinline loop style="width: 45%;  height: 45%; margin: 1em; object-fit: cover;"></video> -->
       
     </footer>

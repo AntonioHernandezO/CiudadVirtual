@@ -10,7 +10,7 @@ aside{
 	width: 10%;
 	height: 100%;
 	position: fixed;
-	background-color: #D4D4D4;
+	background-color: rgb(91, 214, 188);
 	/*display: block;*/
 	/*float: left;*/
 	left: 90%;
@@ -31,13 +31,17 @@ aside{
 #drag-items img {
 	height: 80px;
   }
+  .container{
+
+  }
 nav{
 	position: fixed;
-	width: 10%;
+	width: 11%;
 	height: 100%;
-	background-color: #D4D4D4;
+	background-color: rgb(91, 214, 188);
+	overflow: auto;
 }
-div.caja{
+	div.caja{
     margin-top: 20px;
     margin-left: 15%;
 }
@@ -74,7 +78,22 @@ div.caja{
 	overflow:auto!important; 
 	width: 15%;
 	height: 1300%!important;
+}
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+.container::-webkit-scrollbar-thumb {
+    background: rgb(255, 1, 1);
+    border-radius: 4px;
+}
 
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+.container::-webkit-scrollbar-thumb:hover {
+    background: #02d8f5;
+    box-shadow: 0 0 2px 1px rgba(159, 255, 5, 0.2);
+}
+
+/* Cambiamos el fondo cuando esté en active */
+.container::-webkit-scrollbar-thumb:active {
+    background-color: #0bca1b;
 }
 
 

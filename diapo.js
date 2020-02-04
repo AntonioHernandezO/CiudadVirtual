@@ -4,7 +4,7 @@ var boton;
 var espacio=60;
 function agregar1() {
 
-  boton = document.createElement('input');
+  boton = document.createElement('button');
   boton.type = 'button';
   boton.id = consta;
   boton.className = "bot";
