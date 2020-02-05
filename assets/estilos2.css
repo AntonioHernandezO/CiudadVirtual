@@ -31,15 +31,12 @@ aside{
 #drag-items img {
 	height: 80px;
   }
-  .container{
 
-  }
 nav{
 	position: fixed;
 	width: 11%;
 	height: 100%;
 	background-color: rgb(91, 214, 188);
-	overflow: auto;
 }
 	div.caja{
     margin-top: 20px;

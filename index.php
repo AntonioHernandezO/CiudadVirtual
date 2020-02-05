@@ -202,11 +202,11 @@
     </script>
     </header>
     <nav>
-    <br>    
+    <br><br>
     <div class="container-fluid">
-      <div class="btn-group-vertical">
+    <div class="btn-group dropright">
         <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-swatchbook fa-2x"></i> Temas</button>
+        <i class="fas fa-paint-roller"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Temas</button>
         <div class="dropdown-menu" id="drag-items">
 
           <!-- Función para abrir el directorio de imágenes de fondo -->
@@ -236,7 +236,7 @@
     <div class="container-fluid">
       <div class="btn-group dropright">
         <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-image fa-2x"></i> Imágenes </button>
+          <i class="fas fa-image"></i>&nbsp;&nbsp;&nbsp;Imágen</button>
 
         <!-- Función abrir directorio para imágenes -->
         <div class="dropdown-menu" id="drag-items">
@@ -266,7 +266,7 @@
     <div class="container-fluid">
       <div class="btn-group dropright">
         <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user fa-2x"></i> Avatares </button>
+          <i class="fas fa-user"></i>&nbsp;Avatares</button>
         <div class="dropdown-menu" id="drag-items">
 
           <!-- Función de abrir el directorio de imágenes para avatares -->
@@ -297,7 +297,7 @@
     <div class="container-fluid">
       <div class="btn-group dropright">
         <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-shapes fa-2x"></i> Formas </button>
+        <i class="fas fa-shapes"></i> &nbsp;&nbsp;&nbsp;Formas</button>
         <div class="dropdown-menu" id="drag-items">
         </div>
       </div>
@@ -307,7 +307,7 @@
     <div class="container-fluid">
       <div class="btn-group dropright">
         <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-list-ol fa-2x"></i> Números </button>
+        <i class="fas fa-list-ol "></i>&nbsp;Números</button>
         <div class="dropdown-menu" id="drag-items">
         </div>
       </div>
@@ -317,7 +317,7 @@
     <div class="container-fluid">
       <div class="btn-group dropright">
         <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-font fa-2x"></i> Letras </button>
+        <i class="fas fa-font"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Letras</button>
         <div class="dropdown-menu" id="drag-items">
         </div>
       </div>
@@ -327,7 +327,7 @@
     <div class="container-fluid">
       <div class="btn-group dropright">
         <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-paint-brush fa-2x"></i> Pincel </button>
+        <i class="fas fa-paint-brush"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pincel</button>
         <div class="dropdown-menu" id="drag-items">
         </div>
       </div>
@@ -337,7 +337,7 @@
     <div class="container-fluid">
       <div class="btn-group dropright">
         <button type="button" class="btn btn-primary " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="txtedit()">
-          <i class="fas fa-keyboard fa-2x"></i> Texto</button>
+          <i class="fas fa-keyboard"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Texto</button>
         <!-- <div class="dropdown-menu" onclick="txtedit()" >
             <a class="dropdown-item" ><div class="fuente" id="idTexto" draggable="false" >Insertar texto</div>
                            
@@ -384,7 +384,7 @@
     <div class="container-fluid">
       <div class="btn-group dropright">
         <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-volume-up fa-2x"></i> Sonido </button>
+          <i class="fas fa-volume-up"></i>&nbsp;&nbsp;&nbsp;&nbsp;Sonido</button>
         <div class="dropdown-menu" id="drag-items">
 
           <!-- Función para abrir directorio de Sonido -->
@@ -413,7 +413,7 @@
     <div class="container-fluid">
       <div class="btn-group dropright">
         <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-palette fa-2x"></i> Personal </button>
+        <i class="fas fa-palette"></i>&nbsp;&nbsp;Personal</button>
         <div class="dropdown-menu" id="drag-items">
           </div>
           </div>
@@ -430,6 +430,8 @@
         </div>
       </article>      
     </section> -->
+    <br><br>
+
     <aside>
 <!-- Aqui va el contenido del contenedor guinda -->
 <div id="Panel" style="background-color: rgb(91, 214, 188);">
