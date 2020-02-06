@@ -9,10 +9,10 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.6/RecordRTC.js"></script>
   
  <!-- NPM i.e. "npm install recordrtc" -->
- <script src="node_modules/recordrtc/RecordRTC.js"></script>
+ <!-- <script src="node_modules/recordrtc/RecordRTC.js"></script> -->
   
  <!-- bower -->
- <script src="bower_components/recordrtc/RecordRTC.js"></script>
+ <!-- <script src="bower_components/recordrtc/RecordRTC.js"></script> -->
 
 <script src="https://www.webrtc-experiment.com/RecordRTC.js"></script>
 <script src="https://www.webrtc-experiment.com/FileSelector.js"></script>
@@ -55,7 +55,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <!-- Integración de librerias JavaScript para funciones como texto -->
-  <script src="Presentacion2.js"></script>
+ 
   <script src="kactions.js"></script>
   <script src="txtEd.js"></script>
   <script src="diapo.js"></script>
@@ -81,14 +81,25 @@
     <header id=header style="background-color: rgb(85, 162, 185); left: 23.6%; top:0%; border-radius: 2px; width: 50%; height: 8%; position: fixed;">
 
     <div style=" margin-left: 11%; top:1.6%; position: fixed;">
-        <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-video fa-1x"></i> Start Recording</button>
-        <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-stop fa-1x"></i> Stop</button>
-        <button type="button" class="btn btn-primary btn-sm" disabled><i class="fas fa-play fa-1x"></i> Play</button>
-        <button type="button" class="btn btn-primary btn-sm" disabled><i class="fas fa-download fa-1x"></i> Download</button>
+        <button type="button" class="btn btn-primary btn-sm" id="btn-record-webm"><i class="fas fa-video fa-1x"></i> Start Recording</button>
+        <button type="button" class="btn btn-primary btn-sm" id="resume" disabled><i class="fas fa-play fa-1x"></i> Resume</button>
+        <button type="button" class="btn btn-primary btn-sm" id="pause" disabled><i class="fas fa-pause fa-1x"></i> Pause</button>
+        <button type="button" class="btn btn-primary btn-sm" id="stop" disabled><i class="fas fa-stop fa-1x"></i> <i class="fas fa-download fa-1x"></i> Stop&Download</button>
+        <!-- <button type="button" class="btn btn-primary btn-sm" id="download"disabled><i class="fas fa-download fa-1x"></i> Download</button> -->
     </div>
 
 
     <script>
+      //BLOQUEO DE CONTEXT MENU Y F12
+
+           $(document).bind("contextmenu",function(e) {
+            e.preventDefault();
+            });
+            $(document).keydown(function(e){
+            if(e.which === 123){
+             return false;
+            }
+            });//TERMINA BLOQUEO
               (function () {
             if (!document.createElement('canvas').getContext) {
                 document.body.innerHTML = '<h1 style="height:auto;color:red;font-size:30px;">Excuse me Sir,<br /><br />You are using very old web-browser!<br /><br />Please upgrade it.</h1>';
@@ -145,6 +156,7 @@
     <script>
              document.getElementById('btn-record-webm').onclick = function() {
             this.disabled = true;
+           
             //Asignacion de ID a canvas creado por KONVA
             const konvaCanvas = document.querySelector('canvas');
             konvaCanvas.setAttribute("id", "canvas");
@@ -168,37 +180,53 @@
                 });
 
                 recorder.startRecording();
+                document.getElementById("stop").disabled=false;
+                document.getElementById("resume").disabled=false;
+                document.getElementById("pause").disabled=false;
 
-                var stop = false;
-
-                (function looper() {
-                    if(stop) {
-                        recorder.stopRecording(function() {
+                //INICIA FUNCION DE STOP.
+                document.getElementById('stop').onclick = function() {
+                this.disabled = true;
+                recorder.stopRecording(function() {
+                          
                             var blob = recorder.getBlob();
-                            document.body.innerHTML = '<video controls src="' + URL.createObjectURL(blob) + '" autoplay loop></video>';
-
+                            // document.body.innerHTML = '<video controls src="' + URL.createObjectURL(blob) + '" autoplay loop></video>';
                             audioStream.stop();
                             canvasStream.stop();
+                            this.save('MiVideo-CiudadVirtual');  
+                            recorder.reset();
+                            location.reload();
+                            document.getElementById("resume").disabled=true;
+                            document.getElementById("pause").disabled=true;
+                            document.getElementById("btn-record-webm").disabled=false;
+
                         });
-                        return;
-                    }
-                    setTimeout(looper, 100);
-                })();
+                };//Termina stop
+                document.getElementById('pause').onclick = function() {
+                  this.disabled = true;
+                  recorder.pauseRecording(); 
+         
+                };//Termina pausa
+                document.getElementById('resume').onclick = function() {
+                recorder.resumeRecording();
+                this.disabled=true;
+                document.getElementById("pause").disabled=false;
 
-                var seconds = 15;
-                var interval = setInterval(function() {
-                    seconds--;
-                    if(document.querySelector('h1')) {
-                        document.querySelector('h1').innerHTML = seconds + ' seconds remaining.';
-                    }
-                }, 1000);
+                };//Termina resume
 
-                setTimeout(function() {
-                    clearTimeout(interval);
-                    stop = true;
-                }, seconds * 1000);
-            });
-        };
+
+
+
+
+
+
+               
+                }); //Termina grabacion
+
+        };  //TERMINA EL EVENTO btn-record-web
+
+       
+
     </script>
     </header>
     <nav>
@@ -221,11 +249,12 @@
 
               //Función Drag&Drop
               echo "
-            <a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)' >
+      <a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)' >
             <img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=dragfondo >    
             </a>  
              ";
             }
+            
           ?>
         </div>
       </div>

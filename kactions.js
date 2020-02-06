@@ -64,21 +64,21 @@ con.addEventListener('drop', function (e) {
       document.getElementById("ejemplo").innerHTML = mensaje;
 
     });
-    image.on('contextmenu', function (evt) {
-      //evento cuando el usuario de click derecho
-      var mensaje;
-      var opcion = confirm("¿Deseas colocar esta imagen como fondo?");
-      if (opcion == true) {
-        image.position(0,0);
-        image.width((width / 100) * widthCanvas);
-        image.height((height / 100) * heightCanvas);
+  //   image.on('contextmenu', function (evt) {
+  //     //evento cuando el usuario de click derecho
+  //     var mensaje;
+  //     var opcion = confirm("¿Deseas colocar esta imagen como fondo?");
+  //     if (opcion == true) {
+  //       image.position(0,0);
+  //       image.width((width / 100) * widthCanvas);
+  //       image.height((height / 100) * heightCanvas);
 
-      } else {
+  //     } else {
 
-      }
-      document.getElementById("ejemplo").innerHTML = mensaje;
+  //     }
+  //     document.getElementById("ejemplo").innerHTML = mensaje;
     
-    });
+  //   });
   });
 
   stage.on('click tap', function (e) {
