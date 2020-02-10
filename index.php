@@ -65,7 +65,7 @@
   <script src="drawC.js"></script>
 
   <!-- Inicio de desarrollo del proyecto -->
-  <title> CanvaUNAM</title>
+  <title>E-Blackboard</title>
   <link rel="icon" type="image/x-icon" href="img/sys/infoicon.ico" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -266,7 +266,7 @@
     <div class="container-fluid">
       <div class="btn-group dropright">
         <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-image"></i>&nbsp;&nbsp;&nbsp;Imágen</button>
+          <i class="fas fa-image"></i>&nbsp;&nbsp;&nbsp;Recursos </button>
 
         <!-- Función abrir directorio para imágenes -->
         <div class="dropdown-menu" id="drag-items">
@@ -352,18 +352,7 @@
         </div>
       </div>
     </div>
-<!-- Botón de Pincel -->
-<br>
-    <div class="container-fluid">
-      <div class="btn-group dropright">
-        <button type="button" onclick="drawC()"    class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-paint-brush"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pincel</button>
-       
-          
 
-
-      </div>
-    </div>
  <!-- Botón de Texto -->
  <br>
     <div class="container-fluid">
@@ -467,7 +456,7 @@
     <aside>
 <!-- Aqui va el contenido del contenedor guinda -->
 <div id="Panel" style="background-color: rgb(91, 214, 188);">
-        <input id="1" type="button" class="bot" value=" 1 "  style="top:0px;" onclick="seleccionado(id)"/>
+        <!-- <input id="1" type="button" class="bot" value=" 1 "  style="top:0px;" onclick="seleccionado(id)"/>
    
 
       </div>
@@ -479,12 +468,46 @@
         <input id="quitar" type="button" value="[-]" onclick="quitarBtn();" class="bote" />
 
 
-      </div>
+      </div> -->
+      <!-- Botón de Pincel -->
+    <br>
+    <div class="container-fluid">
+      <div class="btn-group dropright">
+        <button type="button" onclick="drawC()"    class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-paint-brush"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pincel</button>
+       
+          </div>
+        <br>
+        <br>
+          <div>
+          <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="limpiar"><i class="fas fa-undo "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Limpiar</button>
+          </div>
+          <br>
+        
+          <div>
+          <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><i class="fas fa-brush "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Color</button>
+          </div>
+          <br>
+        
+          <div>
+          <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><i class="fas fa-sort-numeric-up-alt"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Grosor</button>
+          </div>
+          <br>
+        
+          <div>
+          <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><i class="fas fa-vial "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tipo</button>
+          </div>
+
+    </div>
+      
+
+      
 
     </aside>
     <footer style="background-color: rgb(85, 162, 185); left: 11%; top:85%; 	width: 79%; height: 15%; position:fixed;">
     <!-- <video id="recorded" playsinline loop style="width: 45%;  height: 45%; margin: 1em; object-fit: cover;"></video> -->
-    <p id="limpiar">limpiar canvas</p>
+    
+    
       
     </footer>
   </body>  

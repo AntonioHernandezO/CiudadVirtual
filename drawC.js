@@ -1,9 +1,9 @@
 function drawC(){
     //Asignacion de ID a canvas creado por KONVA
-    const konvaCanvas = document.querySelector('canvas');
-    konvaCanvas.setAttribute("id", "canvas");
+    // const konvaCanvas = document.querySelector('canvas');
+    // konvaCanvas.setAttribute("id", "canvas");
     //Termina la asignacion
-    const canvas = document.querySelector('#canvas');
+    const canvas = document.querySelector('canvas');
     const ctx = canvas.getContext('2d'); //ctx es definido como el contexto 
 
     var width = window.innerWidth;
@@ -19,10 +19,10 @@ function drawC(){
     ch=(height / 100) * heightCanvas-20;
     var limpiar = document.getElementById("limpiar");
 
-    ctx.strokeStyle = '#BADA55';
+    ctx.strokeStyle = '#FFFFFF';
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
-    ctx.lineWidth = 15;
+    ctx.lineWidth = 7;
     ctx.globalCompositeOperation = 'multiply';
 
     let isDrawing = false;
@@ -33,7 +33,7 @@ function drawC(){
 
     function draw(e) {
         if (!isDrawing) return; //Stop the function if the user has not pressed left mouse button.
-        ctx.strokeStyle = '#000000';  //para cambiar con HSL `hsl(${hue}, 100%, 50%)`;
+        ctx.strokeStyle = '#FFFFFF';  //para cambiar con HSL `hsl(${hue}, 100%, 50%)`;
         ctx.beginPath();
         ctx.moveTo(lastX, lastY);
         ctx.lineTo(e.offsetX, e.offsetY);
