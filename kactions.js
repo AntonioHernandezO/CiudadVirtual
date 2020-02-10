@@ -80,6 +80,7 @@ con.addEventListener('drop', function (e) {
     
   //   });
   });
+  
 
   stage.on('click tap', function (e) {
     // Si hay click fuera remover el resize

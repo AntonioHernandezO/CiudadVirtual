@@ -62,6 +62,7 @@
   <script src="PropTEXT.js"></script>
   <script src="rec.js"></script>
   <script src="canvasSave.js"></script>
+  <script src="drawC.js"></script>
 
   <!-- Inicio de desarrollo del proyecto -->
   <title> CanvaUNAM</title>
@@ -355,10 +356,12 @@
 <br>
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" onclick="drawC()"    class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-paint-brush"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pincel</button>
-        <div class="dropdown-menu" id="drag-items">
-        </div>
+       
+          
+
+
       </div>
     </div>
  <!-- Botón de Texto -->
@@ -481,6 +484,7 @@
     </aside>
     <footer style="background-color: rgb(85, 162, 185); left: 11%; top:85%; 	width: 79%; height: 15%; position:fixed;">
     <!-- <video id="recorded" playsinline loop style="width: 45%;  height: 45%; margin: 1em; object-fit: cover;"></video> -->
+    <p id="limpiar">limpiar canvas</p>
       
     </footer>
   </body>  
