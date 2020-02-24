@@ -3,6 +3,9 @@ function drawC(){
     // const konvaCanvas = document.querySelector('canvas');
     // konvaCanvas.setAttribute("id", "canvas");
     //Termina la asignacion
+    colorchange = document.querySelector("[type='color']");
+    elcolor=colorchange.value;
+ 
     const canvas = document.querySelector('canvas');
     const ctx = canvas.getContext('2d'); //ctx es definido como el contexto 
 
@@ -19,7 +22,7 @@ function drawC(){
     ch=(height / 100) * heightCanvas-20;
     var limpiar = document.getElementById("limpiar");
 
-    ctx.strokeStyle = '#FFFFFF';
+    ctx.strokeStyle = elcolor;
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
     ctx.lineWidth = 7;
@@ -33,7 +36,10 @@ function drawC(){
 
     function draw(e) {
         if (!isDrawing) return; //Stop the function if the user has not pressed left mouse button.
-        ctx.strokeStyle = '#FFFFFF';  //para cambiar con HSL `hsl(${hue}, 100%, 50%)`;
+        
+       
+        ctx.strokeStyle = elcolor;  //para cambiar con HSL `hsl(${hue}, 100%, 50%)`;
+       
         ctx.beginPath();
         ctx.moveTo(lastX, lastY);
         ctx.lineTo(e.offsetX, e.offsetY);
@@ -52,8 +58,19 @@ function drawC(){
         // } else {
         //     ctx.lineWidth--;
         // }
+        colorchange.addEventListener("input", actualizar, false);
+        //input_color.addEventListener("change", actualizar, false);
+        colorchange.select();
 
     }
+    function actualizar(event) {
+        // detecta el nuevo color 
+        elcolor = event.target.value;
+        ctx.strokeStyle = elcolor;
+        ctx.fillStyle = elcolor;
+        
+       
+        }
 
     window.addEventListener('mousedown', (e) => {
         isDrawing = true;

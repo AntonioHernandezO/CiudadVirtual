@@ -485,8 +485,11 @@
           <br>
         
           <div>
-          <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><i class="fas fa-brush "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Color</button>
-          </div>
+          <label for="favcolor">COLOR</label>
+          <input type="color" id="favcolor" name="favcolor" value="#ff0000"><br><br>
+          <button type="button"  onclick="colorchange()" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><i class="fas fa-brush "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Color</button>
+          
+        </div>
           <br>
         
           <div>
