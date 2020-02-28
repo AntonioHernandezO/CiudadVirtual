@@ -93,4 +93,7 @@ nav{
     background-color: #0bca1b;
 }
 
+#circular--square {
+	border-radius: 50%;
+  }
 

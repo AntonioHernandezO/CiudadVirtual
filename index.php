@@ -234,7 +234,7 @@
     <br><br>
     <div class="container-fluid">
     <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
         <i class="fas fa-paint-roller"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Temas</button>
         <div class="dropdown-menu" id="drag-items">
 
@@ -329,6 +329,24 @@
         <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-shapes"></i> &nbsp;&nbsp;&nbsp;Formas</button>
         <div class="dropdown-menu" id="drag-items">
+        <?php
+          $cont = 0;
+
+          $d = opendir("./img/formas");
+          while (($e = readdir($d)) != false)
+            if ($e != '.' && $e != '..') {
+              $cont = $cont + 1;
+              $e1 = "./img/formas/" . $e;
+
+              //Función Drag&Drop
+
+              echo "
+            <a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)' >
+            <img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=drag$cont>    
+            </a>  
+             ";
+            }
+          ?>
         </div>
       </div>
     </div>
@@ -339,6 +357,52 @@
         <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-list-ol "></i>&nbsp;Números</button>
         <div class="dropdown-menu" id="drag-items">
+        <?php
+          $cont = 0;
+
+          $d = opendir("./img/numeros");
+          while (($e = readdir($d)) != false)
+            if ($e != '.' && $e != '..') {
+              $cont = $cont + 1;
+              $e1 = "./img/numeros/" . $e;
+
+              //Función Drag&Drop
+
+              echo "
+            <a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)' >
+            <img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=drag$cont>    
+            </a>  
+             ";
+            }
+          ?>
+        </div>
+      </div>
+    </div>
+             <!-- Botón de Números -->
+             <br>   
+    <div class="container-fluid">
+      <div class="btn-group dropright">
+        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-calculator"></i>&nbsp;Signos</button>
+        <div class="dropdown-menu" id="drag-items">
+        <?php
+          $cont = 0;
+
+          $d = opendir("./img/signos");
+          while (($e = readdir($d)) != false)
+            if ($e != '.' && $e != '..') {
+              $cont = $cont + 1;
+              $e1 = "./img/signos/" . $e;
+
+              //Función Drag&Drop
+
+              echo "
+            <a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)' >
+            <img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=drag$cont>    
+            </a>  
+             ";
+            }
+          ?>
         </div>
       </div>
     </div>
@@ -349,6 +413,24 @@
         <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-font"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Letras</button>
         <div class="dropdown-menu" id="drag-items">
+        <?php
+          $cont = 0;
+
+          $d = opendir("./img/letras");
+          while (($e = readdir($d)) != false)
+            if ($e != '.' && $e != '..') {
+              $cont = $cont + 1;
+              $e1 = "./img/letras/" . $e;
+
+              //Función Drag&Drop
+
+              echo "
+            <a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)' >
+            <img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=drag$cont>    
+            </a>  
+             ";
+            }
+          ?>
         </div>
       </div>
     </div>
