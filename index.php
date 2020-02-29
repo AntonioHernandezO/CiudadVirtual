@@ -235,7 +235,8 @@
     <div class="container-fluid">
     <div class="btn-group dropright">
         <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
-        <i class="fas fa-paint-roller"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Temas</button>
+        <i class="fas fa-paint-roller"></i></button>
+        <label  id="et">Temas</label>
         <div class="dropdown-menu" id="drag-items">
 
           <!-- Función para abrir el directorio de imágenes de fondo -->
@@ -265,8 +266,8 @@
 <br>   
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-image"></i>&nbsp;&nbsp;&nbsp;Recursos </button>
+        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
+          <i class="fas fa-image"></i></button>
 
         <!-- Función abrir directorio para imágenes -->
         <div class="dropdown-menu" id="drag-items">
@@ -295,8 +296,8 @@
     <br>   
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user"></i>&nbsp;Avatares</button>
+        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
+          <i class="fas fa-user"></i></button>
         <div class="dropdown-menu" id="drag-items">
 
           <!-- Función de abrir el directorio de imágenes para avatares -->
@@ -326,8 +327,8 @@
  <br>   
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-shapes"></i> &nbsp;&nbsp;&nbsp;Formas</button>
+        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
+        <i class="fas fa-shapes"></i></button>
         <div class="dropdown-menu" id="drag-items">
         <?php
           $cont = 0;
@@ -354,8 +355,8 @@
          <br>   
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-list-ol "></i>&nbsp;Números</button>
+        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
+        <i class="fas fa-list-ol "></i></button>
         <div class="dropdown-menu" id="drag-items">
         <?php
           $cont = 0;
@@ -382,8 +383,8 @@
              <br>   
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-calculator"></i>&nbsp;Signos</button>
+        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
+        <i class="fas fa-calculator"></i></button>
         <div class="dropdown-menu" id="drag-items">
         <?php
           $cont = 0;
@@ -410,8 +411,8 @@
         <br>
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-font"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Letras</button>
+        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
+        <i class="fas fa-font"></i></button>
         <div class="dropdown-menu" id="drag-items">
         <?php
           $cont = 0;
@@ -439,8 +440,8 @@
  <br>
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="txtedit()">
-          <i class="fas fa-keyboard"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Texto</button>
+        <button type="button" class="btn btn-primary " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="txtedit()" id="circular--square">
+          <i class="fas fa-keyboard"></i></button>
         <!-- <div class="dropdown-menu" onclick="txtedit()" >
             <a class="dropdown-item" ><div class="fuente" id="idTexto" draggable="false" >Insertar texto</div>
                            
@@ -483,16 +484,16 @@
        </div>
           -->
     <!-- Botón de Sonido -->
-    <br>
+    <!-- <br>
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-volume-up"></i>&nbsp;&nbsp;&nbsp;&nbsp;Sonido</button>
-        <div class="dropdown-menu" id="drag-items">
+        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
+          <i class="fas fa-volume-up"></i></button>
+        <div class="dropdown-menu" id="drag-items"> -->
 
           <!-- Función para abrir directorio de Sonido -->
           <?php
-          $cont = 0;
+        /*$cont = 0;
 
           $d = opendir("./img/sonido");
           while (($e = readdir($d)) != false)
@@ -506,8 +507,8 @@
             <img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=drag$cont>    
             </a>  
              ";
-            }
-          ?>
+            }*/
+           ?>
         </div>
       </div>
     </div>
@@ -515,8 +516,8 @@
 <br>
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-palette"></i>&nbsp;&nbsp;Personal</button>
+        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
+        <i class="fas fa-upload"></i></button>
         <div class="dropdown-menu" id="drag-items">
           </div>
           </div>
@@ -592,7 +593,8 @@
     <footer style="background-color: rgb(85, 162, 185); left: 11%; top:85%; 	width: 79%; height: 15%; position:fixed;">
     <!-- <video id="recorded" playsinline loop style="width: 45%;  height: 45%; margin: 1em; object-fit: cover;"></video> -->
     
-    
+    <div>
+          <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  onclick="crearCuadricula()"><i class="fas fa-th-large "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cuadricula</button>
       
     </footer>
   </body>  

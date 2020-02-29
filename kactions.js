@@ -99,11 +99,27 @@ con.addEventListener('drop', function (e) {
     var tr = new Konva.Transformer();
     layer.add(tr);
     tr.attachTo(e.target);
+
+    function crearCuadricula(){
+      var line = new Konva.Line({
+        x: 100,
+        y: 50,
+        points: [73, 70, 340, 23, 450, 60, 500, 20],
+        stroke: 'red',
+        tension: 1
+      });
+    alert("Entro");
+    }
+
+
     layer.draw();
+   
+    
+
+
   });
 
 });
-
 
 
 

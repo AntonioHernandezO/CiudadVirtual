@@ -94,6 +94,14 @@ nav{
 }
 
 #circular--square {
-	border-radius: 50%;
+	border-radius: 100%;
+	height: 50px;
+	width: 50px;
   }
 
+  #et{
+	  visibility: hidden;
+  }
+  #et:hover{
+	  visibility: visible;
+  }
