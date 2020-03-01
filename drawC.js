@@ -1,7 +1,6 @@
-
-
 function drawC(){
-   
+    tamano=prompt('Ingrese el tamaño de grosor del pincel');
+    
     colorchange = document.querySelector("[type='color']");
     elcolor=colorchange.value;
  
@@ -12,7 +11,7 @@ function drawC(){
     var height = window.innerHeight;
     var widthCanvas = 57;
     var heightCanvas = 75;
-
+   
 
     canvas.width = (width/102)*widthCanvas;
     canvas.height=(height / 100) * heightCanvas-20;
@@ -46,19 +45,7 @@ function drawC(){
         ctx.lineTo(e.offsetX, e.offsetY);
         ctx.stroke();
         [lastX, lastY] = [e.offsetX, e.offsetY];
-        // hue++;
-        // if (hue >= 360) {
-        //     hue = 0;
-        // }
-        // if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) { //DESCOMENTAR UNICAMENTE SI SE QUIERE ACTIVAR HUE " HSL"  http://mothereffinghsl.com/
-        //     console.log(direction);
-        //     direction = !direction;
-        // }
-        // if (direction) {
-        //     ctx.lineWidth++;                     //DESCOMENTAR UNICAMENTE SI QUIERE QUE EL TAMAÑO DEL PINCEL AUMENTE GRADUALMENTE
-        // } else {
-        //     ctx.lineWidth--;
-        // }
+    
         colorchange.addEventListener("input", actualizar, false);
         //input_color.addEventListener("change", actualizar, false);
         colorchange.select();
@@ -94,5 +81,12 @@ function drawC(){
         Trazados.length = 0;
         puntos.length = 0;
       }, false);
-    
+   
+
+function clean(){
+    ctx.beginPath();
+ctx.clearRect(e.pageX - c.offsetLeft, e.pageY - c.offsetTop,tamano,tamano);
+
 }
+
+    }

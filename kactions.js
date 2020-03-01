@@ -143,3 +143,13 @@ function tomarcaptura(){
   //o puedes usar una minilibreria que hice https://www.lawebdelprogramador.com/codigo/JavaScript/4290-libreria-canvas-JavaScript.html
 
 };
+
+function restart(){
+  var c = document.querySelector('canvas');
+  var context = c.getContext('2d');
+  context.setTransform(1, 0, 0, 1, 0, 0);
+context.clearRect(0, 0, c.width, c.height);
+context.resetTransform();
+
+
+}

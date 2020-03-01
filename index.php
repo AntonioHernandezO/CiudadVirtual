@@ -552,61 +552,28 @@
     <br>
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" onclick="drawC()"    class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" onclick="drawC()"   class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-paint-brush"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pincel</button>
        
           </div>
-        <br><br>
-        <select id="tool">
-      <option value="brush">Brush</option>
-      <option value="eraser">Eraser</option>
-    </select>
-    
-    <br>
+        <br>
   
-    <select id="pincelsize" onchange="dibujaTrazado()">
-    <script>
-    var selector=document.getElementById("pincelsize");
-    var option = document.createElement('option');
-      option.value = 0;
-    option.text = "Tamaño pincel";
-   selector.appendChild(option);
-  
-  
-    for(var x=1; x<101; x++){
-      var option = document.createElement('option');
-      option.value = x;
-    option.text = x;
    
-    selector.appendChild(option);
-
-    }
-    
-    </script>
-    </select>
-  </select>
         <br>
           <div>
-          <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="limpiar"><i class="fas fa-undo "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Limpiar</button>
+          <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="limpiar"><i class="fas fa-backspace" onclick="clean()"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Limpiar</button>
           </div>
           <br>
         
           <div>
           <label for="favcolor">COLOR</label>
-          <input type="color" id="favcolor" name="favcolor" value="#ff0000"><br><br>
+          <input type="color" id="favcolor" name="favcolor" value="#ffffff"><br><br>
           <button type="button"  onclick="colorchange()" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><i class="fas fa-brush "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Color</button>
           
         </div>
           <br>
         
-          <div>
-          <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><i class="fas fa-sort-numeric-up-alt"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Grosor</button>
-          </div>
-          <br>
-        
-          <div>
-          <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><i class="fas fa-vial "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tipo</button>
-          </div>
+    
 
     </div>
       
@@ -627,7 +594,7 @@
           <button type="button" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ><i class="fas fa-vector-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Blanco</button>
   </div>
   <div>
-          <button type="button" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ><i class="fas fa-eraser"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reiniciar</button>
+          <button type="button" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="restart()" ><i class="fas fa-eraser"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reiniciar</button>
   </div>
  
   <div>
