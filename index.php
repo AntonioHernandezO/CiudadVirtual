@@ -63,6 +63,7 @@
   <script src="rec.js"></script>
   <script src="canvasSave.js"></script>
   <script src="drawC.js"></script>
+  <script src="js\particles\particles.js"></script>
 
   <!-- Inicio de desarrollo del proyecto -->
   <title>E-Blackboard</title>
@@ -79,13 +80,13 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>   
   </head>  
   <body>    
-    <header id=header style="background-color: rgb(85, 162, 185); left: 23.6%; top:0%; border-radius: 2px; width: 50%; height: 8%; position: fixed;">
+    <header id=header style="background-color: rgb(85, 162, 185); left: 20%; top:0%; border-radius: 2px; width: 57%; height: 8%; position: fixed;">
 
-    <div style=" margin-left: 11%; top:1.6%; position: fixed;">
-        <button type="button" class="btn btn-primary btn-sm" id="btn-record-webm"><i class="fas fa-video fa-1x"></i> Start Recording</button>
-        <button type="button" class="btn btn-primary btn-sm" id="resume" disabled><i class="fas fa-play fa-1x"></i> Resume</button>
-        <button type="button" class="btn btn-primary btn-sm" id="pause" disabled><i class="fas fa-pause fa-1x"></i> Pause</button>
-        <button type="button" class="btn btn-primary btn-sm" id="stop" disabled><i class="fas fa-stop fa-1x"></i> <i class="fas fa-download fa-1x"></i> Stop&Download</button>
+    <div style=" top:1.6%; justify-content: space-evenly;  display: flex; align-items: start; margin-right: 10%; margin-left: 9%; margin-top: 1.6%;" >
+        <button type="button" style="border-radius: 40%;" class="btn btn-secondary btn-sm" id="btn-record-webm"><i class="fas fa-video fa-1x"></i> Start Recording</button>
+        <button type="button" style="border-radius: 40%;"  class="btn btn-secondary btn-sm" id="resume" disabled><i class="fas fa-play fa-1x"></i> Resume</button>
+        <button type="button" style="border-radius: 40%;"  class="btn btn-secondary btn-sm" id="pause" disabled><i class="fas fa-pause fa-1x"></i> Pause</button>
+        <button type="button" style="border-radius: 40%;"  class="btn btn-secondary btn-sm" id="stop" disabled><i class="fas fa-stop fa-1x"></i> <i class="fas fa-download fa-1x"></i> Stop&Download</button>
         <!-- <button type="button" class="btn btn-primary btn-sm" id="download"disabled><i class="fas fa-download fa-1x"></i> Download</button> -->
     </div>
 
@@ -166,6 +167,7 @@
 
             navigator.mediaDevices.getUserMedia({audio: true}).then(function(audioStream) {
                 var canvas = document.getElementById('canvas');
+                
                 var canvasStream = canvas.captureStream();
 
                 var finalStream = new MediaStream();
@@ -214,17 +216,11 @@
                 document.getElementById("pause").disabled=false;
 
                 };//Termina resume
-
-
-
-
-
-
-
-               
-                }); //Termina grabacion
+             }); //Termina grabacion
 
         };  //TERMINA EL EVENTO btn-record-web
+
+        //Empiza tomar captura
 
        
 
@@ -560,7 +556,35 @@
         <i class="fas fa-paint-brush"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pincel</button>
        
           </div>
-        <br>
+        <br><br>
+        <select id="tool">
+      <option value="brush">Brush</option>
+      <option value="eraser">Eraser</option>
+    </select>
+    
+    <br>
+  
+    <select id="pincelsize" onchange="dibujaTrazado()">
+    <script>
+    var selector=document.getElementById("pincelsize");
+    var option = document.createElement('option');
+      option.value = 0;
+    option.text = "Tamaño pincel";
+   selector.appendChild(option);
+  
+  
+    for(var x=1; x<101; x++){
+      var option = document.createElement('option');
+      option.value = x;
+    option.text = x;
+   
+    selector.appendChild(option);
+
+    }
+    
+    </script>
+    </select>
+  </select>
         <br>
           <div>
           <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="limpiar"><i class="fas fa-undo "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Limpiar</button>
@@ -590,12 +614,27 @@
       
 
     </aside>
-    <footer style="background-color: rgb(85, 162, 185); left: 11%; top:85%; 	width: 79%; height: 15%; position:fixed;">
-    <!-- <video id="recorded" playsinline loop style="width: 45%;  height: 45%; margin: 1em; object-fit: cover;"></video> -->
+    <footer style="background-color: rgb(85, 162, 185); left: 11%; top:85%; 	width: 79%; height: 15%; position:fixed;   display: flex; justify-content:space-around;">
+    
     
     <div>
-          <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  onclick="crearCuadricula()"><i class="fas fa-th-large "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cuadricula</button>
-      
+          <button type="button" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  onclick="crearCuadricula()"><i class="fas fa-th-large "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cuadricula</button>
+  </div>
+  <div>
+          <button type="button" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ><i class="fas fa-grip-lines"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lineas</button>
+  </div>
+  <div>
+          <button type="button" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ><i class="fas fa-vector-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Blanco</button>
+  </div>
+  <div>
+          <button type="button" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ><i class="fas fa-eraser"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reiniciar</button>
+  </div>
+ 
+  <div>
+          <button type="button" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  id="descargar" onclick="tomarcaptura()"><i class="fas fa-camera-retro"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tomar captura</button>
+  </div>
+  
+
     </footer>
   </body>  
    <!-- Optional JavaScript -->

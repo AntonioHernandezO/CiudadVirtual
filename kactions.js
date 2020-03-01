@@ -8,16 +8,32 @@ var stage = new Konva.Stage({
   container: 'container',
   width: (width / 102) * widthCanvas,
   height: (height / 100) * heightCanvas-20
+  
+  
 });
 var layer = new Konva.Layer();
+
 layer.id('canvas');
-stage.add(layer);
+
+
+
+
+
+stage.add(layer);//El layer se agrega al stage.
 
 
 stage.getContainer().style.border = '10px solid black';
-stage.getContainer().style.background = '#D4D4D4';
+stage.getContainer().style.background = '#FFFFFF';
 stage.getContainer().style.width = widthCanvas + "%";
 stage.getContainer().style.height = heightCanvas + "%";
+
+
+
+
+
+
+
+
 // URL de las imagenes
 var itemURL = '';
 document.getElementById('drag-items')
@@ -64,21 +80,10 @@ con.addEventListener('drop', function (e) {
       document.getElementById("ejemplo").innerHTML = mensaje;
 
     });
-  //   image.on('contextmenu', function (evt) {
-  //     //evento cuando el usuario de click derecho
-  //     var mensaje;
-  //     var opcion = confirm("¿Deseas colocar esta imagen como fondo?");
-  //     if (opcion == true) {
-  //       image.position(0,0);
-  //       image.width((width / 100) * widthCanvas);
-  //       image.height((height / 100) * heightCanvas);
+    image.on('contextmenu', function (evt) {
 
-  //     } else {
-
-  //     }
-  //     document.getElementById("ejemplo").innerHTML = mensaje;
     
-  //   });
+   });//fin del contextmenu 
   });
   
 
@@ -99,29 +104,42 @@ con.addEventListener('drop', function (e) {
     var tr = new Konva.Transformer();
     layer.add(tr);
     tr.attachTo(e.target);
-
-    function crearCuadricula(){
-      var line = new Konva.Line({
-        x: 100,
-        y: 50,
-        points: [73, 70, 340, 23, 450, 60, 500, 20],
-        stroke: 'red',
-        tension: 1
-      });
-    alert("Entro");
-    }
-
-
     layer.draw();
+   });
    
-    
-
-
-  });
+  
 
 });
 
 
+function tomarcaptura(){
 
+  var c = document.querySelector('canvas');
+  document.getElementById('descargar').onclick = function(){
+    try{
 
+    
 
+    let filename = prompt("Guardar como",""),
+    link = document.createElement('a');
+
+    if (filename == null){//si el usiario dio cancelar
+      return false;
+    }
+    else if (filename == ""){//si el usuario le dio click y no puso nombre al archivo
+      link.download = "Sin título";
+      link.href = c.toDataURL("image/png");//usa la imagen del canvas
+    }
+    else{//si el usuario le dio aceptar y puso un nombre al archivo
+      link.download = filename;
+      link.href = c.toDataURL("image/png");
+    }
+ 
+    link.click();
+  }catch(error){
+    alert("Se debe realizar alguna tarea en el pizarron");
+  }
+  }
+  //o puedes usar una minilibreria que hice https://www.lawebdelprogramador.com/codigo/JavaScript/4290-libreria-canvas-JavaScript.html
+
+};

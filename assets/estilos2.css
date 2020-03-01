@@ -105,3 +105,7 @@ nav{
   #et:hover{
 	  visibility: visible;
   }
+
+  #circular--squareheader {
+	border-radius: 100%;
+  }

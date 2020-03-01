@@ -1,8 +1,7 @@
+
+
 function drawC(){
-    //Asignacion de ID a canvas creado por KONVA
-    // const konvaCanvas = document.querySelector('canvas');
-    // konvaCanvas.setAttribute("id", "canvas");
-    //Termina la asignacion
+   
     colorchange = document.querySelector("[type='color']");
     elcolor=colorchange.value;
  
@@ -25,7 +24,9 @@ function drawC(){
     ctx.strokeStyle = elcolor;
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
-    ctx.lineWidth = 7;
+    ctx.lineWidth = tamano;
+
+    
     ctx.globalCompositeOperation = 'multiply';
 
     let isDrawing = false;
@@ -62,15 +63,23 @@ function drawC(){
         //input_color.addEventListener("change", actualizar, false);
         colorchange.select();
 
+        dibujaTrazado.addEventListener("input",cambiar,false);
+        dibujaTrazado.select();
+
     }
+    function cambiar(event) { 
+        if(ctx){
+            ctx.lineWidth = document.getElementById("pincelsize").value;
+            alert(ctx.lineWidth());
+        }
+
+     }
     function actualizar(event) {
         // detecta el nuevo color 
         elcolor = event.target.value;
         ctx.strokeStyle = elcolor;
         ctx.fillStyle = elcolor;
-        
-       
-        }
+     }
 
     window.addEventListener('mousedown', (e) => {
         isDrawing = true;
