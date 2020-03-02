@@ -79,14 +79,14 @@
   <!-- Also include jQueryUI -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>   
   </head>  
-  <body onload="alcargar()">    
+  <body>    
     <header id=header style="background-color: rgb(85, 162, 185); left: 20%; top:0%; border-radius: 2px; width: 57%; height: 8%; position: fixed;">
 
     <div style=" top:1.6%; justify-content: space-evenly;  display: flex; align-items: start; margin-right: 10%; margin-left: 9%; margin-top: 1.6%;" >
-        <button type="button" style="border-radius: 40%;" class="btn btn-secondary btn-sm" id="btn-record-webm" onclick="grabar()"><i class="fas fa-video fa-1x"></i> Start Recording</button>
-        <button type="button" style="border-radius: 40%;"  class="btn btn-secondary btn-sm" id="resume" disabled><i class="fas fa-play fa-1x"></i> Resume</button>
-        <button type="button" style="border-radius: 40%;"  class="btn btn-secondary btn-sm" id="pause" disabled><i class="fas fa-pause fa-1x"></i> Pause</button>
-        <button type="button" style="border-radius: 40%;"  class="btn btn-secondary btn-sm" id="stop" disabled><i class="fas fa-stop fa-1x"></i> <i class="fas fa-download fa-1x"></i> Stop&Download</button>
+        <button type="button" style="border-radius: 40%;" title="Iniciar Grabación" class="btn btn-secondary btn-sm" id="btn-record-webm"><i class="fas fa-video fa-1x"></i> Start Recording</button>
+        <button type="button" style="border-radius: 40%;" title="Reproducir" class="btn btn-secondary btn-sm" id="resume" disabled><i class="fas fa-play fa-1x"></i> Resume</button>
+        <button type="button" style="border-radius: 40%;" title="Pausar reproducción" class="btn btn-secondary btn-sm" id="pause" disabled><i class="fas fa-pause fa-1x"></i> Pause</button>
+        <button type="button" style="border-radius: 40%;" title="Parar reproducción y Desacargar" class="btn btn-secondary btn-sm" id="stop" disabled><i class="fas fa-stop fa-1x"></i><i class="fas fa-download fa-1x"></i> Stop&Download</button>
         <!-- <button type="button" class="btn btn-primary btn-sm" id="download"disabled><i class="fas fa-download fa-1x"></i> Download</button> -->
     </div>
 
@@ -94,7 +94,60 @@
     <script>
       //BLOQUEO DE CONTEXT MENU Y F12
 
+           $(document).bind("contextmenu",function(e) {
+            e.preventDefault();
+            });
+            $(document).keydown(function(e){
+            if(e.which === 123){
+             return false;
+            }
+            });//TERMINA BLOQUEO
+              (function () {
+            if (!document.createElement('canvas').getContext) {
+                document.body.innerHTML = '<h1 style="height:auto;color:red;font-size:30px;">Excuse me Sir,<br /><br />You are using very old web-browser!<br /><br />Please upgrade it.</h1>';
+            }
+            var prepend = function (parent, elementToPrepend)
+            {
+                return parent.insertBefore(elementToPrepend, parent.firstChild);
+            };
 
+            var div = document.createElement('div');
+
+            div.innerHTML = '<g:plusone size="tall"></g:plusone>';
+            div.className = 'gplus-button';
+            div.style.position = 'absolute';
+            div.style.top = 0;
+            div.style.padding = '3px 0';
+            div.style.right = '30px';
+
+            var body = document.body;
+
+            if(body.insertBefore) prepend(body, div);
+            else document.body.appendChild(div);
+        })();
+
+
+        (function () {
+            var lastTime = 0, vendors = ['ms', 'moz', 'webkit', 'o'];
+            for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+                window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+                window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'RequestCancelAnimationFrame'];
+            }
+            if (!window.requestAnimationFrame)
+                window.requestAnimationFrame = function (callback, element) {
+                    var currTime = new Date().getTime();
+                    var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+                    var id = window.setTimeout(function () {
+                        callback(currTime + timeToCall);
+                    }, timeToCall);
+                    lastTime = currTime + timeToCall;
+                    return id;
+                };
+            if (!window.cancelAnimationFrame)
+                window.cancelAnimationFrame = function (id) {
+                    clearTimeout(id);
+                };
+        }());
     </script>
 
     <!-- below section handles RecordRTC and WhammyRecorder -->
@@ -103,18 +156,83 @@
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 
     <script>
-          //Beta de Screenrecord
-          
+             document.getElementById('btn-record-webm').onclick = function() {
+            this.disabled = true;
+           
+            //Asignacion de ID a canvas creado por KONVA
+            const konvaCanvas = document.querySelector('canvas');
+            konvaCanvas.setAttribute("id", "canvas");
+            //Termina la asignacion
+
+
+            navigator.mediaDevices.getUserMedia({audio: true}).then(function(audioStream) {
+                var canvas = document.getElementById('canvas');
+                
+                var canvasStream = canvas.captureStream();
+
+                var finalStream = new MediaStream();
+                getTracks(audioStream, 'audio').forEach(function(track) {
+                    finalStream.addTrack(track);
+                });
+                getTracks(canvasStream, 'video').forEach(function(track) {
+                    finalStream.addTrack(track);
+                });
+
+                var recorder = RecordRTC(finalStream, {
+                    type: 'video'
+                });
+
+                recorder.startRecording();
+                document.getElementById("stop").disabled=false;
+                document.getElementById("resume").disabled=false;
+                document.getElementById("pause").disabled=false;
+
+                //INICIA FUNCION DE STOP.
+                document.getElementById('stop').onclick = function() {
+                this.disabled = true;
+                recorder.stopRecording(function() {
+                          
+                            var blob = recorder.getBlob();
+                            // document.body.innerHTML = '<video controls src="' + URL.createObjectURL(blob) + '" autoplay loop></video>';
+                            audioStream.stop();
+                            canvasStream.stop();
+                            this.save('MiVideo-CiudadVirtual');  
+                            recorder.reset();
+                            location.reload();
+                            document.getElementById("resume").disabled=true;
+                            document.getElementById("pause").disabled=true;
+                            document.getElementById("btn-record-webm").disabled=false;
+
+                        });
+                };//Termina stop
+                document.getElementById('pause').onclick = function() {
+                  this.disabled = true;
+                  recorder.pauseRecording(); 
+         
+                };//Termina pausa
+                document.getElementById('resume').onclick = function() {
+                recorder.resumeRecording();
+                this.disabled=true;
+                document.getElementById("pause").disabled=false;
+
+                };//Termina resume
+             }); //Termina grabacion
+
+        };  //TERMINA EL EVENTO btn-record-web
+
+        //Empiza tomar captura
+
        
-</script>
+
+    </script>
     </header>
     <nav>
-    <br><br>
+    <br><br><br><br>
     <div class="container-fluid">
     <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
+        <button type="button" title="Temas" class="btn btn-primary btn-lg dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
         <i class="fas fa-paint-roller"></i></button>
-        <label  id="et">Temas</label>
+        <!--<label  id="et">Temas</label>-->
         <div class="dropdown-menu" id="drag-items">
 
           <!-- Función para abrir el directorio de imágenes de fondo -->
@@ -141,10 +259,9 @@
     </div>
 
 <!-- Botón de Imágenes -->
-<br>   
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
+        <button type="button" title="Imágenes" class="btn btn-primary btn-lg dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
           <i class="fas fa-image"></i></button>
 
         <!-- Función abrir directorio para imágenes -->
@@ -171,10 +288,9 @@
 
 
     <!-- Botón de Avatares -->
-    <br>   
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
+        <button type="button" title="Avatares" class="btn btn-primary btn-lg dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
           <i class="fas fa-user"></i></button>
         <div class="dropdown-menu" id="drag-items">
 
@@ -202,10 +318,9 @@
       </div>
     </div>
  <!-- Botón de Formas -->
- <br>   
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
+        <button type="button" title="Formas" class="btn btn-primary btn-lg dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
         <i class="fas fa-shapes"></i></button>
         <div class="dropdown-menu" id="drag-items">
         <?php
@@ -230,10 +345,9 @@
       </div>
     </div>
          <!-- Botón de Números -->
-         <br>   
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
+        <button type="button" title="Números" class="btn btn-primary btn-lg dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
         <i class="fas fa-list-ol "></i></button>
         <div class="dropdown-menu" id="drag-items">
         <?php
@@ -257,11 +371,10 @@
         </div>
       </div>
     </div>
-             <!-- Botón de Números -->
-             <br>   
+             <!-- Botón de Números -->   
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
+        <button type="button" title="Formas de Calculadora" class="btn btn-primary btn-lg dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
         <i class="fas fa-calculator"></i></button>
         <div class="dropdown-menu" id="drag-items">
         <?php
@@ -286,10 +399,9 @@
       </div>
     </div>
         <!-- Botón de Letras -->
-        <br>
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
+        <button type="button" title="Letras" class="btn btn-primary btn-lg dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
         <i class="fas fa-font"></i></button>
         <div class="dropdown-menu" id="drag-items">
         <?php
@@ -315,10 +427,9 @@
     </div>
 
  <!-- Botón de Texto -->
- <br>
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="txtedit()" id="circular--square">
+        <button type="button" title="Texto" class="btn btn-primary btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  id="circular--square" onclick="txtedit()">
           <i class="fas fa-keyboard"></i></button>
         <!-- <div class="dropdown-menu" onclick="txtedit()" >
             <a class="dropdown-item" ><div class="fuente" id="idTexto" draggable="false" >Insertar texto</div>
@@ -391,10 +502,9 @@
       </div>
     </div>
     <!-- Botón de Personaliza -->
-<br>
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
+        <button type="button" title="Personalizar" class="btn btn-primary btn-lg dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
         <i class="fas fa-upload"></i></button>
         <div class="dropdown-menu" id="drag-items">
           </div>
@@ -431,56 +541,43 @@
 
       </div> -->
       <!-- Botón de Pincel -->
-    <br>
+    <br><br>
     <div class="container-fluid">
-      <div class="btn-group dropright">
-        <button type="button" onclick="drawC()"   class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-paint-brush"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pincel</button>
-       
-          </div>
-        <br>
-  
-   
-        <br>
+        <button type="button" title="Grosor del Pincel" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--squar">
+        <i class="fas fa-paint-brush" onclick="drawC()"></i></button>
+       </div>
+
           <div>
-          <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="limpiar"><i class="fas fa-backspace" onclick="clean()"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Limpiar</button>
+          <div class="container-fluid">
+          <button type="button" title="Limpiar" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--squar">
+          <i class="fas fa-backspace" onclick="clean()"></i></button>
           </div>
-          <br>
-        
+
           <div>
-          <label for="favcolor">COLOR <i class="fas fa-brush "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-          <input type="color" id="favcolor" name="favcolor" value="#ffffff"><br><br>
-          <!-- <button type="button"  onclick="colorchange()" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><i class="fas fa-brush "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Color</button> -->
-          
+          <!--<label for="favcolor">COLOR</label>-->
+          <input type="color" class="palco" title="Paleta de Color" id="favcolor" name="favcolor" value="#ffffff"></input><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Colores
+          <!--<button type="button"  for="favcolor" onclick="colorchange()" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><i class="fas fa-brush "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Color</button>-->
         </div>
           <br>
-        
-    
-
     </div>
-      
-
-      
-
     </aside>
     <footer style="background-color: rgb(85, 162, 185); left: 11%; top:85%; 	width: 79%; height: 15%; position:fixed;   display: flex; justify-content:space-around;">
-    
-    
-    <div>
-          <button type="button" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  onclick="crearCuadricula()"><i class="fas fa-th-large "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cuadricula</button>
+    <div class="botfot">
+          <button type="button" title="Cuadrícula" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  onclick="crearCuadricula()"><i class="fas fa-th-large "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cuadricula</button>
   </div>
-  <div>
-          <button type="button" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ><i class="fas fa-grip-lines"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lineas</button>
+  <div class="botfot">
+          <button type="button" title="Líneas" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ><i class="fas fa-grip-lines"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lineas</button>
   </div>
-  <div>
-          <button type="button" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ><i class="fas fa-vector-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Blanco</button>
+  <div class="botfot">
+          <button type="button" title="Blanco" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ><i class="fas fa-vector-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Blanco</button>
   </div>
-  <div>
-          <button type="button" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="restart()" ><i class="fas fa-eraser"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reiniciar</button>
+  <div class="botfot">
+          <button type="button" title="Reiniciar" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="restart()" ><i class="fas fa-eraser"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reiniciar</button>
   </div>
  
-  <div>
-          <button type="button" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  id="descargar" onclick="tomarcaptura()"><i class="fas fa-camera-retro"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tomar captura</button>
+  <div class="botfot">
+          <button type="button" title="Tomar Captura" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  id="descargar" onclick="tomarcaptura()"><i class="fas fa-camera-retro"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tomar captura</button>
   </div>
   
 
