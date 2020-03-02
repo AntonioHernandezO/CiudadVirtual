@@ -1,33 +1,25 @@
+
+
 function drawC(){
     tamano=prompt('Ingrese el tamaño de grosor del pincel');
-    
     colorchange = document.querySelector("[type='color']");
     elcolor=colorchange.value;
- 
     const canvas = document.querySelector('canvas');
     const ctx = canvas.getContext('2d'); //ctx es definido como el contexto 
-
     var width = window.innerWidth;
     var height = window.innerHeight;
     var widthCanvas = 57;
     var heightCanvas = 75;
-   
-
     canvas.width = (width/102)*widthCanvas;
     canvas.height=(height / 100) * heightCanvas-20;
-
     cw=(width/102)*widthCanvas;
     ch=(height / 100) * heightCanvas-20;
     var limpiar = document.getElementById("limpiar");
-
     ctx.strokeStyle = elcolor;
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
     ctx.lineWidth = tamano;
-
-    
     ctx.globalCompositeOperation = 'multiply';
-
     let isDrawing = false;
     let lastX = 0;
     let lastY = 0;
@@ -36,23 +28,17 @@ function drawC(){
 
     function draw(e) {
         if (!isDrawing) return; //Stop the function if the user has not pressed left mouse button.
-        
-       
         ctx.strokeStyle = elcolor;  //para cambiar con HSL `hsl(${hue}, 100%, 50%)`;
-       
         ctx.beginPath();
         ctx.moveTo(lastX, lastY);
         ctx.lineTo(e.offsetX, e.offsetY);
         ctx.stroke();
         [lastX, lastY] = [e.offsetX, e.offsetY];
-    
         colorchange.addEventListener("input", actualizar, false);
         //input_color.addEventListener("change", actualizar, false);
         colorchange.select();
-
         dibujaTrazado.addEventListener("input",cambiar,false);
         dibujaTrazado.select();
-
     }
     function cambiar(event) { 
         if(ctx){
@@ -82,7 +68,6 @@ function drawC(){
         puntos.length = 0;
       }, false);
    
-
 function clean(){
     ctx.beginPath();
 ctx.clearRect(e.pageX - c.offsetLeft, e.pageY - c.offsetTop,tamano,tamano);

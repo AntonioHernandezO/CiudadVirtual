@@ -4,21 +4,18 @@ function txtedit() {
 
   stage.add(layer);
   stage.getContainer().style.border = '10px solid black';
-  stage.getContainer().style.background = 'grey';
+  stage.getContainer().style.background = '#ffffff';
   stage.getContainer().style.width = widthCanvas + "%";
-
-
+  tamano=prompt('Ingrese el tamaño de la fuente',25);
   var textNode = new Konva.Text({
-    text: 'Some text here',
-    x: 50,
+    text: 'Click para modificar',
+    x: 200,
     y: 80,
-    fontSize: 20,
+    fontSize: tamano,
     draggable: true,
-    width: 200
+    width: 250
   });
-
   layer.add(textNode);
-
   var tr = new Konva.Transformer({
     node: textNode,
     enabledAnchors: ['middle-left', 'middle-right'],

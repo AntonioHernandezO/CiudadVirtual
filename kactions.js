@@ -1,5 +1,4 @@
 document.write('<div id=container  ></div>');
-
 var width = window.innerWidth;
 var height = window.innerHeight;
 var widthCanvas = 57;
@@ -8,32 +7,14 @@ var stage = new Konva.Stage({
   container: 'container',
   width: (width / 102) * widthCanvas,
   height: (height / 100) * heightCanvas-20
-  
-  
 });
 var layer = new Konva.Layer();
-
 layer.id('canvas');
-
-
-
-
-
 stage.add(layer);//El layer se agrega al stage.
-
-
 stage.getContainer().style.border = '10px solid black';
 stage.getContainer().style.background = '#FFFFFF';
 stage.getContainer().style.width = widthCanvas + "%";
 stage.getContainer().style.height = heightCanvas + "%";
-
-
-
-
-
-
-
-
 // URL de las imagenes
 var itemURL = '';
 document.getElementById('drag-items')
@@ -106,50 +87,13 @@ con.addEventListener('drop', function (e) {
     tr.attachTo(e.target);
     layer.draw();
    });
-   
-  
-
 });
-
-
-function tomarcaptura(){
-
-  var c = document.querySelector('canvas');
-  document.getElementById('descargar').onclick = function(){
-    try{
-
-    
-
-    let filename = prompt("Guardar como",""),
-    link = document.createElement('a');
-
-    if (filename == null){//si el usiario dio cancelar
-      return false;
-    }
-    else if (filename == ""){//si el usuario le dio click y no puso nombre al archivo
-      link.download = "Sin título";
-      link.href = c.toDataURL("image/png");//usa la imagen del canvas
-    }
-    else{//si el usuario le dio aceptar y puso un nombre al archivo
-      link.download = filename;
-      link.href = c.toDataURL("image/png");
-    }
- 
-    link.click();
-  }catch(error){
-    alert("Se debe realizar alguna tarea en el pizarron");
-  }
-  }
-  //o puedes usar una minilibreria que hice https://www.lawebdelprogramador.com/codigo/JavaScript/4290-libreria-canvas-JavaScript.html
-
-};
-
 function restart(){
   var c = document.querySelector('canvas');
   var context = c.getContext('2d');
   context.setTransform(1, 0, 0, 1, 0, 0);
-context.clearRect(0, 0, c.width, c.height);
-context.resetTransform();
-
-
+  context.clearRect(0, 0, c.width, c.height);
+  context.resetTransform();
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, c.width, c.height);
 }

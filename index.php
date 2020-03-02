@@ -79,11 +79,11 @@
   <!-- Also include jQueryUI -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>   
   </head>  
-  <body>    
+  <body onload="alcargar()">    
     <header id=header style="background-color: rgb(85, 162, 185); left: 20%; top:0%; border-radius: 2px; width: 57%; height: 8%; position: fixed;">
 
     <div style=" top:1.6%; justify-content: space-evenly;  display: flex; align-items: start; margin-right: 10%; margin-left: 9%; margin-top: 1.6%;" >
-        <button type="button" style="border-radius: 40%;" class="btn btn-secondary btn-sm" id="btn-record-webm"><i class="fas fa-video fa-1x"></i> Start Recording</button>
+        <button type="button" style="border-radius: 40%;" class="btn btn-secondary btn-sm" id="btn-record-webm" onclick="grabar()"><i class="fas fa-video fa-1x"></i> Start Recording</button>
         <button type="button" style="border-radius: 40%;"  class="btn btn-secondary btn-sm" id="resume" disabled><i class="fas fa-play fa-1x"></i> Resume</button>
         <button type="button" style="border-radius: 40%;"  class="btn btn-secondary btn-sm" id="pause" disabled><i class="fas fa-pause fa-1x"></i> Pause</button>
         <button type="button" style="border-radius: 40%;"  class="btn btn-secondary btn-sm" id="stop" disabled><i class="fas fa-stop fa-1x"></i> <i class="fas fa-download fa-1x"></i> Stop&Download</button>
@@ -94,60 +94,7 @@
     <script>
       //BLOQUEO DE CONTEXT MENU Y F12
 
-           $(document).bind("contextmenu",function(e) {
-            e.preventDefault();
-            });
-            $(document).keydown(function(e){
-            if(e.which === 123){
-             return false;
-            }
-            });//TERMINA BLOQUEO
-              (function () {
-            if (!document.createElement('canvas').getContext) {
-                document.body.innerHTML = '<h1 style="height:auto;color:red;font-size:30px;">Excuse me Sir,<br /><br />You are using very old web-browser!<br /><br />Please upgrade it.</h1>';
-            }
-            var prepend = function (parent, elementToPrepend)
-            {
-                return parent.insertBefore(elementToPrepend, parent.firstChild);
-            };
 
-            var div = document.createElement('div');
-
-            div.innerHTML = '<g:plusone size="tall"></g:plusone>';
-            div.className = 'gplus-button';
-            div.style.position = 'absolute';
-            div.style.top = 0;
-            div.style.padding = '3px 0';
-            div.style.right = '30px';
-
-            var body = document.body;
-
-            if(body.insertBefore) prepend(body, div);
-            else document.body.appendChild(div);
-        })();
-
-
-        (function () {
-            var lastTime = 0, vendors = ['ms', 'moz', 'webkit', 'o'];
-            for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-                window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
-                window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'RequestCancelAnimationFrame'];
-            }
-            if (!window.requestAnimationFrame)
-                window.requestAnimationFrame = function (callback, element) {
-                    var currTime = new Date().getTime();
-                    var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-                    var id = window.setTimeout(function () {
-                        callback(currTime + timeToCall);
-                    }, timeToCall);
-                    lastTime = currTime + timeToCall;
-                    return id;
-                };
-            if (!window.cancelAnimationFrame)
-                window.cancelAnimationFrame = function (id) {
-                    clearTimeout(id);
-                };
-        }());
     </script>
 
     <!-- below section handles RecordRTC and WhammyRecorder -->
@@ -156,75 +103,10 @@
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 
     <script>
-             document.getElementById('btn-record-webm').onclick = function() {
-            this.disabled = true;
-           
-            //Asignacion de ID a canvas creado por KONVA
-            const konvaCanvas = document.querySelector('canvas');
-            konvaCanvas.setAttribute("id", "canvas");
-            //Termina la asignacion
-
-
-            navigator.mediaDevices.getUserMedia({audio: true}).then(function(audioStream) {
-                var canvas = document.getElementById('canvas');
-                
-                var canvasStream = canvas.captureStream();
-
-                var finalStream = new MediaStream();
-                getTracks(audioStream, 'audio').forEach(function(track) {
-                    finalStream.addTrack(track);
-                });
-                getTracks(canvasStream, 'video').forEach(function(track) {
-                    finalStream.addTrack(track);
-                });
-
-                var recorder = RecordRTC(finalStream, {
-                    type: 'video'
-                });
-
-                recorder.startRecording();
-                document.getElementById("stop").disabled=false;
-                document.getElementById("resume").disabled=false;
-                document.getElementById("pause").disabled=false;
-
-                //INICIA FUNCION DE STOP.
-                document.getElementById('stop').onclick = function() {
-                this.disabled = true;
-                recorder.stopRecording(function() {
-                          
-                            var blob = recorder.getBlob();
-                            // document.body.innerHTML = '<video controls src="' + URL.createObjectURL(blob) + '" autoplay loop></video>';
-                            audioStream.stop();
-                            canvasStream.stop();
-                            this.save('MiVideo-CiudadVirtual');  
-                            recorder.reset();
-                            location.reload();
-                            document.getElementById("resume").disabled=true;
-                            document.getElementById("pause").disabled=true;
-                            document.getElementById("btn-record-webm").disabled=false;
-
-                        });
-                };//Termina stop
-                document.getElementById('pause').onclick = function() {
-                  this.disabled = true;
-                  recorder.pauseRecording(); 
-         
-                };//Termina pausa
-                document.getElementById('resume').onclick = function() {
-                recorder.resumeRecording();
-                this.disabled=true;
-                document.getElementById("pause").disabled=false;
-
-                };//Termina resume
-             }); //Termina grabacion
-
-        };  //TERMINA EL EVENTO btn-record-web
-
-        //Empiza tomar captura
-
+          //Beta de Screenrecord
+          
        
-
-    </script>
+</script>
     </header>
     <nav>
     <br><br>
@@ -566,9 +448,9 @@
           <br>
         
           <div>
-          <label for="favcolor">COLOR</label>
+          <label for="favcolor">COLOR <i class="fas fa-brush "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
           <input type="color" id="favcolor" name="favcolor" value="#ffffff"><br><br>
-          <button type="button"  onclick="colorchange()" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><i class="fas fa-brush "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Color</button>
+          <!-- <button type="button"  onclick="colorchange()" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><i class="fas fa-brush "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Color</button> -->
           
         </div>
           <br>
