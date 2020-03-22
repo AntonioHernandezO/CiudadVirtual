@@ -3,26 +3,70 @@
 	padding:0px;
 	font-family: helvetica Neue;
 	font-weight: lighter;
+	color: #0D5B8D;
+	
 }
-
-aside{
-	padding-left: 10%;
-	width: 10%;
-	height: 100%;
+#body{
+	background-color: #29526D;
+	color: #29526D;
+}               /*Colores obtenidos de http://paletton.com/#uid=13v0u0kllll278xbJeWuXrKUGBt*/
+#header{
+	background-color: #29526D;
+	left: 20%; top:0%; 
+	border-radius: 2px; 
+	width: 57%; 
+	height: 8%; 
 	position: fixed;
-	background-color: rgb(91, 214, 188);
-	/*display: block;*/
-	/*float: left;*/
+  }
+article{
+	position: fixed;
+	display:flex;
+	justify-content: center;
+	width: 6%;
+	height: 100%;
+	background-color: #29526D;
+	transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+}
+aside{
+	/* padding-left: 10%; */
+	width: 6%;
+	height: 100%;
+	position: relative;
+	display: flex; 
+	
+	background-color: #29526D;
 	left: 90%;
 	top: 0px;
+	transform: translate(66%, 50%);
+    -webkit-transform: translate(66%, 50%);
+	
+	
+	
+
 }
+
+
+#footer{
+	background-color: #29526D;
+	left: 20%; 
+	top:90%; 	
+	width: 57%; 
+	height: 10%; 
+	position:fixed;   
+
+	
+
+	display: flex;
+	justify-content: center;
+  }
+
 #container{
 	top:  9%;
-	/* width: 60%;
-	height: 75%; */
+
 	position: fixed;
     display:block;
-	
+	background: #84817a;
     border: 3px solid black;
 
     left: 20%;
@@ -32,12 +76,7 @@ aside{
 	height: 80px;
   }
 
-nav{
-	position: fixed;
-	width: 11%;
-	height: 100%;
-	background-color: rgb(91, 214, 188);
-}
+
 	div.caja{
     margin-top: 20px;
     margin-left: 15%;
@@ -70,11 +109,13 @@ nav{
 }
 
  .dropdown-menu.show   {                                /*OJO, este apartado modifica funciones de Bootstrap. */
-	transform: translate3d(100%, -10%, 0px)!important;
+	/* transform: translate3d(50%, -10%, 0px)!important; */
+	margin-left: 30%!important;
+	top: 0%!important;
 	position: absolute!important;
 	overflow:auto!important; 
 	width: 15%;
-	height: 1300%!important;
+	height: 1500%!important;
 }
 /* Ponemos un color de fondo y redondeamos las esquinas del thumb */
 .container::-webkit-scrollbar-thumb {
@@ -93,11 +134,14 @@ nav{
     background-color: #0bca1b;
 }
 
-#circular--square {
+#circular--square {   /*BOTONES DEL ARTICLE*/
 	border-radius: 100%;
 	height: 50px;
 	width: 50px;
-	left: 78%;
+	vertical-align: middle;
+	margin-right: 0px;
+	justify-content: space-evenly;
+	align-items: center;
   }
 
 #circular--squar{
@@ -111,9 +155,7 @@ nav{
 	margin-left: 35%;
 }
 
-.botfot{
-	margin-top: 28px;
-}
+
 
   #et{
 	  visibility: hidden;
@@ -125,3 +167,25 @@ nav{
   #circular--squareheader {
 	border-radius: 100%;
   }
+
+  #botonesfooter{
+	border-radius: 80px 20px;
+	/* margin-top: 28px; */
+	padding: 10px;
+	margin: 10px;
+	color: #29526D;
+
+  }
+
+  .botaside{
+
+	vertical-align: middle;
+	margin-right: 0px;
+	justify-content: space-evenly;
+	align-items: center;
+	
+
+  }
+
+  
+  

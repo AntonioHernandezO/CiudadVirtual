@@ -64,6 +64,7 @@
   <script src="canvasSave.js"></script>
   <script src="drawC.js"></script>
   <script src="js\particles\particles.js"></script>
+  <script src="panelControl.js"></script>
 
   <!-- Inicio de desarrollo del proyecto -->
   <title>E-Blackboard</title>
@@ -79,14 +80,15 @@
   <!-- Also include jQueryUI -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>   
   </head>  
-  <body>    
-    <header id=header style="background-color: rgb(85, 162, 185); left: 20%; top:0%; border-radius: 2px; width: 57%; height: 8%; position: fixed;">
+  <body id="body">    
+    
+    <header id=header >
 
-    <div style=" top:1.6%; justify-content: space-evenly;  display: flex; align-items: start; margin-right: 10%; margin-left: 9%; margin-top: 1.6%;" >
-        <button type="button" style="border-radius: 40%;" title="Iniciar Grabación" class="btn btn-secondary btn-sm" id="btn-record-webm"><i class="fas fa-video fa-1x"></i> Start Recording</button>
-        <button type="button" style="border-radius: 40%;" title="Reproducir" class="btn btn-secondary btn-sm" id="resume" disabled><i class="fas fa-play fa-1x"></i> Resume</button>
-        <button type="button" style="border-radius: 40%;" title="Pausar reproducción" class="btn btn-secondary btn-sm" id="pause" disabled><i class="fas fa-pause fa-1x"></i> Pause</button>
-        <button type="button" style="border-radius: 40%;" title="Parar reproducción y Desacargar" class="btn btn-secondary btn-sm" id="stop" disabled><i class="fas fa-stop fa-1x"></i><i class="fas fa-download fa-1x"></i> Stop&Download</button>
+    <div style=" top:1.3%; justify-content: space-evenly;  display: flex; align-items: start; margin-right: 10%; margin-left: 9%; margin-top: 1.3%;" >
+        <button type="button" style="border-radius: 100%; height: 50px; width: 50px; " title="Iniciar Grabación" class="btn btn-secondary btn-sm" id="btn-record-webm"><i class="fas fa-video fa-1x"></i> </button>
+        <button type="button" style="border-radius: 100%; height: 50px; width: 50px;" title="Reanudar grabacion" class="btn btn-secondary btn-sm" id="resume" disabled><i class="fas fa-play fa-1x"></i> </button>
+        <button type="button" style="border-radius: 100%; height: 50px; width: 50px;" title="Pausar grabacion" class="btn btn-secondary btn-sm" id="pause" disabled><i class="fas fa-pause fa-1x"></i> </button>
+        <button type="button" style="border-radius: 100%; height: 50px; width: 50px;" title="Detener grabacion y descargar" class="btn btn-secondary btn-sm" id="stop" disabled><i class="fas fa-stop fa-1x"></i><i class="fas fa-download fa-1x"></i> </button>
         <!-- <button type="button" class="btn btn-primary btn-sm" id="download"disabled><i class="fas fa-download fa-1x"></i> Download</button> -->
     </div>
 
@@ -226,8 +228,13 @@
 
     </script>
     </header>
-    <nav>
-    <br><br><br><br>
+  
+
+
+  
+
+    <article id="article">
+    <br><br>
     <div class="container-fluid">
     <div class="btn-group dropright">
         <button type="button" title="Temas" class="btn btn-primary btn-lg dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
@@ -257,7 +264,7 @@
         </div>
       </div>
     </div>
-
+<br>
 <!-- Botón de Imágenes -->
     <div class="container-fluid">
       <div class="btn-group dropright">
@@ -286,7 +293,7 @@
       </div>
     </div>
 
-
+    <br>
     <!-- Botón de Avatares -->
     <div class="container-fluid">
       <div class="btn-group dropright">
@@ -317,6 +324,7 @@
         </div>
       </div>
     </div>
+    <br>
  <!-- Botón de Formas -->
     <div class="container-fluid">
       <div class="btn-group dropright">
@@ -344,6 +352,7 @@
         </div>
       </div>
     </div>
+    <br>
          <!-- Botón de Números -->
     <div class="container-fluid">
       <div class="btn-group dropright">
@@ -371,6 +380,7 @@
         </div>
       </div>
     </div>
+    <br>
              <!-- Botón de Números -->   
     <div class="container-fluid">
       <div class="btn-group dropright">
@@ -398,6 +408,7 @@
         </div>
       </div>
     </div>
+    <br>
         <!-- Botón de Letras -->
     <div class="container-fluid">
       <div class="btn-group dropright">
@@ -425,83 +436,25 @@
         </div>
       </div>
     </div>
-
+    <br>
  <!-- Botón de Texto -->
     <div class="container-fluid">
       <div class="btn-group dropright">
         <button type="button" title="Texto" class="btn btn-primary btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  id="circular--square" onclick="txtedit()">
           <i class="fas fa-keyboard"></i></button>
-        <!-- <div class="dropdown-menu" onclick="txtedit()" >
-            <a class="dropdown-item" ><div class="fuente" id="idTexto" draggable="false" >Insertar texto</div>
-                           
 
-        </div>
-      </div> -->
       </div>
       </div>
-    </div>
+    <!-- </div> -->
 
-    <!-- Botón de Vídeo 
-       <div class="container-fluid">
-         <div class="btn-group dropright">
-           <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           <i class="fas fa-video fa-2x"></i>Videos </button>
-          
-         b Función para abrir directorio de Vídeos  
-           <div class="dropdown-menu" id="drag-items" >
-         
-          //$cont=0;
+    
       
-            //$d=opendir("./img/videos");
-            //while(($e=readdir($d))!=false)
-            //if($e!='.'&&$e!='..')
-            //{
-              //$cont=$cont+1;
-            //$e1="./img/videos/".$e;
-            
-                   //Función Drag&Drop
-         //echo "
-            //<a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)' >
-            //<img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=drag$cont>    
-            //</a>  
-             "; 
-
-            }
-            ?> 
-           </div>
-         </div>
-       </div>
-          -->
-    <!-- Botón de Sonido -->
-    <!-- <br>
-    <div class="container-fluid">
-      <div class="btn-group dropright">
-        <button type="button" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
-          <i class="fas fa-volume-up"></i></button>
-        <div class="dropdown-menu" id="drag-items"> -->
-
-          <!-- Función para abrir directorio de Sonido -->
-          <?php
-        /*$cont = 0;
-
-          $d = opendir("./img/sonido");
-          while (($e = readdir($d)) != false)
-            if ($e != '.' && $e != '..') {
-              $cont = $cont + 1;
-              $e1 = "./img/sonido/" . $e;
-
-              //Función Drag&Drop
-              echo "
-            <a class='dropdown-item' ondrop='drop(event)' ondragover='allowDrop(event)' >
-            <img  class='pokemon' src='$e1'  draggable='true' ondragstart='drag(event)' id=drag$cont>    
-            </a>  
-             ";
-            }*/
-           ?>
-        </div>
+        <!-- </div>
       </div>
-    </div>
+    </div> -->
+    <br>
     <!-- Botón de Personaliza -->
+
     <div class="container-fluid">
       <div class="btn-group dropright">
         <button type="button" title="Personalizar" class="btn btn-primary btn-lg dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
@@ -510,74 +463,55 @@
           </div>
           </div>
           </div>
-          </div>
-        </nav>
-    <!-- <section>      
-      <article>
-        <h2>CONTENIDO PRINCIPAL</h2>
-        <p>Espacio emergente</p>
-        <div>
-          <p>Contenido enmaquetado</p>
-                   
-        </div>
-      </article>      
-    </section> -->
+          <!-- </div> -->
+          </article>
+    
     <br><br>
 
-    <aside>
+    <aside id="aside">
 <!-- Aqui va el contenido del contenedor guinda -->
-<div id="Panel" style="background-color: rgb(91, 214, 188);">
-        <!-- <input id="1" type="button" class="bot" value=" 1 "  style="top:0px;" onclick="seleccionado(id)"/>
-   
-
-      </div>
-      <div id="PanelO" style="background-color: rgb(91, 214, 188); left: 10%;">
-
-        <input id="agregar" type="button" value="[+]" onclick="agregar1();" class="bote" />
 
 
-        <input id="quitar" type="button" value="[-]" onclick="quitarBtn();" class="bote" />
-
-
-      </div> -->
       <!-- Botón de Pincel -->
     <br><br>
-    <div class="container-fluid">
+    <div class="botaside">
         <button type="button" title="Grosor del Pincel" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--squar">
         <i class="fas fa-paint-brush" onclick="drawC()"></i></button>
        </div>
-
-          <div>
-          <div class="container-fluid">
+<br>
+        
+          <div class="botaside">
           <button type="button" title="Limpiar" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--squar">
           <i class="fas fa-backspace" onclick="clean()"></i></button>
           </div>
-
-          <div>
-          <!--<label for="favcolor">COLOR</label>-->
-          <input type="color" class="palco" title="Paleta de Color" id="favcolor" name="favcolor" value="#ffffff"></input><br>
+<br>
+          <div class="botaside">
+         
+          <input type="color" class="palco" title="Paleta de Color" id="favcolor" name="favcolor" value="#0D5B8D"></input><br>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Colores
-          <!--<button type="button"  for="favcolor" onclick="colorchange()" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><i class="fas fa-brush "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Color</button>-->
+          
         </div>
           <br>
-    </div>
+   
     </aside>
-    <footer style="background-color: rgb(85, 162, 185); left: 11%; top:85%; 	width: 79%; height: 15%; position:fixed;   display: flex; justify-content:space-around;">
+    <footer  id="footer">
+    
     <div class="botfot">
-          <button type="button" title="Cuadrícula" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  onclick="crearCuadricula()"><i class="fas fa-th-large "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cuadricula</button>
+          <button type="button" id="botonesfooter" title="Cuadrícula" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  onclick="crearCuadricula()"><i class="fas fa-th-large "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cuadricula</button>
+  </div>
+  
+  <div class="botfot">
+          <button type="button" id="botonesfooter" title="Líneas" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ><i class="fas fa-grip-lines"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lineas</button>
   </div>
   <div class="botfot">
-          <button type="button" title="Líneas" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ><i class="fas fa-grip-lines"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lineas</button>
+          <button type="button" id="botonesfooter" title="Blanco" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ><i class="fas fa-vector-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Blanco</button>
   </div>
   <div class="botfot">
-          <button type="button" title="Blanco" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ><i class="fas fa-vector-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Blanco</button>
-  </div>
-  <div class="botfot">
-          <button type="button" title="Reiniciar" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="restart()" ><i class="fas fa-eraser"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reiniciar</button>
+          <button type="button" id="botonesfooter" title="Reiniciar" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="restart()" ><i class="fas fa-eraser"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reiniciar</button>
   </div>
  
   <div class="botfot">
-          <button type="button" title="Tomar Captura" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  id="descargar" onclick="tomarcaptura()"><i class="fas fa-camera-retro"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tomar captura</button>
+          <button type="button" id="botonesfooter" title="Tomar Captura" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  id="descargar" onclick="tomarcaptura()"><i class="fas fa-camera-retro"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tomar captura</button>
   </div>
   
 
