@@ -67,6 +67,9 @@
   <script src="js\particles\particles.js"></script>
   <script src="JavaScript/panelControl.js"></script>
   <script src="JavaScript/loader.js"></script>
+  <script src="videomodaljs/js/modal-video.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="videomodaljs/css/modal-video.min.css">
 
   <!-- Inicio de desarrollo del proyecto -->
   <title>E-Blackboard</title>
@@ -233,6 +236,35 @@
 
 
   <!--TERMINA EL LOADER-->
+
+        <!-- Modal HTML -->
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content ">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Revisa nuestro manual de usuario.</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                    <iframe id="cartoonVideo" width="770" height="541" src="https://www.youtube.com/embed/Dyxvm3QYCx8?autoplay=1&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen ></iframe>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+<script>
+
+$( document ).ready(function() {
+    $('#myModal').modal('toggle')
+});
+
+  </script>
+
+
+
+
+
   <!--INICIA HEADER-->
     
     <header id=header >
@@ -703,7 +735,7 @@
   <div class="botfot">
           <button type="button" id="botonesfooter" title="Tomar Captura" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  id="descargar" onclick="tomarcaptura()"><i class="fas fa-camera-retro"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tomar captura</button>
   </div>
-  
+
 
     </footer>
   </body>  
