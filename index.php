@@ -66,6 +66,7 @@
   <script src="JavaScript/drawC.js"></script>
   <script src="js\particles\particles.js"></script>
   <script src="JavaScript/panelControl.js"></script>
+  <script src="JavaScript/loader.js"></script>
 
   <!-- Inicio de desarrollo del proyecto -->
   <title>E-Blackboard</title>
@@ -74,6 +75,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://www.webrtc-experiment.com/RecordRTC.js"></script>
   <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="css/styleloader.css">
 
   <!-- <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script> -->
 
@@ -81,7 +84,156 @@
   <!-- Also include jQueryUI -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>   
   </head>  
-  <body id="body">    
+  <body id="body">  
+  <!--INICIA EL LOADER-->
+<style>
+
+
+
+.master{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #d1ccc0;
+  z-index: 9999;
+}
+
+.loader {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+
+.item-1 {
+  background-color: #FA5667;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  -webkit-animation: item-1_move 1.8s cubic-bezier(.6,.01,.4,1) infinite;
+          animation: item-1_move 1.8s cubic-bezier(.6,.01,.4,1) infinite;
+}
+
+.item-2 {
+  background-color: #7A45E5;
+  top: 0;
+  right: 0;
+  -webkit-animation: item-2_move 1.8s cubic-bezier(.6,.01,.4,1) infinite;
+          animation: item-2_move 1.8s cubic-bezier(.6,.01,.4,1) infinite;
+}
+
+.item-3 {
+  background-color: #1B91F7;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  -webkit-animation: item-3_move 1.8s cubic-bezier(.6,.01,.4,1) infinite;
+          animation: item-3_move 1.8s cubic-bezier(.6,.01,.4,1) infinite;
+}
+
+.item-4 {
+  background-color: #FAC24C;
+  bottom: 0;
+  left: 0;
+  -webkit-animation: item-4_move 1.8s cubic-bezier(.6,.01,.4,1) infinite;
+          animation: item-4_move 1.8s cubic-bezier(.6,.01,.4,1) infinite;
+}
+
+@-webkit-keyframes item-1_move {
+  0%, 100% {-webkit-transform: translate(0, 0);transform: translate(0, 0)} 
+  25% {-webkit-transform: translate(0, 100px);transform: translate(0, 100px)} 
+  50% {-webkit-transform: translate(100px, 100px);transform: translate(100px, 100px)} 
+  75% {-webkit-transform: translate(100px, 0);transform: translate(100px, 0)} 
+}
+
+@keyframes item-1_move {
+  0%, 100% {-webkit-transform: translate(0, 0);transform: translate(0, 0)} 
+  25% {-webkit-transform: translate(0, 100px);transform: translate(0, 100px)} 
+  50% {-webkit-transform: translate(100px, 100px);transform: translate(100px, 100px)} 
+  75% {-webkit-transform: translate(100px, 0);transform: translate(100px, 0)} 
+}
+
+@-webkit-keyframes item-2_move {
+  0%, 100% {-webkit-transform: translate(0, 0);transform: translate(0, 0)} 
+  25% {-webkit-transform: translate(-100px, 0);transform: translate(-100px, 0)} 
+  50% {-webkit-transform: translate(-100px, 100px);transform: translate(-100px, 100px)} 
+  75% {-webkit-transform: translate(0, 100px);transform: translate(0, 100px)} 
+}
+
+@keyframes item-2_move {
+  0%, 100% {-webkit-transform: translate(0, 0);transform: translate(0, 0)} 
+  25% {-webkit-transform: translate(-100px, 0);transform: translate(-100px, 0)} 
+  50% {-webkit-transform: translate(-100px, 100px);transform: translate(-100px, 100px)} 
+  75% {-webkit-transform: translate(0, 100px);transform: translate(0, 100px)} 
+}
+
+@-webkit-keyframes item-3_move {
+  0%, 100% {-webkit-transform: translate(0, 0);transform: translate(0, 0)} 
+  25% {-webkit-transform: translate(0, -100px);transform: translate(0, -100px)} 
+  50% {-webkit-transform: translate(-100px, -100px);transform: translate(-100px, -100px)} 
+  75% {-webkit-transform: translate(-100px, 0);transform: translate(-100px, 0)} 
+}
+
+@keyframes item-3_move {
+  0%, 100% {-webkit-transform: translate(0, 0);transform: translate(0, 0)} 
+  25% {-webkit-transform: translate(0, -100px);transform: translate(0, -100px)} 
+  50% {-webkit-transform: translate(-100px, -100px);transform: translate(-100px, -100px)} 
+  75% {-webkit-transform: translate(-100px, 0);transform: translate(-100px, 0)} 
+}
+
+@-webkit-keyframes item-4_move {
+  0%, 100% {-webkit-transform: translate(0, 0);transform: translate(0, 0)} 
+  25% {-webkit-transform: translate(100px, 0);transform: translate(100px, 0)} 
+  50% {-webkit-transform: translate(100px, -100px);transform: translate(100px, -100px)} 
+  75% {-webkit-transform: translate(0, -100px);transform: translate(0, -100px)} 
+}
+
+@keyframes item-4_move {
+  0%, 100% {-webkit-transform: translate(0, 0);transform: translate(0, 0)} 
+  25% {-webkit-transform: translate(100px, 0);transform: translate(100px, 0)} 
+  50% {-webkit-transform: translate(100px, -100px);transform: translate(100px, -100px)} 
+  75% {-webkit-transform: translate(0, -100px);transform: translate(0, -100px)} 
+}
+
+</style>
+<div class="master">
+  <div class="loader">
+  <div class="item item-1"></div>
+  <div class="item item-2"></div>
+  <div class="item item-3"></div>
+  <div class="item item-4"></div>
+</div>
+</div>
+
+  <script>
+       $(window).on('load', function () {
+      setTimeout(function () {
+    $(".master").css({visibility:"hidden",opacity:"0"} ).fadeOut("slow")} , 3990);
+   });
+ $(window).on('load', function () {
+      setTimeout(function () {
+    $(".loader").css({visibility:"hidden",opacity:"0"} ).fadeOut("slow")} , 4000);
+   });
+
+
+
+
+    </script>
+
+
+
+  <!--TERMINA EL LOADER-->
+  <!--INICIA HEADER-->
     
     <header id=header >
 
