@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="assets/estilos2.css">
   <link rel="stylesheet" href="assets/fuentes.css">
   <link rel="stylesheet" href="assets/dia.css">
+  <link rel="stylesheet" href="assets/presentacion.css">
   <!-- Include Editor style. -->
 <link href='https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
 
@@ -56,15 +57,15 @@
 
   <!-- Integración de librerias JavaScript para funciones como texto -->
  
-  <script src="kactions.js"></script>
-  <script src="txtEd.js"></script>
-  <script src="diapo.js"></script>
-  <script src="PropTEXT.js"></script>
-  <script src="rec.js"></script>
-  <script src="canvasSave.js"></script>
-  <script src="drawC.js"></script>
+  <script src="JavaScript/kactions.js"></script>
+  <script src="JavaScript/txtEd.js"></script>
+  <script src="JavaScript/diapo.js"></script>
+  <script src="JavaScript/PropTEXT.js"></script>
+  <script src="JavaScript/rec.js"></script>
+  <script src="JavaScript/canvasSave.js"></script>
+  <script src="JavaScript/drawC.js"></script>
   <script src="js\particles\particles.js"></script>
-  <script src="panelControl.js"></script>
+  <script src="JavaScript/panelControl.js"></script>
 
   <!-- Inicio de desarrollo del proyecto -->
   <title>E-Blackboard</title>
@@ -457,14 +458,51 @@
 
     <div class="container-fluid">
       <div class="btn-group dropright">
-        <button type="button" title="Personalizar" class="btn btn-primary btn-lg dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--square">
-        <i class="fas fa-upload"></i></button>
-        <div class="dropdown-menu" id="drag-items">
+
+      <div class="image-upload">
+    <label for="file-input">
+        <img src="img/sys/upload-icon.png" alt ="Click aquí para subir tu foto" title ="Click aquí para subir tu foto" style="width: 50px; height: 50px;" > 
+    </label>
+    <input id="file-input" type="file" accept="image/*" id="drag-items"/>
+      </div>
+ 
+
+
           </div>
           </div>
-          </div>
-          <!-- </div> -->
-          </article>
+        
+          <div id="preview"></div>
+         
+            <script>
+   
+   document.getElementById("file-input").onchange = function(e) {
+  // Creamos el objeto de la clase FileReader
+  let reader = new FileReader();
+
+  // Leemos el archivo subido y se lo pasamos a nuestro fileReader
+  reader.readAsDataURL(e.target.files[0]);
+
+  // Le decimos que cuando este listo ejecute el código interno
+  reader.onload = function(){
+    alert("entro");
+    let preview = document.getElementById('preview'),
+            image = document.createElement('img');
+
+  image.src = reader.result;
+    preview.innerHTML = '';
+    preview.append(image);
+
+
+  };
+}
+
+
+
+
+
+            </script>
+        
+  </article> <!-- FIN DEL ARTICLE-->
     
     <br><br>
 

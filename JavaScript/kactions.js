@@ -15,6 +15,13 @@ stage.getContainer().style.border = '10px solid black';
 stage.getContainer().style.background = '#FFFFFF';
 stage.getContainer().style.width = widthCanvas + "%";
 stage.getContainer().style.height = heightCanvas + "%";
+
+
+
+
+
+
+
 // URL de las imagenes
 var itemURL = '';
 document.getElementById('drag-items')
@@ -29,10 +36,6 @@ con.addEventListener('dragover', function (e) {
 
 con.addEventListener('drop', function (e) {
   e.preventDefault();
-  // now we need to find pointer position
-  // we can't use stage.getPointerPosition() here, because that event
-  // is not registered by Konva.Stage
-  // we can register it manually:
   stage.setPointersPositions(e);
 
   Konva.Image.fromURL(itemURL, function (image) {
@@ -46,6 +49,8 @@ con.addEventListener('drop', function (e) {
     
 
     layer.draw();
+
+    
     image.on('dblclick', function (evt) {
       //evento cuando el usuario de click
 
@@ -97,3 +102,10 @@ function restart(){
   ctx.fillStyle = "#ffffff";
   ctx.fillRect(0, 0, c.width, c.height);
 }
+
+
+
+
+   
+
+   

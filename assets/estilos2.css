@@ -40,10 +40,6 @@ aside{
 	top: 0px;
 	transform: translate(66%, 50%);
     -webkit-transform: translate(66%, 50%);
-	
-	
-	
-
 }
 
 
@@ -189,3 +185,13 @@ aside{
 
   
   
+  .image-upload > input
+  {
+	  display: none;
+  }
+  
+  .image-upload img
+  {
+	  width: 5px;
+	  cursor: pointer;
+  }
