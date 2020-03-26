@@ -233,26 +233,84 @@
 
     </script>
 
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    setTimeout(function() {
+        $("#article").fadeOut(1500);
+    },9000);
+    setTimeout(function() {
+        $("#aside").fadeOut(1500);
+    },3000);
+    setTimeout(function() {
+        $("#footer").fadeOut(1500);
+    },3000);
+
+    setTimeout(function() {
+        $("#header").fadeOut(1500);
+    },3000);
+ 
+ 
+ 
+ 
+   
+});
+</script>
+
 
 
   <!--TERMINA EL LOADER-->
 
-        <!-- Modal HTML -->
-        <div id="myModal" class="modal fade">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content ">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Revisa nuestro manual de usuario.</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                    <iframe id="cartoonVideo" width="770" height="541" src="https://www.youtube.com/embed/Dyxvm3QYCx8?autoplay=1&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen ></iframe>
-                        
-                    </div>
-                    
-                </div>
-            </div>
+      <!--Modal: modalYT-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+
+    <!--Content-->
+    <div class="modal-content">
+
+      <!--Body-->
+      <div class="modal-body mb-0 p-0">
+
+        <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/onOEns_MnC4"
+            allowfullscreen></iframe>
         </div>
+
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center flex-column flex-md-row">
+        <span class="mr-4">¡Siguenos!</span>
+        <div>
+          <a type="button" class="btn-floating btn-sm btn-fb">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <!--Twitter-->
+          <a type="button" class="btn-floating btn-sm btn-tw">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <!--Google +-->
+          <a type="button" class="btn-floating btn-sm btn-gplus">
+            <i class="fab fa-google-plus-g"></i>
+          </a>
+          <!--Linkedin-->
+          <a type="button" class="btn-floating btn-sm btn-ins">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+        <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4"
+          data-dismiss="modal">Close</button>
+
+
+      </div>
+
+    </div>
+    <!--/.Content-->
+
+  </div>
+</div>
+<!--Modal: modalYT-->
 <script>
 
 $( document ).ready(function() {
@@ -270,10 +328,13 @@ $( document ).ready(function() {
     <header id=header >
 
     <div style=" top:1.3%; justify-content: space-evenly;  display: flex; align-items: start; margin-right: 10%; margin-left: 9%; margin-top: 1.3%;" >
-        <button type="button" style="border-radius: 100%; height: 50px; width: 50px; " title="Iniciar Grabación" class="btn btn-secondary btn-sm" id="btn-record-webm"><i class="fas fa-video fa-1x"></i> </button>
-        <button type="button" style="border-radius: 100%; height: 50px; width: 50px;" title="Reanudar grabacion" class="btn btn-secondary btn-sm" id="resume" disabled><i class="fas fa-play fa-1x"></i> </button>
-        <button type="button" style="border-radius: 100%; height: 50px; width: 50px;" title="Pausar grabacion" class="btn btn-secondary btn-sm" id="pause" disabled><i class="fas fa-pause fa-1x"></i> </button>
-        <button type="button" style="border-radius: 100%; height: 50px; width: 50px;" title="Detener grabacion y descargar" class="btn btn-secondary btn-sm" id="stop" disabled><i class="fas fa-stop fa-1x"></i><i class="fas fa-download fa-1x"></i> </button>
+        <button type="button" style="border-radius: 100%; height: 50px; width: 50px;  background-color: #7b9788!important; border-color: #7b9788!important;" title="Iniciar Grabación" class="btn btn-secondary btn-lg" id="btn-record-webm"><i class="fas fa-video fa-1x"></i> </button>
+        <button type="button" style="border-radius: 100%; height: 50px; width: 50px;  background-color: #7b9788!important; border-color: #7b9788!important;"   title="Reanudar grabacion" class="btn btn-secondary btn-lg" id="resume" disabled><i class="fas fa-play fa-1x"></i> </button>
+        <button type="button" style="border-radius: 100%; height: 50px; width: 50px;  background-color: #7b9788!important; border-color: #7b9788!important;"   title="Pausar grabacion" class="btn btn-secondary btn-lg" id="pause" disabled><i class="fas fa-pause fa-1x"></i> </button>
+        <button type="button" style="border-radius: 100%; height: 50px; width: 50px;  background-color: #7b9788!important; border-color: #7b9788!important;"   title="Detener grabacion y descargar" class="btn btn-secondary btn-lg" id="stop" disabled>
+        <!-- <i class="fas fa-stop fa-1x"> -->
+
+        </i><i class="fas fa-download fa-1x"></i> </button>
         <!-- <button type="button" class="btn btn-primary btn-sm" id="download"disabled><i class="fas fa-download fa-1x"></i> Download</button> -->
     </div>
 
@@ -660,26 +721,14 @@ $( document ).ready(function() {
             <script>
    
    document.getElementById("file-input").onchange = function(e) {
-  // Creamos el objeto de la clase FileReader
-  let reader = new FileReader();
-
-  // Leemos el archivo subido y se lo pasamos a nuestro fileReader
-  reader.readAsDataURL(e.target.files[0]);
-
-  // Le decimos que cuando este listo ejecute el código interno
-  reader.onload = function(){
-    alert("entro");
-    let preview = document.getElementById('preview'),
-            image = document.createElement('img');
-
-  image.src = reader.result;
-    preview.innerHTML = '';
-    preview.append(image);
-
-
-  };
+  var url = document.getElementById('file-input').files[0].name;
+ 
+ function dibujarimg(url);
 }
 
+
+
+ 
 
 
 
@@ -718,22 +767,22 @@ $( document ).ready(function() {
     </aside>
     <footer  id="footer">
     
-    <div class="botfot">
-          <button type="button" id="botonesfooter" title="Cuadrícula" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  onclick="crearCuadricula()"><i class="fas fa-th-large "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cuadricula</button>
+    <div class="botfot" >
+          <button type="button" id="botonesfooter" title="Cuadrícula" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  onclick="crearCuadricula()" style="background-color: #7b9788!important;"><i class="fas fa-th-large " ></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cuadricula</button>
   </div>
   
   <div class="botfot">
-          <button type="button" id="botonesfooter" title="Líneas" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ><i class="fas fa-grip-lines"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lineas</button>
+          <button type="button" id="botonesfooter" title="Líneas" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="background-color: #7b9788!important;" ><i class="fas fa-grip-lines"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lineas</button>
   </div>
   <div class="botfot">
-          <button type="button" id="botonesfooter" title="Blanco" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ><i class="fas fa-vector-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Blanco</button>
+          <button type="button" id="botonesfooter" title="Blanco" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="background-color: #7b9788!important;" ><i class="fas fa-vector-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Blanco</button>
   </div>
   <div class="botfot">
-          <button type="button" id="botonesfooter" title="Reiniciar" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="restart()" ><i class="fas fa-eraser"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reiniciar</button>
+          <button type="button" id="botonesfooter" title="Reiniciar" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="restart()"  style="background-color: #7b9788!important;"><i class="fas fa-eraser"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reiniciar</button>
   </div>
  
   <div class="botfot">
-          <button type="button" id="botonesfooter" title="Tomar Captura" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  id="descargar" onclick="tomarcaptura()"><i class="fas fa-camera-retro"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tomar captura</button>
+          <button type="button" id="botonesfooter" title="Tomar Captura" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  id="descargar" onclick="tomarcaptura()" style="background-color: #7b9788!important;"><i class="fas fa-camera-retro"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tomar captura</button>
   </div>
 
 

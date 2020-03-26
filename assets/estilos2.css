@@ -3,15 +3,15 @@
 	padding:0px;
 	font-family: helvetica Neue;
 	font-weight: lighter;
-	color: #0D5B8D;
+	color: #0e1b26;
 	
 }
 #body{
-	background-color: #29526D;
-	color: #29526D;
+	background-color: #7b9788;
+	color: #7b9788;
 }               /*Colores obtenidos de http://paletton.com/#uid=13v0u0kllll278xbJeWuXrKUGBt*/
 #header{
-	background-color: #29526D;
+	background-color: #7b9788;
 	left: 20%; top:0%; 
 	border-radius: 2px; 
 	width: 57%; 
@@ -24,7 +24,7 @@ article{
 	justify-content: center;
 	width: 6%;
 	height: 100%;
-	background-color: #29526D;
+	background-color: #7b9788;
 	transform: translate(0%, 0%);
     -webkit-transform: translate(0%, 0%);
 }
@@ -35,7 +35,7 @@ aside{
 	position: relative;
 	display: flex; 
 	
-	background-color: #29526D;
+	background-color: #7b9788;
 	left: 90%;
 	top: 0px;
 	transform: translate(66%, 50%);
@@ -44,7 +44,7 @@ aside{
 
 
 #footer{
-	background-color: #29526D;
+	background-color: #7b9788;
 	left: 20%; 
 	top:90%; 	
 	width: 57%; 
@@ -138,6 +138,8 @@ aside{
 	margin-right: 0px;
 	justify-content: space-evenly;
 	align-items: center;
+	background-color: #e4ebee!important;
+	border-color:#004949!important;
   }
 
 #circular--squar{
@@ -145,6 +147,8 @@ aside{
 	height: 50px;
 	width: 50px;
 	margin-left: 25%;
+	background-color: #e4ebee!important;
+	border-color:#004949!important;
 }
 
 .palco{
@@ -166,10 +170,13 @@ aside{
 
   #botonesfooter{
 	border-radius: 80px 20px;
+	border-color: #7b9788!important;
+	
 	/* margin-top: 28px; */
 	padding: 10px;
 	margin: 10px;
-	color: #29526D;
+	color: #bec2bd!important;
+	
 
   }
 
@@ -179,6 +186,7 @@ aside{
 	margin-right: 0px;
 	justify-content: space-evenly;
 	align-items: center;
+	
 	
 
   }
@@ -199,4 +207,17 @@ aside{
   
   .modal {
     height: 1500px; 
+}
+
+.botfot{
+	background-color: #7b9788!important;
+}
+
+#container{
+	background-color: #bec2bd!important;
+	border: 0px!important;
+	border-radius: 34px 34px 34px 34px;
+	-moz-border-radius: 34px 34px 34px 34px;
+	-webkit-border-radius: 34px 34px 34px 34px;
+	border: 0px solid #7b9788;
 }

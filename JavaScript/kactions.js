@@ -11,10 +11,51 @@ var stage = new Konva.Stage({
 var layer = new Konva.Layer();
 layer.id('canvas');
 stage.add(layer);//El layer se agrega al stage.
-stage.getContainer().style.border = '10px solid black';
-stage.getContainer().style.background = '#FFFFFF';
 stage.getContainer().style.width = widthCanvas + "%";
 stage.getContainer().style.height = heightCanvas + "%";
+//EMPIEZA PRUEBA CON INPUT FILE
+
+
+function dibujarimg(url){
+  alert("Entro funcion");
+  var darthVaderImg = new Konva.Image({
+        image: imageObj,
+        x: stage.width() / 2 - 200 / 2,
+        y: stage.height() / 2 - 137 / 2,
+        width: 200,
+        height: 137,
+        draggable: true
+      });
+
+      // add cursor styling
+      darthVaderImg.on('mouseover', function() {
+        document.body.style.cursor = 'pointer';
+      });
+      darthVaderImg.on('mouseout', function() {
+        document.body.style.cursor = 'default';
+      });
+
+      layer.add(darthVaderImg);
+      stage.add(layer);
+   
+    var imageObj = new Image();
+    imageObj.onload = function() {
+      drawImage(this);
+    };
+    imageObj.src = url;
+
+
+  }
+
+
+
+
+//TERMINA PRUEBA CON INPUT FILE
+
+
+
+
+
 
 
 
