@@ -1,4 +1,5 @@
-document.write('<div id=container  ></div>');
+document.write('<div id=container></div>');
+
 var width = window.innerWidth;
 var height = window.innerHeight;
 var widthCanvas = 57;

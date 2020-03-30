@@ -228,34 +228,12 @@
     $(".loader").css({visibility:"hidden",opacity:"0"} ).fadeOut("slow")} , 4000);
    });
 
-
+   
 
 
     </script>
-
-<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-    setTimeout(function() {
-        $("#article").fadeOut(1500);
-    },9000);
-    setTimeout(function() {
-        $("#aside").fadeOut(1500);
-    },3000);
-    setTimeout(function() {
-        $("#footer").fadeOut(1500);
-    },3000);
-
-    setTimeout(function() {
-        $("#header").fadeOut(1500);
-    },3000);
- 
- 
- 
- 
-   
-});
-</script>
+    
+    
 
 
 
@@ -273,7 +251,7 @@ $(document).ready(function() {
       <div class="modal-body mb-0 p-0">
 
         <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/onOEns_MnC4"
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/XokhlijAAI0"
             allowfullscreen></iframe>
         </div>
 
@@ -283,19 +261,19 @@ $(document).ready(function() {
       <div class="modal-footer justify-content-center flex-column flex-md-row">
         <span class="mr-4">¡Siguenos!</span>
         <div>
-          <a type="button" class="btn-floating btn-sm btn-fb">
+          <a type="button" class="btn-floating btn-sm btn-fb" href="https://www.facebook.com/">
             <i class="fab fa-facebook-f"></i>
           </a>
           <!--Twitter-->
-          <a type="button" class="btn-floating btn-sm btn-tw">
+          <a type="button" class="btn-floating btn-sm btn-tw" href="https://twitter.com/?lang=es">
             <i class="fab fa-twitter"></i>
           </a>
           <!--Google +-->
-          <a type="button" class="btn-floating btn-sm btn-gplus">
+          <a type="button" class="btn-floating btn-sm btn-gplus" href="https://www.google.com/">
             <i class="fab fa-google-plus-g"></i>
           </a>
           <!--Linkedin-->
-          <a type="button" class="btn-floating btn-sm btn-ins">
+          <a type="button" class="btn-floating btn-sm btn-ins" href="https://mx.linkedin.com/">
             <i class="fab fa-linkedin-in"></i>
           </a>
         </div>
@@ -320,6 +298,11 @@ $( document ).ready(function() {
   </script>
 
 
+<!-- SE CREA EN CANVAS -->
+
+<div id=container  ></div>
+
+<!-- SE CREA EN CANVAS -->
 
 
 
