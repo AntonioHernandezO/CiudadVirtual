@@ -6,57 +6,147 @@ var widthCanvas = 57;
 var heightCanvas = 75;
 var stage = new Konva.Stage({
   container: 'container',
-  width: (width / 102) * widthCanvas,
-  height: (height / 100) * heightCanvas-20
+  width: (width / 100) * widthCanvas,
+  height: (height / 100) * heightCanvas
 });
 var layer = new Konva.Layer();
 layer.id('canvas');
 stage.add(layer);//El layer se agrega al stage.
 stage.getContainer().style.width = widthCanvas + "%";
 stage.getContainer().style.height = heightCanvas + "%";
-//EMPIEZA PRUEBA CON INPUT FILE
 
 
-function dibujarimg(url){
-  alert("Entro funcion");
-  var darthVaderImg = new Konva.Image({
-        image: imageObj,
-        x: stage.width() / 2 - 200 / 2,
-        y: stage.height() / 2 - 137 / 2,
-        width: 200,
-        height: 137,
-        draggable: true
-      });
+//FUNCIONES DE FOOTER
 
-      // add cursor styling
-      darthVaderImg.on('mouseover', function() {
-        document.body.style.cursor = 'pointer';
-      });
-      darthVaderImg.on('mouseout', function() {
-        document.body.style.cursor = 'default';
-      });
+function dibujarCuadricula(){
+  
+  var largo,ancho;
+   const canvas = document.querySelector('canvas');
+   largo=canvas.getAttribute('width');
+   ancho=canvas.getAttribute('height')+25;
+    for (var x=10; x<=largo; x=x+50){
+     var redLine = new Konva.Line({
+       points: [largo, x, largo, x, 0, x],
+              //x1, y1, x2, y2, x3, y3]
+       stroke: 'red',
+       strokeWidth: 3,
+       lineCap: 'round',
+       lineJoin: 'round'
+     });
+     layer.add(redLine);
+     layer.batchDraw();
+    
+    
+   }
+for (var y=10; y<=ancho; y=y+50){
 
-      layer.add(darthVaderImg);
-      stage.add(layer);
+     var redLine = new Konva.Line({
+       points: [y, ancho, y, ancho, y, 0],
+              //x1, y1, x2, y2, x3, y3]
+       stroke: 'red',
+       strokeWidth: 3,
+       lineCap: 'round',
+       lineJoin: 'round'
+     });
+     layer.add(redLine);
+     layer.batchDraw();
    
-    var imageObj = new Image();
-    imageObj.onload = function() {
-      drawImage(this);
-    };
-    imageObj.src = url;
+    }
+}
 
 
+function dibujarLineas(){
+ var largo,ancho;
+ const canvas = document.querySelector('canvas');
+ largo=canvas.getAttribute('width');
+   ancho=canvas.getAttribute('height');
+    for (var x=10; x<=largo; x=x+50){
+     var unilinea = new Konva.Line({
+       points: [largo, x, largo, x, 0, x],
+              //x1, y1, x2, y2, x3, y3]
+       stroke: 'red',
+       strokeWidth: 3,
+       lineCap: 'round',
+       lineJoin: 'round'
+     });
+     layer.add(unilinea);
+     layer.batchDraw();
+    
+   }
+ 
+}
+
+
+function dibujarBlanco(){
+ const canvas = document.querySelector('canvas');
+ var context = canvas.getContext('2d');
+ context.fillStyle = "#ffffff";
+ context.fillRect(0, 0, canvas.width, canvas.height);
+ 
+}
+
+
+//TERMINAN FUNCIONES DE FOOTER
+
+function eraseC(){
+  mode="eraser";
+}
+
+
+function drawC() {
+  tamanopin=prompt('Ingrese el tamaño de grosor del pincel');
+
+var isPaint = false;
+// var mode = 'brush';
+var lastLine;
+
+stage.on('mousedown touchstart', function(e) {
+  isPaint = true;
+  var pos = stage.getPointerPosition();
+  //PRUEBA CAMBIO DE COLOR
+  var colorchange,elcolor
+colorchange = document.querySelector("[type='color']");
+elcolor=colorchange.value;
+
+//TERMINA PRUEBA CAMBIO DE COLOR
+  lastLine = new Konva.Line({
+    stroke: elcolor,
+    strokeWidth: tamanopin,
+    globalCompositeOperation:
+      mode === 'brush' ? 'source-over' : 'destination-out',
+    points: [pos.x, pos.y]
+  });
+  layer.add(lastLine);
+});
+
+stage.on('mouseup touchend', function() {
+  isPaint = false;
+});
+
+// and core function - drawing
+stage.on('mousemove touchmove', function() {
+  if (!isPaint) {
+    return;
   }
 
+  const pos = stage.getPointerPosition();
+  var newPoints = lastLine.points().concat([pos.x, pos.y]);
+  lastLine.points(newPoints);
+  layer.batchDraw();
+});
 
 
 
-//TERMINA PRUEBA CON INPUT FILE
+    mode="brush";
 
 
+    
 
-
-
+    }
+   
+  
+  
+  
 
 
 
@@ -136,13 +226,9 @@ con.addEventListener('drop', function (e) {
    });
 });
 function restart(){
-  var c = document.querySelector('canvas');
-  var context = c.getContext('2d');
-  context.setTransform(1, 0, 0, 1, 0, 0);
-  context.clearRect(0, 0, c.width, c.height);
-  context.resetTransform();
-  ctx.fillStyle = "#ffffff";
-  ctx.fillRect(0, 0, c.width, c.height);
+  window.location.reload();
+ 
+
 }
 
 

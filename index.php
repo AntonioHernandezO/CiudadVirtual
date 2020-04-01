@@ -300,7 +300,7 @@ $( document ).ready(function() {
 
 <!-- SE CREA EN CANVAS -->
 
-<div id=container  ></div>
+
 
 <!-- SE CREA EN CANVAS -->
 
@@ -729,14 +729,14 @@ $( document ).ready(function() {
       <!-- Botón de Pincel -->
     <br><br>
     <div class="botaside">
-        <button type="button" title="Grosor del Pincel" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--squar">
-        <i class="fas fa-paint-brush" onclick="drawC()"></i></button>
+        <button type="button" title="Grosor del Pincel" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--squar" onclick="drawC()">
+        <i class="fas fa-paint-brush" ></i></button>
        </div>
 <br>
         
           <div class="botaside">
-          <button type="button" title="Limpiar" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--squar">
-          <i class="fas fa-backspace" onclick="clean()"></i></button>
+          <button type="button" title="Limpiar" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--squar" onclick="eraseC()">
+          <i class="fas fa-backspace" ></i></button>
           </div>
 <br>
           <div class="botaside">
@@ -751,14 +751,14 @@ $( document ).ready(function() {
     <footer  id="footer">
     
     <div class="botfot" >
-          <button type="button" id="botonesfooter" title="Cuadrícula" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  onclick="crearCuadricula()" style="background-color: #7b9788!important;"><i class="fas fa-th-large " ></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cuadricula</button>
+          <button type="button" id="botonesfooter" title="Cuadrícula" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  onclick="dibujarCuadricula()" style="background-color: #7b9788!important;"><i class="fas fa-th-large " ></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cuadricula</button>
   </div>
   
   <div class="botfot">
-          <button type="button" id="botonesfooter" title="Líneas" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="background-color: #7b9788!important;" ><i class="fas fa-grip-lines"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lineas</button>
+          <button type="button" id="botonesfooter" title="Líneas" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  onclick="dibujarLineas()" style="background-color: #7b9788!important;" ><i class="fas fa-grip-lines"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lineas</button>
   </div>
   <div class="botfot">
-          <button type="button" id="botonesfooter" title="Blanco" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="background-color: #7b9788!important;" ><i class="fas fa-vector-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Blanco</button>
+          <button type="button" id="botonesfooter" title="Blanco" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  onclick="dibujarBlanco()" style="background-color: #7b9788!important;" ><i class="fas fa-vector-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Blanco</button>
   </div>
   <div class="botfot">
           <button type="button" id="botonesfooter" title="Reiniciar" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="restart()"  style="background-color: #7b9788!important;"><i class="fas fa-eraser"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reiniciar</button>
