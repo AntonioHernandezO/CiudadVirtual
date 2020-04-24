@@ -86,8 +86,16 @@
   <!-- Hp de Ajax -->
   <!-- Also include jQueryUI -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>   
+
+
+  
+  
   </head>  
-  <body id="body">  
+
+
+
+
+  <body id="body" >  
   <!--INICIA EL LOADER-->
 <style>
 
