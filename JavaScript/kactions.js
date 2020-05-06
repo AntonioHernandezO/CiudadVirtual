@@ -91,10 +91,20 @@ function dibujarBlanco(){
 function eraseC(){
   mode="eraser";
 }
+var tamanopin 
+
+function cambiatam(){
+  tamanopin = $('#myRange').val();
+}
 
 
 function drawC() {
-  tamanopin=prompt('Ingrese el tamaño de grosor del pincel');
+  
+    
+    
+
+
+  // tamanopin=prompt('Ingrese el tamaño de grosor del pincel');
 
 var isPaint = false;
 // var mode = 'brush';

@@ -69,7 +69,7 @@
   <script src="JavaScript/panelControl.js"></script>
   <script src="JavaScript/loader.js"></script>
   <script src="videomodaljs/js/modal-video.js"></script>
-
+  <script src="JavaScript/modales.js"></script>
   <link rel="stylesheet" type="text/css" href="videomodaljs/css/modal-video.min.css">
 
   <!-- Inicio de desarrollo del proyecto -->
@@ -81,6 +81,8 @@
   <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel="stylesheet" href="css/styleloader.css">
+
+
 
   <!-- <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script> -->
 
@@ -435,16 +437,96 @@
     $(document).ready(function() {
       $('#myModal').modal('toggle')
     });
+
+    $('#myModal').modal({backdrop: 'static', keyboard: false})
   </script>
 
+  <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
+  <style>
+    .modal.custom .modal-dialog {
+	width: 100%;
+	height: 70%;
+	position: fixed;
+	bottom: 0px;
+	right: 5%;
+	margin: 0px;
 
-  <!-- SE CREA EN CANVAS -->
+  }
+  .slidecontainer {
+	width: 100%;
+  }
+
+  .slider {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 25px;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+  }
+
+  .slider:hover {
+	opacity: 1;
+  }
+
+  .slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 25px;
+	height: 25px;
+	background: #4CAF50;
+	cursor: pointer;
+  }
+
+  .slider::-moz-range-thumb {
+	width: 25px;
+	height: 25px;
+	background: #4CAF50;
+	cursor: pointer;
+  }
+
+    </style>
+  <!--Modal: modalRelatedContent-->
+  <div class="modal custom fade" id="modalRelatedContent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog  modal-sm modal-side modal-bottom-right modal-notify modal-info" role="document">
+      <!--Content-->
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header">
+          <!-- <p class="heading">Desliza y cambiar el tamaño.</p> -->
+
+          <p>Desliza y cambiar el tamaño.</p>
+
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="white-text">&times;</span>
+          </button>
+        </div>
+
+        <!--Body-->
+        <div class="modal-body">
+          <div class="slidecontainer">
+            <input type="range" min="5" max="100" value="15" class="slider" id="myRange" onchange="cambiatam();" oninput="cambiatam()">
+          </div>
+          <script>
+          
+          </script>
+          <div style=" display: flex; justify-content: center;">
+            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal" onclick="drawC()">¡DIBUJAR!</button>
+          </div>
+        </div>
+      </div>
+      <!--/.Content-->
+    </div>
+  </div>
+  <!--Modal: modalRelatedContent-->
 
 
 
-  <!-- SE CREA EN CANVAS -->
 
-
+  <!-- ---------------------------------------------------------------------------------------------------------------------------------------- -->
 
   <!--INICIA HEADER-->
 
@@ -856,10 +938,13 @@
     <!-- Aqui va el contenido del contenedor guinda -->
 
 
+
     <!-- Botón de Pincel -->
+
+   
     <br><br>
     <div class="botaside">
-      <button type="button" title="Grosor del Pincel" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--squar" onclick="drawC()">
+      <button type="button" title="Grosor del Pincel" class="btn btn-primary dropleft-toggle" aria-haspopup="true" aria-expanded="false" id="circular--squar" data-toggle="modal" data-target="#modalRelatedContent">
         <i class="fas fa-paint-brush"></i></button>
     </div>
     <br>
@@ -875,6 +960,8 @@
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Colores
 
     </div>
+
+
     <br>
 
   </aside>
