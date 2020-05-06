@@ -438,56 +438,59 @@
       $('#myModal').modal('toggle')
     });
 
-    $('#myModal').modal({backdrop: 'static', keyboard: false})
+    $('#myModal').modal({
+      backdrop: 'static',
+      keyboard: false
+    })
   </script>
 
   <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
   <style>
     .modal.custom .modal-dialog {
-	width: 100%;
-	height: 70%;
-	position: fixed;
-	bottom: 0px;
-	right: 5%;
-	margin: 0px;
+      width: 100%;
+      height: 70%;
+      position: fixed;
+      bottom: 0px;
+      right: 5%;
+      margin: 0px;
 
-  }
-  .slidecontainer {
-	width: 100%;
-  }
+    }
 
-  .slider {
-	-webkit-appearance: none;
-	width: 100%;
-	height: 25px;
-	background: #d3d3d3;
-	outline: none;
-	opacity: 0.7;
-	-webkit-transition: .2s;
-	transition: opacity .2s;
-  }
+    .slidecontainer {
+      width: 100%;
+    }
 
-  .slider:hover {
-	opacity: 1;
-  }
+    .slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 25px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
 
-  .slider::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	appearance: none;
-	width: 25px;
-	height: 25px;
-	background: #4CAF50;
-	cursor: pointer;
-  }
+    .slider:hover {
+      opacity: 1;
+    }
 
-  .slider::-moz-range-thumb {
-	width: 25px;
-	height: 25px;
-	background: #4CAF50;
-	cursor: pointer;
-  }
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      background: #4CAF50;
+      cursor: pointer;
+    }
 
-    </style>
+    .slider::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+  </style>
   <!--Modal: modalRelatedContent-->
   <div class="modal custom fade" id="modalRelatedContent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog  modal-sm modal-side modal-bottom-right modal-notify modal-info" role="document">
@@ -510,9 +513,7 @@
           <div class="slidecontainer">
             <input type="range" min="5" max="100" value="15" class="slider" id="myRange" onchange="cambiatam();" oninput="cambiatam()">
           </div>
-          <script>
-          
-          </script>
+
           <div style=" display: flex; justify-content: center;">
             <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal" onclick="drawC()">¡DIBUJAR!</button>
           </div>
@@ -528,15 +529,49 @@
 
   <!-- ---------------------------------------------------------------------------------------------------------------------------------------- -->
 
+  <!-- INICIA MODAL SAVE IMG -->
+
+  <div class="modal  fade" id="modalsaveimg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog  modal-sm modal-side modal-bottom-right modal-notify modal-info" role="document">
+      <!--Content-->
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header">
+          <p>Desliza y cambiar el tamaño.</p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="white-text">&times;</span>
+          </button>
+        </div>
+        <!--Body-->
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="formGroupExampleInput">INGRESA EL NOMBRE DE LA IMAGEN</label>
+            <input type="text" class="form-control" id="imgname" placeholder="">
+          </div>
+          <div style=" display: flex; justify-content: center;">
+            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal" onclick="tomarcaptura()">GUARDAR</button>
+          </div>
+        </div>
+      </div>
+      <!--/.Content-->
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- TERMINA MODAL SAVE IMG -->
   <!--INICIA HEADER-->
 
   <header id=header>
 
     <div style=" top:1.3%; justify-content: space-evenly;  display: flex; align-items: start; margin-right: 10%; margin-left: 9%; margin-top: 1.3%;">
-      <button type="button" style="border-radius: 100%; height: 50px; width: 50px;  background-color: #7b9788!important; border-color: #7b9788!important;" title="Iniciar Grabación" class="btn btn-secondary btn-lg" id="btn-record-webm"><i class="fas fa-video fa-1x"></i> </button>
-      <button type="button" style="border-radius: 100%; height: 50px; width: 50px;  background-color: #7b9788!important; border-color: #7b9788!important;" title="Reanudar grabacion" class="btn btn-secondary btn-lg" id="resume" disabled><i class="fas fa-play fa-1x"></i> </button>
-      <button type="button" style="border-radius: 100%; height: 50px; width: 50px;  background-color: #7b9788!important; border-color: #7b9788!important;" title="Pausar grabacion" class="btn btn-secondary btn-lg" id="pause" disabled><i class="fas fa-pause fa-1x"></i> </button>
-      <button type="button" style="border-radius: 100%; height: 50px; width: 50px;  background-color: #7b9788!important; border-color: #7b9788!important;" title="Detener grabacion y descargar" class="btn btn-secondary btn-lg" id="stop" disabled>
+      <button type="button" style="border-radius: 100%; height: 50px; width: 50px;  background-color: #e4ebee!important; border-color: #e4ebee!important;" title="Iniciar Grabación" class="btn btn-secondary btn-lg" id="btn-record-webm"><i class="fas fa-video fa-1x"></i> </button>
+      <button type="button" style="border-radius: 100%; height: 50px; width: 50px;  background-color: #e4ebee!important; border-color: #e4ebee!important;" title="Reanudar grabacion" class="btn btn-secondary btn-lg" id="resume" disabled><i class="fas fa-play fa-1x"></i> </button>
+      <button type="button" style="border-radius: 100%; height: 50px; width: 50px;  background-color: #e4ebee!important; border-color: #e4ebee!important;" title="Pausar grabacion" class="btn btn-secondary btn-lg" id="pause" disabled><i class="fas fa-pause fa-1x"></i> </button>
+      <button type="button" style="border-radius: 100%; height: 50px; width: 50px;  background-color: #e4ebee!important; border-color: #e4ebee!important;" title="Detener grabacion y descargar" class="btn btn-secondary btn-lg" id="stop" disabled>
         <!-- <i class="fas fa-stop fa-1x"> -->
 
         </i><i class="fas fa-download fa-1x"></i> </button>
@@ -941,7 +976,7 @@
 
     <!-- Botón de Pincel -->
 
-   
+
     <br><br>
     <div class="botaside">
       <button type="button" title="Grosor del Pincel" class="btn btn-primary dropleft-toggle" aria-haspopup="true" aria-expanded="false" id="circular--squar" data-toggle="modal" data-target="#modalRelatedContent">
@@ -951,13 +986,29 @@
 
     <div class="botaside">
       <button type="button" title="Limpiar" class="btn btn-primary dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="circular--squar" onclick="eraseC()">
-        <i class="fas fa-backspace"></i></button>
+        <i class="fas fa-eraser"></i></button>
     </div>
     <br>
     <div class="botaside">
+      <style>
+        input[type="color"] {
+          -webkit-appearance: none;
+          border: none;
+          width: 40px;
+          height: 40px;
+        }
+
+        input[type="color"]::-webkit-color-swatch-wrapper {
+          padding: 0;
+        }
+
+        input[type="color"]::-webkit-color-swatch {
+          border: none;
+        }
+      </style>
 
       <input type="color" class="palco" title="Paleta de Color" id="favcolor" name="favcolor" value="#0D5B8D"></input><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Colores
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
     </div>
 
@@ -968,21 +1019,21 @@
   <footer id="footer">
 
     <div class="botfot">
-      <button type="button" id="botonesfooter" title="Cuadrícula" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="dibujarCuadricula()" style="background-color: #7b9788!important;"><i class="fas fa-th-large "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cuadricula</button>
+      <button type="button" id="botonesfooter" title="Cuadrícula" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="dibujarCuadricula()" style="background-color: #e4ebee!important;"><i class="fas fa-th-large "></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cuadricula</button>
     </div>
 
     <div class="botfot">
-      <button type="button" id="botonesfooter" title="Líneas" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="dibujarLineas()" style="background-color: #7b9788!important;"><i class="fas fa-grip-lines"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lineas</button>
+      <button type="button" id="botonesfooter" title="Líneas" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="dibujarLineas()" style="background-color: #e4ebee!important;"><i class="fas fa-grip-lines"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lineas</button>
     </div>
     <div class="botfot">
-      <button type="button" id="botonesfooter" title="Blanco" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="dibujarBlanco()" style="background-color: #7b9788!important;"><i class="fas fa-vector-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Blanco</button>
+      <button type="button" id="botonesfooter" title="Blanco" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="dibujarBlanco()" style="background-color: #e4ebee!important;"><i class="fas fa-vector-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Blanco</button>
     </div>
     <div class="botfot">
-      <button type="button" id="botonesfooter" title="Reiniciar" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="restart()" style="background-color: #7b9788!important;"><i class="fas fa-eraser"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reiniciar</button>
+      <button type="button" id="botonesfooter" title="Reiniciar" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="restart()" style="background-color: #e4ebee!important;"><i class="fas fa-eraser"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reiniciar</button>
     </div>
 
     <div class="botfot">
-      <button type="button" id="botonesfooter" title="Tomar Captura" class="btn btn-info dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="descargar" onclick="tomarcaptura()" style="background-color: #7b9788!important;"><i class="fas fa-camera-retro"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tomar captura</button>
+      <button type="button" id="botonesfooter" title="Tomar Captura" class="btn btn-info dropleft-toggle" aria-haspopup="true" aria-expanded="false" id="descargar" data-toggle="modal" data-target="#modalsaveimg" style="background-color: #e4ebee!important;"><i class="fas fa-camera-retro"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tomar captura</button>
     </div>
 
 

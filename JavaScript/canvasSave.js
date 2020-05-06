@@ -132,9 +132,12 @@ document.getElementById('btn-record-webm').onclick = function() {
 
 //Empiza tomar captura
 function tomarcaptura(){
+    
+        var filename= $("#imgname").val(),link = document.createElement('a');
+     
     var c = document.querySelector('canvas');
-    let filename = prompt("Guardar como","Captura CiudadVirtual"),
-      link = document.createElement('a');
+    // let filename = prompt("Guardar como","Captura CiudadVirtual"),
+    //   link = document.createElement('a');
   
       if (filename == null){//si el usiario dio cancelar
         return false;

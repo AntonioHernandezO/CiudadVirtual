@@ -2,8 +2,8 @@ document.write('<div id=container></div>');
 
 var width = window.innerWidth;
 var height = window.innerHeight;
-var widthCanvas = 57;
-var heightCanvas = 75;
+var widthCanvas = 86;
+var heightCanvas = 80;
 var stage = new Konva.Stage({
   container: 'container',
   width: (width / 100) * widthCanvas,
